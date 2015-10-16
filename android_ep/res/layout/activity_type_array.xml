@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- <com.dzl.test.typeArray.TypeArrayView
+        xmlns:myapp="http://schemas.android.com/apk/res/com.dzl.test"
+        android:id="@+id/typeArrayView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="#ccc"
+        android:text="测试"
+        myapp:textSize2="30sp" /> -->
+
+</LinearLayout>

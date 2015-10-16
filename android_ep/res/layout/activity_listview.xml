@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加数据" />
+
+    <com.dzl.test.listview.ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:cacheColorHint="#f0f0f0"
+        android:divider="#f3f3f3"
+        android:dividerHeight="10dp"
+        android:focusable="true"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="true" />
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dzl="http://schemas.android.com/apk/res/com.dzl.test"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ccc"
+    android:orientation="vertical" >
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.dzl.test.progressBar.CustomProgressBar
+        android:layout_width="76dp"
+        android:layout_height="76dp"
+        dzl:indeterminateDrawable="@drawable/progress_large_white" />
+
+    <!--
+    <style name="Widget.ProgressBar.Large">
+        <item name="indeterminateDrawable">@drawable/progress_large_white</item>
+        <item name="minWidth">76dip</item>
+        <item name="maxWidth">76dip</item>
+        <item name="minHeight">76dip</item>
+        <item name="maxHeight">76dip</item>
+    </style> -->
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:secondaryProgress="30"
+        android:progress="10" />
+
+    <com.dzl.test.progressBar.CustomProgressBar3
+        android:id="@+id/progressBar3"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_margin="20dp"
+        dzl:indeterminateOnly="false"
+        dzl:mirrorForRtl="true"
+        dzl:progress="10"
+        dzl:secondaryProgress="30"
+        dzl:progressDrawable="@drawable/progress_horizontal" />
+
+    <!--
+        dzl:indeterminateDrawable="@drawable/progress_indeterminate_horizontal"
+    <style name="Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@android:drawable/progress_horizontal</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+        <item name="android:mirrorForRtl">true</item>
+    </style>
+    -->
+
+   <!--  <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch" /> -->
+
+</LinearLayout>

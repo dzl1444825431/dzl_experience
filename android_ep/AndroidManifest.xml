@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dzl.test"
+    android:versionCode="1"
+    android:installLocation="auto"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+	
+	<uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.RAISED_THREAD_PRIORITY"/>
+    
+	<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT"/>
+	<!-- 注快捷方式：由于MOTO的部分机型还要加上以下权限，下面的两个也要加上去 -->
+	<uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" /> 
+	<uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+
+	<uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" /> 
+	<uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> 
+	
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <!-- end -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.RAISED_THREAD_PRIORITY"/>
+	<!-- 部分手机需要BLUETOOTH_ADMIN才能获取蓝牙地址 -->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/> -->
+    <uses-permission xmlns:tools="http://schemas.android.com/tools"
+    android:name="android.permission.PACKAGE_USAGE_STATS"
+    tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> 
+    
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    
+    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+    
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    
+    <!-- 用于读取手机当前的状态 -->
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    
+    <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据 -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    
+    <!-- 访问网络，网络定位需要上网 -->
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <!-- SD卡读取权限，用户写入离线定位数据 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+        <!-- 在百度开发者中心查询应用的API Key -->
+        <meta-data  
+        android:name="com.baidu.lbsapi.API_KEY"  
+        android:value="0ktmTRN1q9A2wmf81XyYDGdy" />
+        
+        <activity
+            android:name="com.dzl.test.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.dzl.test.install.InstallApkActivity"/>
+        <activity android:name="com.dzl.test.TestServiceActivity"/>
+        <activity android:name="com.dzl.test.TestEmulatorActivity"/>
+        <activity android:name="com.dzl.test.BatchInstallActivity"/>
+        <activity android:name="com.dzl.test.BatchUninstallActivity"/>
+        <activity android:name="com.dzl.test.md5.Md5CopyFileActivity"/>
+        <activity android:name="com.dzl.test.installResultTest.InstallResultActivity"/>
+        <activity android:name="com.dzl.test.webview.WebViewActivity"/>
+        <activity android:name="com.dzl.test.webview.WebViewDestopActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
+        </activity>
+        <activity android:name="com.dzl.test.countFile.CountFileActivity"/>
+        <activity android:name="com.dzl.test.webview.WebkitPackageActivity"/>
+        <activity android:name="com.dzl.test.popupWindow.PopupWindowActivity"/>
+        <activity android:name="com.dzl.test.animator.AnimatorActivity"/>
+        <activity android:name="com.dzl.test.bitmap.BitMapActivity"/>
+        <activity android:name="com.dzl.test.memory.MemoryActivity"/>
+        <activity android:name="com.dzl.test.drawable.DrawableActivity"/>
+        <activity android:name="com.dzl.test.view.ViewActivity"/>
+        <activity android:name="com.dzl.test.view.ViewActivity2"/>
+        
+        <activity android:name="com.dzl.test.anim.AnimActivity"/>
+        <activity android:name="com.dzl.test.cpu.CpuActivity"/>
+        <activity android:name="com.dzl.test.matrix2.MatrixActivity"/>
+        <activity android:name="com.dzl.test.typeArray.TypeArrayActivity"/>
+        <!-- <activity android:name="com.dzl.test.drawable.DrawableActivity"/> -->
+        <activity android:name="com.dzl.test.canvas.CanvasActivity"/>
+        <activity android:name="com.dzl.test.viewPager.ViewPagerActivity"/>
+        <activity android:name="com.dzl.test.textview.TextViewActivity"/>
+        <activity android:name="com.dzl.test.textview.Multi_lineTextViewActivity"/>
+        <activity android:name="com.dzl.test.progressBar.ProgressBarActivity"/>
+        <activity android:name="com.dzl.test.relativeLayout.RelativeLayoutActivity"/>
+        <activity android:name="com.dzl.test.progressCheck.CheckAppRunningActivity"/>
+        <activity android:name="com.dzl.test.listview.ListViewActivity"/>
+        <activity android:name="com.dzl.test.gallery.GalleryActivity"/>
+        <activity android:name="com.dzl.test.gallery.SpinnerActivity"/>
+        <activity android:name="com.dzl.test.util.ClassMethodFieldUtilActivity"/>
+        <activity android:name="com.dzl.test.volley.VolleyActivity"/>
+        <activity android:name="com.dzl.test.shell.PsShellActivity"/>
+        <activity android:name="com.dzl.test.MainActivity1"/>
+        <activity android:name="com.dzl.test.sim.Sim_CpuActivity"/>
+        <activity android:name="com.dzl.test.baiduMap.BaiduMapActivity"/>
+        <activity android:name="com.dzl.test.baidupush.BaiduPushActivity"/>
+        <activity android:name="com.dzl.test.ps.PS_R_Activity"/>
+        
+        
+        <service android:name="com.dzl.test.CheckEmService" />
+        <service android:name="com.dzl.test.shell.PsShellService" android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.dzl.test.shell.PsShellService" />
+            </intent-filter>
+            
+        </service>
+        <service android:name="com.dzl.test.CheckAppRunningService" android:process=":remote" />
+        
+        
+        
+        
+        
+        
+        <!-- 百度推送 dzl -->
+        <meta-data android:name="api_key" android:value="0ktmTRN1q9A2wmf81XyYDGdy" />
+        <!-- push service start ===================================== -->
+		<!-- 用于接收系统消息以保证PushService正常运行 -->
+		<receiver android:name="com.baidu.android.pushservice.PushServiceReceiver"
+		    android:process=":bdservice_v1" >
+		    <intent-filter>
+		        <action android:name="android.intent.action.BOOT_COMPLETED" />
+		        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+		        <action android:name="com.baidu.android.pushservice.action.notification.SHOW" />
+		        <action android:name="com.baidu.android.pushservice.action.media.CLICK" />
+		        <!-- 以下四项为可选的action声明，可大大提高service存活率和消息到达速度 -->
+		        <action android:name="android.intent.action.MEDIA_MOUNTED" />
+		        <action android:name="android.intent.action.USER_PRESENT" />
+		        <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+		        <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+		    </intent-filter>
+		</receiver>
+		<!-- Push服务接收客户端发送的各种请求-->
+		<receiver android:name="com.baidu.android.pushservice.RegistrationReceiver"
+		    android:process=":bdservice_v1" >
+		    <intent-filter>
+		        <action android:name="com.baidu.android.pushservice.action.METHOD" />
+		        <action android:name="com.baidu.android.pushservice.action.BIND_SYNC" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="android.intent.action.PACKAGE_REMOVED" />
+		        <data android:scheme="package" />
+		    </intent-filter>                   
+		</receiver>
+		<service android:name="com.baidu.android.pushservice.PushService" android:exported="true" 
+		    android:process=":bdservice_v1" >
+		    <intent-filter >
+		            <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
+		    </intent-filter>
+		</service>
+		<!-- 4.4版本新增的CommandService声明，提升小米和魅族手机上的实际推送到达率 -->
+		<service android:name="com.baidu.android.pushservice.CommandService"
+		    android:exported="true" />
+		<!-- push结束  ===================================== -->
+		
+		
+		
+		
+		
+		<!-- 此处Receiver名字修改为当前包名路径 -->
+		<receiver android:name="com.dzl.test.baidupush.MyPushMessageReceiver">
+		    <intent-filter>
+		        <!-- 接收push消息 --> 
+		        <action android:name="com.baidu.android.pushservice.action.MESSAGE" />
+		        <!-- 接收bind、setTags等method的返回结果--> 
+		        <action android:name="com.baidu.android.pushservice.action.RECEIVE" />
+		        <!-- 接收通知点击事件，和通知自定义内容 --> 
+		        <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
+		    </intent-filter>
+		</receiver>
+        
+    </application>
+
+</manifest>

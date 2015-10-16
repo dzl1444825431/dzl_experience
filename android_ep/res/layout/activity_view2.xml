@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#aaa"
+    android:orientation="vertical" >
+
+   <!--  <com.dzl.test.view.CustomView3
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        custom:drawable="@drawable/ic_launcher2"
+        custom:text="自定"
+        custom:textColor="#00f"
+        custom:textSize="40sp" /> -->
+
+    <com.dzl.test.view.CustomImageView
+        xmlns:img="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        
+        android:background="@drawable/ic_launcher2"
+        img:drawableAlpha="25"
+        img:scaleType="fitXY" />
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_launcher2"
+        android:alpha="25"
+        android:background="#f00"
+        android:scaleType="fitXY" />
+
+</LinearLayout>

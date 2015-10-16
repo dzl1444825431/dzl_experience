@@ -1,0 +1,110 @@
+CustomTextView: public CustomTextView(Context context, AttributeSet attrs, int defStyle) { start constructor 
+CustomTextView: protected MovementMethod getDefaultMovementMethod() { start return 
+CustomTextView: protected MovementMethod getDefaultMovementMethod() { end return 
+CustomTextView: protected boolean getDefaultEditable() { start return 
+CustomTextView: protected boolean getDefaultEditable() { end return 
+CustomTextView: public void setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top, Drawable right, Drawable bottom) { start void 
+CustomTextView: public void setCompoundDrawables(Drawable left, Drawable top, Drawable right, Drawable bottom) { start void 
+CustomTextView: public void setCompoundDrawables(Drawable left, Drawable top, Drawable right, Drawable bottom) { end void 
+CustomTextView: public void setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top, Drawable right, Drawable bottom) { end void 
+CustomTextView: public void setCompoundDrawablePadding(int pad) { start void 
+CustomTextView: public void setCompoundDrawablePadding(int pad) { end void 
+CustomTextView: public void setTextColor(ColorStateList colors) { start void 
+CustomTextView: private void updateTextColors() { start void 
+CustomTextView: private void updateTextColors() { end void 
+CustomTextView: public void setTextColor(ColorStateList colors) { end void 
+CustomTextView: public final void setHintTextColor(ColorStateList colors) { start void 
+CustomTextView: private void updateTextColors() { start void 
+CustomTextView: private void updateTextColors() { end void 
+CustomTextView: public final void setHintTextColor(ColorStateList colors) { end void 
+CustomTextView: public final void setLinkTextColor(ColorStateList colors) { start void 
+CustomTextView: private void updateTextColors() { start void 
+CustomTextView: private void updateTextColors() { end void 
+CustomTextView: public final void setLinkTextColor(ColorStateList colors) { end void 
+CustomTextView: private void setRawTextSize(float size) { start void 
+CustomTextView: private void setRawTextSize(float size) { end void 
+CustomTextView: private void setTypefaceByIndex(int typefaceIndex, int styleIndex) { start void 
+CustomTextView: public void setTypeface(Typeface tf, int style) { start void 
+CustomTextView: public void setTypeface(Typeface tf) { start void 
+CustomTextView: public void setTypeface(Typeface tf) { end void 
+CustomTextView: public void setTypeface(Typeface tf, int style) { end void 
+CustomTextView: private void setTypefaceByIndex(int typefaceIndex, int styleIndex) { end void 
+CustomTextView: public void setFilters(InputFilter[] filters) { start void 
+CustomTextView: public void setFilters(InputFilter[] filters) { end void 
+CustomTextView: public void setText(CharSequence text, BufferType type) { start void 
+CustomTextView: private void setText(CharSequence text, BufferType type, boolean notifyBefore, int oldlen) { start void 
+CustomTextView: private void sendBeforeTextChanged(CharSequence text, int start, int before, int after) { start void 
+CustomTextView: private void sendBeforeTextChanged(CharSequence text, int start, int before, int after) { end void 
+CustomTextView: void sendOnTextChanged(CharSequence text, int start, int before, int after) { start void 
+CustomTextView: void sendOnTextChanged(CharSequence text, int start, int before, int after) { end void 
+CustomTextView: protected void onTextChanged(CharSequence text, int start, int before, int after) { start void 
+CustomTextView: protected void onTextChanged(CharSequence text, int start, int before, int after) { end void 
+CustomTextView: private void setText(CharSequence text, BufferType type, boolean notifyBefore, int oldlen) { end void 
+CustomTextView: public void setText(CharSequence text, BufferType type) { end void 
+CustomTextView: public CustomTextView(Context context, AttributeSet attrs, int defStyle) { end constructor 
+CustomTextView: public CustomTextView(Context context, AttributeSet attrs) { start constructor 
+CustomTextView: public CustomTextView(Context context, AttributeSet attrs) { end constructor 
+CustomTextView: protected void onAttachedToWindow() { start void 
+CustomTextView: protected void onAttachedToWindow() { end void 
+CustomTextView: protected void drawableStateChanged() { start void 
+CustomTextView: protected void drawableStateChanged() { end void 
+CustomTextView: protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) { start void 
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: private void stopMarquee() { start void 
+CustomTextView: private void stopMarquee() { end void 
+CustomTextView: private int getDesiredHeight() { start return 
+CustomTextView: private int getDesiredHeight() { end return 
+CustomTextView: private int getDesiredHeight(Layout layout, boolean cap) { start return 
+CustomTextView: public int getCompoundPaddingTop() { start return 
+CustomTextView: public int getCompoundPaddingBottom() { start return 
+CustomTextView: private int getDesiredHeight(Layout layout, boolean cap) { end return  =1
+CustomTextView: private int getDesiredHeight(Layout layout, boolean cap) { start return 
+CustomTextView: public int getCompoundPaddingTop() { start return 
+CustomTextView: public int getCompoundPaddingBottom() { start return 
+: 4122
+CustomTextView: protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) { end void 
+CustomTextView: public void onWindowFocusChanged(boolean hasWindowFocus) { start void 
+CustomTextView: protected void drawableStateChanged() { start void 
+CustomTextView: protected void drawableStateChanged() { end void 
+CustomTextView: private void startStopMarquee(boolean start) { start void 
+CustomTextView: private void startStopMarquee(boolean start) { end void 
+CustomTextView: public void onWindowFocusChanged(boolean hasWindowFocus) { end void 
+CustomTextView: protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) { start void 
+CustomTextView: private static int desired(Layout layout) { start return 
+CustomTextView: private static int desired(Layout layout) { end return  =1
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: private int getDesiredHeight() { start return 
+CustomTextView: private int getDesiredHeight() { end return 
+CustomTextView: private int getDesiredHeight(Layout layout, boolean cap) { start return 
+CustomTextView: public int getCompoundPaddingTop() { start return 
+CustomTextView: public int getCompoundPaddingBottom() { start return 
+CustomTextView: private int getDesiredHeight(Layout layout, boolean cap) { end return  =1
+CustomTextView: private int getDesiredHeight(Layout layout, boolean cap) { start return 
+CustomTextView: public int getCompoundPaddingTop() { start return 
+CustomTextView: public int getCompoundPaddingBottom() { start return 
+: 4122
+CustomTextView: protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) { end void 
+CustomTextView: public void computeScroll() { start void 
+CustomTextView: public void computeScroll() { end void 
+CustomTextView: protected void onDraw(Canvas canvas) { start void 
+CustomTextView: private void restartMarqueeIfNeeded() { start void 
+CustomTextView: private void restartMarqueeIfNeeded() { end void 
+CustomTextView: public int getCompoundPaddingLeft() { start return 
+CustomTextView: public int getCompoundPaddingTop() { start return 
+CustomTextView: public int getCompoundPaddingRight() { start return 
+CustomTextView: public int getCompoundPaddingBottom() { start return 
+CustomTextView: public int getExtendedPaddingTop() { start return 
+CustomTextView: public int getCompoundPaddingTop() { start return 
+CustomTextView: public int getExtendedPaddingBottom() { start return 
+CustomTextView: public int getCompoundPaddingBottom() { start return 
+CustomTextView: protected void onDraw(Canvas canvas) { end void 

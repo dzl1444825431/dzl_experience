@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">dzl-test</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="copyAll">copyAll</string>
+    <string name="editTextMenuTitle">editTextMenuTitle</string>
+    <string name="selectAll">selectAll</string>
+    <string name="cut">cut</string>
+    <string name="cutAll">cutAll</string>
+    <string name="copy">copy</string>
+    <string name="paste">paste</string>
+    <string name="copyUrl">copyUrl</string>
+    <string name="inputMethod">inputMethod</string>
+    <string name="addToDictionary">addToDictionary</string>
+    
+    
+    <string name="my_text">她一身紫衣，身段曼妙，面容姣好。眉心生有一只晶莹的白玉小角，令她多了一种异样的美丽。
+    这是月犀族的女修，很明显修出了一道仙气。实力强大，而她所说的绿陀师兄。就那个在天神书院声如神雷，震的所有人都气血翻腾的绿发人，平日被混沌笼罩，总是在打坐修行。
+    “凭那人也配用来与绿陀师兄对比，终究是下界的修士而已，他们不会明白这真正的长生血脉多么的可怕！”有人不屑的撇嘴。
+    “这些人懂什么，所谓三千州道州有仙血后裔吗？根本没有一个，永远不会懂真正的仙道世家多么的恐怖！”</string>
+
+</resources>

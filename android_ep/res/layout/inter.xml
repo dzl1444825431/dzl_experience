@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/installActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="installActivity" />
+
+        <Button
+            android:id="@+id/TestEmulatorActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="TestEmulatorActivity" />
+
+        <Button
+            android:id="@+id/TestServiceActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="TestServiceActivity" />
+
+        <Button
+            android:id="@+id/batchInstallActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="batchInstallActivity" />
+
+        <Button
+            android:id="@+id/batchUninstallActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="batchUninstallActivity" />
+
+        <Button
+            android:id="@+id/md5Activity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="Md5Activity" />
+
+        <Button
+            android:id="@+id/installResultActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="InstallResultActivity" />
+
+        <Button
+            android:id="@+id/webviewActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="WebviewActivity" />
+        <Button
+            android:id="@+id/webViewDestopActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="WebViewDestopActivity" />
+        <Button
+            android:id="@+id/CountFileActivity"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:text="CountFileActivity" />
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,670 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- <declare-styleable name="customText">
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="text" format="string" />
+        <attr name="drawable" format="reference" />
+    </declare-styleable> -->
+    
+       
+    	
+    <declare-styleable name="ImageView1">
+
+        <!-- Sets a drawable as the content of this ImageView. -->
+        <attr name="src" format="reference|color" />
+        <!--
+             Controls how the image should be resized or moved to match the size
+             of this ImageView.
+        -->
+        <attr name="scaleType">
+            <enum name="matrix" value="0" />
+            <enum name="fitXY" value="1" />
+            <enum name="fitStart" value="2" />
+            <enum name="fitCenter" value="3" />
+            <enum name="fitEnd" value="4" />
+            <enum name="center" value="5" />
+            <enum name="centerCrop" value="6" />
+            <enum name="centerInside" value="7" />
+        </attr>
+        <!--
+             Set this to true if you want the ImageView to adjust its bounds
+             to preserve the aspect ratio of its drawable.
+        -->
+        <attr name="adjustViewBounds" format="boolean" />
+        <!--
+             An optional argument to supply a maximum width for this view.
+             See {see android.widget.ImageView#setMaxWidth} for details.
+        -->
+        <!-- <attr name="maxWidth" format="dimension" /> -->
+        <!--
+             An optional argument to supply a maximum height for this view.
+             See {see android.widget.ImageView#setMaxHeight} for details.
+        -->
+        <!-- <attr name="maxHeight" format="dimension" /> -->
+        <!-- Set a tinting color for the image. -->
+        <attr name="tint" format="color" />
+        <!--
+             If true, the image view will be baseline aligned with based on its
+             bottom edge.
+        -->
+        <attr name="baselineAlignBottom" format="boolean" />
+        <!-- If true, the image will be cropped to fit within its padding. -->
+        <attr name="cropToPadding" format="boolean" />
+        <!--
+             The offset of the baseline within this view. See {see android.view.View#getBaseline}
+             for details
+        -->
+        <attr name="baseline" format="dimension" />
+        <!--
+             @hide The alpha value (0-255) set on the ImageView's drawable. Equivalent
+             to calling ImageView.setAlpha(int), not the same as View.setAlpha(float).
+        -->
+        <attr name="drawableAlpha" format="integer" />
+    </declare-styleable>
+    
+
+    
+  <!--   
+    <declare-styleable name="CustomTextViewAppearance">
+        Text color.
+        <attr name="textColor"/>
+        Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp).
+        <attr name="textSize" />
+        Style (bold, italic, bolditalic) for the text.
+        Typeface (normal, sans, serif, monospace) for the text.
+        Font family (named by string) for the text.
+        Color of the text selection highlight.
+        <attr name="textColorHighlight" format="reference|color" />
+        Color of the hint text.
+        <attr name="textColorHint" format="reference|color" />
+        Color of the links.
+        <attr name="textColorLink" format="reference|color" />
+        Present the text in ALL CAPS. This may use a small-caps form when available.
+        <attr name="textAllCaps" format="boolean" />
+        Place a shadow of the specified color behind the text.
+        <attr name="shadowColor" format="color" />
+        Horizontal offset of the shadow.
+        <attr name="shadowDx" format="float" />
+        Vertical offset of the shadow.
+        <attr name="shadowDy" format="float" />
+        Radius of the shadow.
+        <attr name="shadowRadius" format="float" />
+    </declare-styleable>
+     -->
+    
+    
+    
+    <!-- <declare-styleable name="CustomTextView">
+        Determines the minimum type that getText() will return.
+             The default is "normal".
+             Note that EditText and LogTextBox always return Editable,
+             even if you specify something less powerful here.
+        <attr name="bufferType">
+            Can return any CharSequence, possibly a
+             Spanned one if the source text was Spanned.
+            <enum name="normal" value="0" />
+            Can only return Spannable.
+            <enum name="spannable" value="1" />
+            Can only return Spannable and Editable.
+            <enum name="editable" value="2" />
+        </attr>
+        Text to display.
+        <attr name="text1" format="string" localization="suggested" />
+        Hint text to display when the text is empty.
+        Text color.
+        <attr name="textColor1" format="reference|color" />
+        Color of the text selection highlight.
+        Base text color, typeface, size, and style.
+        Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp).
+        <attr name="textSize1" format="dimension"/>
+        Sets the horizontal scaling factor for the text.
+        <attr name="textScaleX" format="float" />
+        Typeface (normal, sans, serif, monospace) for the text.
+        Font family (named by string) for the text.
+        Text color for links.
+        Makes the cursor visible (the default) or invisible.
+        Makes the TextView be at most this many lines tall.
+
+        When used on an editable text, the <code>inputType</code> attribute's value must be
+        combined with the <code>textMultiLine</code> flag for the maxLines attribute to apply.
+        <attr name="maxLines" format="integer" min="0" />
+        Makes the TextView be at most this many pixels tall.
+        <attr name="maxHeight1" format="dimension"/>
+        Makes the TextView be exactly this many lines tall.
+        <attr name="lines" format="integer" min="0" />
+        Makes the TextView be exactly this many pixels tall.
+             You could get the same effect by specifying this number in the
+             layout parameters.
+        <attr name="height" format="dimension" />
+        Makes the TextView be at least this many lines tall.
+
+        When used on an editable text, the <code>inputType</code> attribute's value must be
+        combined with the <code>textMultiLine</code> flag for the minLines attribute to apply.
+        <attr name="minLines" format="integer" min="0" />
+        Makes the TextView be at least this many pixels tall.
+        <attr name="minHeight" format="dimension"/>
+        Makes the TextView be at most this many ems wide.
+        <attr name="maxEms" format="integer" min="0" />
+        Makes the TextView be at most this many pixels wide.
+        <attr name="maxWidth1" format="dimension"/>
+        Makes the TextView be exactly this many ems wide.
+        Makes the TextView be exactly this many pixels wide.
+             You could get the same effect by specifying this number in the
+             layout parameters.
+        <attr name="width" format="dimension" />
+        Makes the TextView be at least this many ems wide.
+        Makes the TextView be at least this many pixels wide.
+        <attr name="minWidth" format="dimension"/>
+        Specifies how to align the text by the view's x- and/or y-axis
+             when the text is smaller than the view.
+        <attr name="gravity" />
+        Whether the text is allowed to be wider than the view (and
+             therefore can be scrolled horizontally).
+        <attr name="scrollHorizontally" format="boolean" />
+        Whether the characters of the field are displayed as
+             password dots instead of themselves.
+             {@deprecated Use inputType instead.}
+        <attr name="password" format="boolean" />
+        Constrains the text to a single horizontally scrolling line
+             instead of letting it wrap onto multiple lines, and advances
+             focus instead of inserting a newline when you press the
+             enter key.
+
+             The default value is false (multi-line wrapped text mode) for non-editable text, but if
+             you specify any value for inputType, the default is true (single-line input field mode).
+
+             {@deprecated This attribute is deprecated. Use <code>maxLines</code> instead to change
+             the layout of a static text, and use the <code>textMultiLine</code> flag in the
+             inputType attribute instead for editable text views (if both singleLine and inputType
+             are supplied, the inputType flags will override the value of singleLine). }
+        <attr name="singleLine" format="boolean" />
+        Specifies whether the widget is enabled. The interpretation of the enabled state varies by subclass.
+             For example, a non-enabled EditText prevents the user from editing the contained text, and
+             a non-enabled Button prevents the user from tapping the button.
+             The appearance of enabled and non-enabled widgets may differ, if the drawables referenced
+             from evaluating state_enabled differ.
+        <attr name="enabled" format="boolean" />
+        If the text is selectable, select it all when the view takes
+             focus.
+        <attr name="selectAllOnFocus" format="boolean" />
+        Leave enough room for ascenders and descenders instead of
+             using the font ascent and descent strictly.  (Normally true).
+        <attr name="includeFontPadding" format="boolean" />
+        Set an input filter to constrain the text length to the
+             specified number.
+        <attr name="maxLength" format="integer" min="0" />
+        Place a shadow of the specified color behind the text.
+        Horizontal offset of the shadow.
+        Vertical offset of the shadow.
+        Radius of the shadow.
+        If set to false, keeps the movement method from being set
+             to the link movement method even if autoLink causes links
+             to be found.
+        <attr name="linksClickable" format="boolean" />
+        If set, specifies that this TextView has a numeric input method.
+             The default is false.
+             {@deprecated Use inputType instead.}
+        <attr name="numeric">
+            Input is numeric.
+            <flag name="integer" value="0x01" />
+            Input is numeric, with sign allowed.
+            <flag name="signed" value="0x03" />
+            Input is numeric, with decimals allowed.
+            <flag name="decimal" value="0x05" />
+        </attr>
+        If set, specifies that this TextView has a numeric input method
+             and that these specific characters are the ones that it will
+             accept.
+             If this is set, numeric is implied to be true.
+             The default is false.
+        <attr name="digits" format="string" />
+        If set, specifies that this TextView has a phone number input
+             method. The default is false.
+             {@deprecated Use inputType instead.}
+        <attr name="phoneNumber" format="boolean" />
+        If set, specifies that this TextView should use the specified
+             input method (specified by fully-qualified class name).
+             {@deprecated Use inputType instead.}
+        <attr name="inputMethod" format="string" />
+        If set, specifies that this TextView has a textual input method
+             and should automatically capitalize what the user types.
+             The default is "none".
+             {@deprecated Use inputType instead.}
+        <attr name="capitalize">
+            Don't automatically capitalize anything.
+            <enum name="none" value="0" />
+            Capitalize the first word of each sentence.
+            <enum name="sentences" value="1" />
+            Capitalize the first letter of every word.
+            <enum name="words" value="2" />
+            Capitalize every character.
+            <enum name="characters" value="3" />
+        </attr>
+        If set, specifies that this TextView has a textual input method
+             and automatically corrects some common spelling errors.
+             The default is "false".
+             {@deprecated Use inputType instead.}
+        <attr name="autoText" format="boolean" />
+        If set, specifies that this TextView has an input method.
+             It will be a textual one unless it has otherwise been specified.
+             For TextView, this is false by default.  For EditText, it is
+             true by default.
+             {@deprecated Use inputType instead.}
+        <attr name="editable" format="boolean" />
+        If set, the text view will include its current complete text
+             inside of its frozen icicle in addition to meta-data such as
+             the current cursor position.  By default this is disabled;
+             it can be useful when the contents of a text view is not stored
+             in a persistent place such as a content provider.
+        <attr name="freezesText" format="boolean" />
+        If set, causes words that are longer than the view is wide
+             to be ellipsized instead of broken in the middle.
+             You will often also want to set scrollHorizontally or singleLine
+             as well so that the text as a whole is also constrained to
+             a single line instead of still allowed to be broken onto
+             multiple lines.
+        <attr name="ellipsize" />
+        The drawable to be drawn above the text.
+        <attr name="drawableTop" format="reference|color" />
+        The drawable to be drawn below the text.
+        <attr name="drawableBottom" format="reference|color" />
+        The drawable to be drawn to the left of the text.
+        <attr name="drawableLeft" format="reference|color" />
+        The drawable to be drawn to the right of the text.
+        <attr name="drawableRight" format="reference|color" />
+        The drawable to be drawn to the start of the text.
+        <attr name="drawableStart" format="reference|color" />
+        The drawable to be drawn to the end of the text.
+        <attr name="drawableEnd" format="reference|color" />
+        The padding between the drawables and the text.
+        <attr name="drawablePadding" format="dimension" />
+        Extra spacing between lines of text.
+        <attr name="lineSpacingExtra" format="dimension" />
+        Extra spacing between lines of text, as a multiplier.
+        <attr name="lineSpacingMultiplier" format="float" />
+        The number of times to repeat the marquee animation. Only applied if the
+             TextView has marquee enabled.
+        <attr name="marqueeRepeatLimit" format="integer">
+            Indicates that marquee should repeat indefinitely.
+            <enum name="marquee_forever" value="-1" />
+        </attr>
+        <attr name="inputType" />
+        An addition content type description to supply to the input
+             method attached to the text view, which is private to the
+             implementation of the input method.  This simply fills in
+             the {@link android.view.inputmethod.EditorInfo#privateImeOptions
+             EditorInfo.privateImeOptions} field when the input
+             method is connected.
+        <attr name="privateImeOptions" format="string" />
+        Supply a value for
+             {@link android.view.inputmethod.EditorInfo#actionLabel EditorInfo.actionLabel}
+             used when an input method is connected to the text view.
+        <attr name="imeActionLabel" format="string" />
+        Supply a value for
+             {@link android.view.inputmethod.EditorInfo#actionId EditorInfo.actionId}
+             used when an input method is connected to the text view.
+        <attr name="imeActionId" format="integer" />
+        Reference to an
+             {@link android.R.styleable#InputExtras &lt;input-extras&gt;}
+             XML resource containing additional data to
+             supply to an input method, which is private to the implementation
+             of the input method.  This simply fills in
+             the {@link android.view.inputmethod.EditorInfo#extras
+             EditorInfo.extras} field when the input
+             method is connected.
+        <attr name="editorExtras" format="reference" />
+
+        Reference to a drawable that will be used to display a text selection
+             anchor on the left side of a selection region.
+        Reference to a drawable that will be used to display a text selection
+             anchor on the right side of a selection region.
+        Reference to a drawable that will be used to display a text selection
+             anchor for positioning the cursor within text.
+        The layout of the view that is displayed on top of the cursor to paste inside a
+             TextEdit field.
+        Variation of textEditPasteWindowLayout displayed when the clipboard is empty.
+        Used instead of textEditPasteWindowLayout when the window is moved on the side of the
+             insertion cursor because it would be clipped if it were positioned on top.
+        Variation of textEditSidePasteWindowLayout displayed when the clipboard is empty.
+
+        Layout of the TextView item that will populate the suggestion popup window.
+
+
+        Reference to a drawable that will be drawn under the insertion cursor.
+
+        Indicates that the content of a non-editable text can be selected.
+        Present the text in ALL CAPS. This may use a small-caps form when available.
+    </declare-styleable>
+    
+    Where to ellipsize text.
+    <attr name="ellipsize">
+        <enum name="none" value="0" />
+        <enum name="start" value="1" />
+        <enum name="middle" value="2" />
+        <enum name="end" value="3" />
+        <enum name="marquee" value="4" />
+    </attr>
+    <attr name="fontFamily" format="string" />
+    
+    Specifies how an object should position its content, on both the X and Y axes,
+         within its own bounds. 
+    <attr name="gravity">
+        Push object to the top of its container, not changing its size.
+        <flag name="top" value="0x30" />
+        Push object to the bottom of its container, not changing its size.
+        <flag name="bottom" value="0x50" />
+        Push object to the left of its container, not changing its size.
+        <flag name="left" value="0x03" />
+        Push object to the right of its container, not changing its size.
+        <flag name="right" value="0x05" />
+        Place object in the vertical center of its container, not changing its size.
+        <flag name="center_vertical" value="0x10" />
+        Grow the vertical size of the object if needed so it completely fills its container.
+        <flag name="fill_vertical" value="0x70" />
+        Place object in the horizontal center of its container, not changing its size.
+        <flag name="center_horizontal" value="0x01" />
+        Grow the horizontal size of the object if needed so it completely fills its container.
+        <flag name="fill_horizontal" value="0x07" />
+        Place the object in the center of its container in both the vertical and horizontal axis, not changing its size.
+        <flag name="center" value="0x11" />
+        Grow the horizontal and vertical size of the object if needed so it completely fills its container.
+        <flag name="fill" value="0x77" />
+        Additional option that can be set to have the top and/or bottom edges of
+             the child clipped to its container's bounds.
+             The clip will be based on the vertical gravity: a top gravity will clip the bottom
+             edge, a bottom gravity will clip the top edge, and neither will clip both edges.
+        <flag name="clip_vertical" value="0x80" />
+        Additional option that can be set to have the left and/or right edges of
+             the child clipped to its container's bounds.
+             The clip will be based on the horizontal gravity: a left gravity will clip the right
+             edge, a right gravity will clip the left edge, and neither will clip both edges.
+        <flag name="clip_horizontal" value="0x08" />
+        Push object to the beginning of its container, not changing its size.
+        <flag name="start" value="0x00800003" />
+        Push object to the end of its container, not changing its size.
+        <flag name="end" value="0x00800005" />
+    </attr>
+    
+    <attr name="imeOptions">
+        There are no special semantics associated with this editor.
+        <flag name="normal" value="0x00000000" />
+        There is no specific action associated with this editor, let the
+             editor come up with its own if it can.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_NULL}.
+        <flag name="actionUnspecified" value="0x00000000" />
+        This editor has no action associated with it.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_NONE}.
+        <flag name="actionNone" value="0x00000001" />
+        The action key performs a "go"
+             operation to take the user to the target of the text they typed.
+             Typically used, for example, when entering a URL.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_GO}.
+        <flag name="actionGo" value="0x00000002" />
+        The action key performs a "search"
+             operation, taking the user to the results of searching for the text
+             the have typed (in whatever context is appropriate).
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_SEARCH}.
+        <flag name="actionSearch" value="0x00000003" />
+        The action key performs a "send"
+             operation, delivering the text to its target.  This is typically used
+             when composing a message.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_SEND}.
+        <flag name="actionSend" value="0x00000004" />
+        The action key performs a "next"
+             operation, taking the user to the next field that will accept text.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_NEXT}.
+        <flag name="actionNext" value="0x00000005" />
+        The action key performs a "done"
+             operation, closing the soft input method.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_DONE}.
+        <flag name="actionDone" value="0x00000006" />
+        The action key performs a "previous"
+             operation, taking the user to the previous field that will accept text.
+             Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_ACTION_PREVIOUS}.
+        <flag name="actionPrevious" value="0x00000007" />
+        Used to request that the IME never go
+             into fullscreen mode.  Applications need to be aware that the flag is not
+             a guarantee, and not all IMEs will respect it.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_NO_FULLSCREEN}.
+        <flag name="flagNoFullscreen" value="0x2000000" />
+        Like flagNavigateNext, but
+             specifies there is something interesting that a backward navigation
+             can focus on.  If the user selects the IME's facility to backward
+             navigate, this will show up in the application as an actionPrevious
+             at {@link android.view.inputmethod.InputConnection#performEditorAction(int)
+             InputConnection.performEditorAction(int)}.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_NO_FULLSCREEN}.
+        <flag name="flagNavigatePrevious" value="0x4000000" />
+        Used to specify that there is something
+             interesting that a forward navigation can focus on. This is like using
+             actionNext, except allows the IME to be multiline (with
+             an enter key) as well as provide forward navigation.  Note that some
+             IMEs may not be able to do this, especially when running on a small
+             screen where there is little space.  In that case it does not need to
+             present a UI for this option.  Like actionNext, if the
+             user selects the IME's facility to forward navigate, this will show up
+             in the application at
+             {@link android.view.inputmethod.InputConnection#performEditorAction(int)
+             InputConnection.performEditorAction(int)}.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_NAVIGATE_NEXT}.
+        <flag name="flagNavigateNext" value="0x8000000" />
+        Used to specify that the IME does not need
+             to show its extracted text UI.  For input methods that may be fullscreen,
+             often when in landscape mode, this allows them to be smaller and let part
+             of the application be shown behind.  Though there will likely be limited
+             access to the application available from the user, it can make the
+             experience of a (mostly) fullscreen IME less jarring.  Note that when
+             this flag is specified the IME may <em>not</em> be set up to be able
+             to display text, so it should only be used in situations where this is
+             not needed.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_NO_EXTRACT_UI}.
+        <flag name="flagNoExtractUi" value="0x10000000" />
+        Used in conjunction with a custom action, this indicates that the
+             action should not be available as an accessory button when the
+             input method is full-screen.
+             Note that by setting this flag, there can be cases where the action
+             is simply never available to the user.  Setting this generally means
+             that you think showing text being edited is more important than the
+             action you have supplied.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_NO_ACCESSORY_ACTION}.
+        <flag name="flagNoAccessoryAction" value="0x20000000" />
+        Used in conjunction with a custom action,
+             this indicates that the action should not be available in-line as
+             a replacement for the "enter" key.  Typically this is
+             because the action has such a significant impact or is not recoverable
+             enough that accidentally hitting it should be avoided, such as sending
+             a message.    Note that {@link android.widget.TextView} will
+             automatically set this flag for you on multi-line text views.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_NO_ENTER_ACTION}.
+        <flag name="flagNoEnterAction" value="0x40000000" />
+        Used to request that the IME should be capable of inputting ASCII
+             characters.  The intention of this flag is to ensure that the user
+             can type Roman alphabet characters in a {@link android.widget.TextView}
+             used for, typically, account ID or password input.  It is expected that IMEs
+             normally are able to input ASCII even without being told so (such IMEs
+             already respect this flag in a sense), but there could be some cases they
+             aren't when, for instance, only non-ASCII input languagaes like Arabic,
+             Greek, Hebrew, Russian are enabled in the IME.  Applications need to be
+             aware that the flag is not a guarantee, and not all IMEs will respect it.
+             However, it is strongly recommended for IME authors to respect this flag
+             especially when their IME could end up with a state that has only non-ASCII
+             input languages enabled.
+             <p>Corresponds to
+             {@link android.view.inputmethod.EditorInfo#IME_FLAG_FORCE_ASCII}.
+        <flag name="flagForceAscii" value="0x80000000" />
+    </attr>
+    
+    The type of data being placed in a text field, used to help an
+         input method decide how to let the user enter text.  The constants
+         here correspond to those defined by
+         {@link android.text.InputType}.  Generally you can select
+         a single value, though some can be combined together as
+         indicated.  Setting this attribute to anything besides
+         <var>none</var> also implies that the text is editable.
+    <attr name="inputType">
+        There is no content type.  The text is not editable.
+        <flag name="none" value="0x00000000" />
+        Just plain old text.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_NORMAL}.
+        <flag name="text" value="0x00000001" />
+        Can be combined with <var>text</var> and its variations to
+             request capitalization of all characters.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_CAP_CHARACTERS}.
+        <flag name="textCapCharacters" value="0x00001001" />
+        Can be combined with <var>text</var> and its variations to
+             request capitalization of the first character of every word.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_CAP_WORDS}.
+        <flag name="textCapWords" value="0x00002001" />
+        Can be combined with <var>text</var> and its variations to
+             request capitalization of the first character of every sentence.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_CAP_SENTENCES}.
+        <flag name="textCapSentences" value="0x00004001" />
+        Can be combined with <var>text</var> and its variations to
+             request auto-correction of text being input.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_AUTO_CORRECT}.
+        <flag name="textAutoCorrect" value="0x00008001" />
+        Can be combined with <var>text</var> and its variations to
+             specify that this field will be doing its own auto-completion and
+             talking with the input method appropriately.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_AUTO_COMPLETE}.
+        <flag name="textAutoComplete" value="0x00010001" />
+        Can be combined with <var>text</var> and its variations to
+             allow multiple lines of text in the field.  If this flag is not set,
+             the text field will be constrained to a single line.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_MULTI_LINE}.
+        <flag name="textMultiLine" value="0x00020001" />
+        Can be combined with <var>text</var> and its variations to
+             indicate that though the regular text view should not be multiple
+             lines, the IME should provide multiple lines if it can.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_IME_MULTI_LINE}.
+        <flag name="textImeMultiLine" value="0x00040001" />
+        Can be combined with <var>text</var> and its variations to
+             indicate that the IME should not show any
+             dictionary-based word suggestions.  Corresponds to
+             {@link android.text.InputType#TYPE_TEXT_FLAG_NO_SUGGESTIONS}.
+        <flag name="textNoSuggestions" value="0x00080001" />
+        Text that will be used as a URI.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_URI}.
+        <flag name="textUri" value="0x00000011" />
+        Text that will be used as an e-mail address.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_EMAIL_ADDRESS}.
+        <flag name="textEmailAddress" value="0x00000021" />
+        Text that is being supplied as the subject of an e-mail.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_EMAIL_SUBJECT}.
+        <flag name="textEmailSubject" value="0x00000031" />
+        Text that is the content of a short message.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_SHORT_MESSAGE}.
+        <flag name="textShortMessage" value="0x00000041" />
+        Text that is the content of a long message.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_LONG_MESSAGE}.
+        <flag name="textLongMessage" value="0x00000051" />
+        Text that is the name of a person.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_PERSON_NAME}.
+        <flag name="textPersonName" value="0x00000061" />
+        Text that is being supplied as a postal mailing address.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_POSTAL_ADDRESS}.
+        <flag name="textPostalAddress" value="0x00000071" />
+        Text that is a password.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_PASSWORD}.
+        <flag name="textPassword" value="0x00000081" />
+        Text that is a password that should be visible.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_VISIBLE_PASSWORD}.
+        <flag name="textVisiblePassword" value="0x00000091" />
+        Text that is being supplied as text in a web form.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_WEB_EDIT_TEXT}.
+        <flag name="textWebEditText" value="0x000000a1" />
+        Text that is filtering some other data.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_FILTER}.
+        <flag name="textFilter" value="0x000000b1" />
+        Text that is for phonetic pronunciation, such as a phonetic name
+             field in a contact entry.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_PHONETIC}.
+        <flag name="textPhonetic" value="0x000000c1" />
+        Text that will be used as an e-mail address on a web form.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS}.
+        <flag name="textWebEmailAddress" value="0x000000d1" />
+        Text that will be used as a password on a web form.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_TEXT} |
+             {@link android.text.InputType#TYPE_TEXT_VARIATION_WEB_PASSWORD}.
+        <flag name="textWebPassword" value="0x000000e1" />
+        A numeric only field.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_NUMBER} |
+             {@link android.text.InputType#TYPE_NUMBER_VARIATION_NORMAL}.
+        <flag name="number" value="0x00000002" />
+        Can be combined with <var>number</var> and its other options to
+             allow a signed number.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_NUMBER} |
+             {@link android.text.InputType#TYPE_NUMBER_FLAG_SIGNED}.
+        <flag name="numberSigned" value="0x00001002" />
+        Can be combined with <var>number</var> and its other options to
+             allow a decimal (fractional) number.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_NUMBER} |
+             {@link android.text.InputType#TYPE_NUMBER_FLAG_DECIMAL}.
+        <flag name="numberDecimal" value="0x00002002" />
+        A numeric password field.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_NUMBER} |
+             {@link android.text.InputType#TYPE_NUMBER_VARIATION_PASSWORD}.
+        <flag name="numberPassword" value="0x00000012" />
+        For entering a phone number.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_PHONE}.
+        <flag name="phone" value="0x00000003" />
+        For entering a date and time.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_DATETIME} |
+             {@link android.text.InputType#TYPE_DATETIME_VARIATION_NORMAL}.
+        <flag name="datetime" value="0x00000004" />
+        For entering a date.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_DATETIME} |
+             {@link android.text.InputType#TYPE_DATETIME_VARIATION_DATE}.
+        <flag name="date" value="0x00000014" />
+        For entering a time.  Corresponds to
+             {@link android.text.InputType#TYPE_CLASS_DATETIME} |
+             {@link android.text.InputType#TYPE_DATETIME_VARIATION_TIME}.
+        <flag name="time" value="0x00000024" />
+    </attr>
+    
+    <attr name="autoLink">
+        Match no patterns (default).
+        <flag name="none" value="0x00" />
+        Match Web URLs.
+        <flag name="web" value="0x01" />
+        Match email addresses.
+        <flag name="email" value="0x02" />
+        Match phone numbers.
+        <flag name="phone" value="0x04" />
+        Match map addresses.
+        <flag name="map" value="0x08" />
+        Match all patterns (equivalent to web|email|phone|map).
+        <flag name="all" value="0x0f" />
+    </attr> -->
+
+</resources>
