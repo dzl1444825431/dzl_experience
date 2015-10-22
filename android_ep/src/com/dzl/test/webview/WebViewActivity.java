@@ -1,7 +1,6 @@
 package com.dzl.test.webview;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -13,9 +12,11 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
+
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class WebViewActivity extends Activity {
+public class WebViewActivity extends BaseActivity {
 	
 	String data =   "<html>"
 			+ "        <script language=\"javascript\">"

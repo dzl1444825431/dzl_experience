@@ -2,7 +2,6 @@ package com.dzl.test.shell;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
@@ -14,9 +13,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class PsShellActivity extends Activity implements OnClickListener {
+public class PsShellActivity extends BaseActivity implements OnClickListener {
 	
 	private Button button;
 	private ActivityManager am;

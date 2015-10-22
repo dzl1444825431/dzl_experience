@@ -1,7 +1,6 @@
 package com.dzl.test.webview;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
@@ -22,7 +21,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-public class WebkitPackageActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class WebkitPackageActivity extends BaseActivity {
 
 	private WebView webView;
 	CookieManager cookieManager;

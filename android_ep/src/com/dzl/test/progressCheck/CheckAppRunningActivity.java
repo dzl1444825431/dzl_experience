@@ -11,10 +11,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.ProcessErrorStateInfo;
 import android.app.ActivityManager.RunningAppProcessInfo;
@@ -29,7 +26,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class CheckAppRunningActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class CheckAppRunningActivity extends BaseActivity {
 
 	private ActivityManager am;
 	private boolean isRun = false;

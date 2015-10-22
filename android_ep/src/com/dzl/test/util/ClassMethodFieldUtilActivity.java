@@ -1,9 +1,10 @@
 package com.dzl.test.util;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class ClassMethodFieldUtilActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class ClassMethodFieldUtilActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

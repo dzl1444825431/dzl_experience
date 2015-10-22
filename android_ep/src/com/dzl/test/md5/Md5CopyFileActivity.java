@@ -1,9 +1,10 @@
 package com.dzl.test.md5;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class Md5CopyFileActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class Md5CopyFileActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

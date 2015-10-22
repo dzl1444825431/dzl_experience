@@ -25,7 +25,7 @@ import android.os.StatFs;
 import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 
-public class MainActivity1 extends Activity implements SensorEventListener {
+public class MainActivity1 extends BaseActivity implements SensorEventListener {
 	
 	BatteryReceiver batteryReceiver;
 	@Override

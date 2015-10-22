@@ -1,9 +1,6 @@
 package com.dzl.test.popupWindow;
 
 
-import com.dzl.test.R;
-
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,12 +8,15 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
 
-public class PopupWindowActivity extends Activity {
+import com.dzl.test.BaseActivity;
+import com.dzl.test.R;
+
+public class PopupWindowActivity extends BaseActivity {
 	MyPopupWindow myPopupWindow;
 	Button button;
 	@Override

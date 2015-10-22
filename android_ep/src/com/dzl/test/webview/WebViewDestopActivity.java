@@ -2,7 +2,6 @@ package com.dzl.test.webview;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.ComponentName;
@@ -19,9 +18,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class WebViewDestopActivity extends Activity {
+public class WebViewDestopActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

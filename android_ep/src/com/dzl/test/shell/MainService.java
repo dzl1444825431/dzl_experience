@@ -1,6 +1,5 @@
 package com.dzl.test.shell;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,9 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.dzl.test.R;
+import com.dzl.test.BaseActivity;
 
-public class MainService extends Activity {
+public class MainService extends BaseActivity {
 	private TextView textviewService;
 	private Button buttonStart, buttonStop;
 	public static final int CMD_STOP_SERVICE = 0;

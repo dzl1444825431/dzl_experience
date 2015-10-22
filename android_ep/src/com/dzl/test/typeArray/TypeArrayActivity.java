@@ -1,11 +1,11 @@
 package com.dzl.test.typeArray;
 
-import android.app.Activity;
 import android.os.Bundle;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class TypeArrayActivity extends Activity {
+public class TypeArrayActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -31,6 +31,7 @@ import com.dzl.test.listview.ListViewActivity;
 import com.dzl.test.matrix2.MatrixActivity;
 import com.dzl.test.md5.Md5CopyFileActivity;
 import com.dzl.test.memory.MemoryActivity;
+import com.dzl.test.phoneInfo.PhoneInfoActivity;
 import com.dzl.test.popupWindow.PopupWindowActivity;
 import com.dzl.test.progressBar.ProgressBarActivity;
 import com.dzl.test.progressCheck.CheckAppRunningActivity;
@@ -50,7 +51,7 @@ import com.dzl.test.webview.WebViewActivity;
 import com.dzl.test.webview.WebViewDestopActivity;
 import com.dzl.test.webview.WebkitPackageActivity;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends BaseActivity implements OnClickListener {
 
 	private LayoutParams params_match;
 	private LayoutParams params_wrap;
@@ -98,6 +99,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			BaiduMapActivity.class,
 			BaiduPushActivity.class,
 			PS_R_Activity.class,
+			PhoneInfoActivity.class,
 	};
 	
 	private ListView listView;

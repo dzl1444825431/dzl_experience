@@ -1,13 +1,13 @@
 package com.dzl.test.baidupush;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushManager;
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class BaiduPushActivity extends Activity {
+public class BaiduPushActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

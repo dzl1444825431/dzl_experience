@@ -3,7 +3,6 @@ package com.dzl.test.gallery;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,9 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class SpinnerActivity extends Activity {
+public class SpinnerActivity extends BaseActivity {
 	/** Called when the activity is first created. */
 	private List<String> list = new ArrayList<String>();
 	private TextView myTextView;

@@ -1,6 +1,5 @@
 package com.dzl.test.canvas;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,6 +13,7 @@ import android.graphics.Shader;
 import android.os.Bundle;
 import android.view.View;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
 /**
@@ -53,7 +53,7 @@ import com.dzl.test.R;
  * // 设置文本缩放倍数，1.0f为原始 setTextSize(float textSize) // 设置字体大小
  * setUnderlineText(booleanunderlineText) // 设置下划线
  */
-public class CanvasActivity extends Activity {
+public class CanvasActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

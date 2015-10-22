@@ -1,15 +1,15 @@
 package com.dzl.test.drawable;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class DrawableActivity extends Activity {
+public class DrawableActivity extends BaseActivity {
 	
 	@SuppressLint("HandlerLeak")
 	Handler handler = new Handler() {

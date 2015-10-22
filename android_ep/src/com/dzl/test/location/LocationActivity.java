@@ -1,5 +1,4 @@
 package com.dzl.test.location;
-import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
@@ -8,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
   
 /** 
  * @author Geek_Soledad (66704238@51uc.com) 
  */  
-public class LocationActivity extends Activity {  
+public class LocationActivity extends BaseActivity {  
     private double mLongitude;  
     private double mLatitude;  
   

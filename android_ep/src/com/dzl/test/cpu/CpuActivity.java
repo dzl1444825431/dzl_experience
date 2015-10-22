@@ -15,7 +15,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.net.wifi.WifiInfo;
@@ -25,14 +24,15 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
-import android.util.Log;
+
+import com.dzl.test.BaseActivity;
 
 /**
  * 可添加开机时间判断
  * 
  * @author dzl 2015年9月9日
  */
-public class CpuActivity extends Activity {
+public class CpuActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

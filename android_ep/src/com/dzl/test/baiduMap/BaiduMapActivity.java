@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -15,9 +14,6 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.TextOptions;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.overlayutil.PoiOverlay;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -27,9 +23,10 @@ import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class BaiduMapActivity extends Activity {
+public class BaiduMapActivity extends BaseActivity {
 
 	MapView mMapView = null;
 	private BaiduMap mBaiduMap;

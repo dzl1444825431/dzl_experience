@@ -5,7 +5,7 @@ import java.io.IOException;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class BatchUninstallActivity extends Activity {
+public class BatchUninstallActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

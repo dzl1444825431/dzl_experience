@@ -1,11 +1,11 @@
 package com.dzl.test.relativeLayout;
 
-import android.app.Activity;
 import android.os.Bundle;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class RelativeLayoutActivity extends Activity {
+public class RelativeLayoutActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

@@ -2,7 +2,6 @@ package com.dzl.test.bitmap;
 
 import java.io.InputStream;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.Resources;
@@ -12,9 +11,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class BitMapActivity extends Activity {
+public class BitMapActivity extends BaseActivity {
 
 	private ImageView imgView;
 

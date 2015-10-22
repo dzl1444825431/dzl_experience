@@ -3,17 +3,18 @@ package com.dzl.test.install;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+
+import com.dzl.test.BaseActivity;
 
 /**
  * adb 批量卸载第三方apk 不包括sd上的apk 和预装的apk
  * @author Administrator
  *
  */
-public class InstallApkActivity extends Activity {
+public class InstallApkActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

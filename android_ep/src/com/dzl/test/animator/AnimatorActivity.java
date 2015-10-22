@@ -5,14 +5,15 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
 @SuppressLint("NewApi")
-public class AnimatorActivity extends Activity {
+public class AnimatorActivity extends BaseActivity {
 	
 	private View tv;
 

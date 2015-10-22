@@ -1,6 +1,5 @@
 package com.dzl.test.matrix2;
 
-import android.app.Activity;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
@@ -12,9 +11,10 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class MatrixActivity extends Activity {
+public class MatrixActivity extends BaseActivity {
 	
 	private static final String LOG_TAG = "MainActivity";
 	private Button mBtnRotate = null;

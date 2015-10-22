@@ -1,11 +1,11 @@
 package com.dzl.test.progressBar;
 
-import android.app.Activity;
 import android.os.Bundle;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class ProgressBarActivity extends Activity {
+public class ProgressBarActivity extends BaseActivity {
 	
 	private com.dzl.test.progressBar.CustomProgressBar3 customProgressBar3;
 	private int progress = 0;

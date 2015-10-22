@@ -13,19 +13,15 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.MarginLayoutParams;
-import android.widget.AbsSpinner;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.Gallery;
 import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.BaseAdapterDzl;
 import com.dzl.test.R;
 
-public class GalleryActivity extends Activity {
+public class GalleryActivity extends BaseActivity {
 
 	private com.dzl.test.gallery.Gallery2 gallery;
 	private BaseAdapter adapter;

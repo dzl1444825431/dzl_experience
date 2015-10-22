@@ -1,12 +1,13 @@
 package com.dzl.test.installResultTest;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 
-public class InstallResultActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class InstallResultActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

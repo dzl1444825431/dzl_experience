@@ -7,11 +7,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 
-import com.dzl.test.BatteryReceiver;
-import com.dzl.test.R;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
@@ -28,7 +24,11 @@ import android.os.StatFs;
 import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 
-public class Sim_CpuActivity extends Activity implements SensorEventListener {
+import com.dzl.test.BaseActivity;
+import com.dzl.test.BatteryReceiver;
+import com.dzl.test.R;
+
+public class Sim_CpuActivity extends BaseActivity implements SensorEventListener {
 	
 	BatteryReceiver batteryReceiver;
 	@Override

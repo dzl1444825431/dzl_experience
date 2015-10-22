@@ -175,7 +175,7 @@
         <activity android:name="com.dzl.test.typeArray.TypeArrayActivity"/>
         <!-- <activity android:name="com.dzl.test.drawable.DrawableActivity"/> -->
         <activity android:name="com.dzl.test.canvas.CanvasActivity"/>
-        <activity android:name="com.dzl.test.viewPager.ViewPagerActivity"/>
+        <!-- <activity android:name="com.dzl.test.viewPager.ViewPagerActivity"/> -->
         <activity android:name="com.dzl.test.textview.TextViewActivity"/>
         <activity android:name="com.dzl.test.textview.Multi_lineTextViewActivity"/>
         <activity android:name="com.dzl.test.progressBar.ProgressBarActivity"/>
@@ -192,6 +192,7 @@
         <activity android:name="com.dzl.test.baiduMap.BaiduMapActivity"/>
         <activity android:name="com.dzl.test.baidupush.BaiduPushActivity"/>
         <activity android:name="com.dzl.test.ps.PS_R_Activity"/>
+        <activity android:name="com.dzl.test.phoneInfo.PhoneInfoActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />
@@ -264,7 +265,18 @@
 		        <action android:name="com.baidu.android.pushservice.action.notification.CLICK" />
 		    </intent-filter>
 		</receiver>
-        
+		
+		<!-- 百度定位服务 start 注意加上appkey -->
+		<service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
+        <!-- 百度定位服务 start -->
     </application>
 
 </manifest>

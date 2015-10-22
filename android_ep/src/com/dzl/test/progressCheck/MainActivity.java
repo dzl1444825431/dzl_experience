@@ -9,7 +9,7 @@
 //import android.view.View;
 //import android.widget.Button;
 //
-//public class MainActivity extends Activity {
+//public class MainActivity extends BaseActivity {
 //    Button statsBtn;
 //
 //    @Override

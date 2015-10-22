@@ -1,6 +1,5 @@
 package com.dzl.test.countFile;
 
-import android.app.Activity;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,7 +7,9 @@ import android.provider.MediaStore.Files;
 import android.provider.MediaStore.Files.FileColumns;
 import android.widget.TextView;
 
-public class CountFileActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class CountFileActivity extends BaseActivity {
 
 	TextView tv;
 	String volumeName = "external";

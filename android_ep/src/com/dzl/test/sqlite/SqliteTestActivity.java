@@ -1,9 +1,10 @@
 package com.dzl.test.sqlite;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-public class SqliteTestActivity extends Activity {
+import com.dzl.test.BaseActivity;
+
+public class SqliteTestActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

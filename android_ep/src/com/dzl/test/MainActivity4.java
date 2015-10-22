@@ -29,7 +29,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity4 extends Activity implements SensorEventListener {
+public class MainActivity4 extends BaseActivity implements SensorEventListener {
 
 	EditText et;
 	EditText num;

@@ -1,12 +1,12 @@
 package com.dzl.test.memory;
 
-import com.dzl.test.R;
-
-import android.app.Activity;
 import android.graphics.Matrix;
 import android.os.Bundle;
 
-public class MemoryActivity extends Activity {
+import com.dzl.test.BaseActivity;
+import com.dzl.test.R;
+
+public class MemoryActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

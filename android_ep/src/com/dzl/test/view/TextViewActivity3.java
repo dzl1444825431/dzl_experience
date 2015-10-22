@@ -1,12 +1,11 @@
 package com.dzl.test.view;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class TextViewActivity3 extends Activity {
+public class TextViewActivity3 extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

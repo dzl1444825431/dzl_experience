@@ -61,9 +61,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class ViewActivity extends Activity {
+public class ViewActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

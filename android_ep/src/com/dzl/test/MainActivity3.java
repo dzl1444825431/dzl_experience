@@ -22,7 +22,7 @@ import android.os.SystemClock;
 import android.telephony.TelephonyManager;
 import android.widget.EditText;
 
-public class MainActivity3 extends Activity implements SensorEventListener {
+public class MainActivity3 extends BaseActivity implements SensorEventListener {
 
 	EditText et;
 	StringBuilder sb;

@@ -1,13 +1,13 @@
 package com.dzl.test.volley;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.dzl.test.BaseActivity;
 import com.dzl.test.R;
 
-public class VolleyActivity extends Activity {
+public class VolleyActivity extends BaseActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

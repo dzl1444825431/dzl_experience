@@ -21,7 +21,7 @@ import android.telephony.TelephonyManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class MainActivity2Confirem extends Activity implements SensorEventListener {
+public class MainActivity2Confirem extends BaseActivity implements SensorEventListener {
 	private final int valCount = 2;
 	EditText et;
 	StringBuffer sb;
