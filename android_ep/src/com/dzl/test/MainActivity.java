@@ -3,7 +3,6 @@ package com.dzl.test;
 //import OverrideClassOrMethodUtils.ScannerUtils;
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +33,7 @@ import com.dzl.test.memory.MemoryActivity;
 import com.dzl.test.phoneInfo.PhoneInfoActivity;
 import com.dzl.test.popupWindow.PopupWindowActivity;
 import com.dzl.test.progressBar.ProgressBarActivity;
+import com.dzl.test.progressBar.ProgressBarLoadingActivity;
 import com.dzl.test.progressCheck.CheckAppRunningActivity;
 import com.dzl.test.ps.PS_R_Activity;
 import com.dzl.test.relativeLayout.RelativeLayoutActivity;
@@ -100,6 +100,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			BaiduPushActivity.class,
 			PS_R_Activity.class,
 			PhoneInfoActivity.class,
+			ProgressBarLoadingActivity.class,
 	};
 	
 	private ListView listView;

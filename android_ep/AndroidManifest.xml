@@ -193,6 +193,7 @@
         <activity android:name="com.dzl.test.baidupush.BaiduPushActivity"/>
         <activity android:name="com.dzl.test.ps.PS_R_Activity"/>
         <activity android:name="com.dzl.test.phoneInfo.PhoneInfoActivity"/>
+        <activity android:name="com.dzl.test.progressBar.ProgressBarLoadingActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />
