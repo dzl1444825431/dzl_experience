@@ -1207,13 +1207,6 @@ public class CustomLinearLayout2 extends LinearLayout {
 		System.out.println("resp1onse CustomLinearLayout2: public void setLayoutAnimationListener(AnimationListener animationListener) { end void ");
 	}
 
-	@Override
-	protected void initializeFadingEdge(TypedArray a) {
-		System.out.println("resp1onse CustomLinearLayout2: protected void initializeFadingEdge(TypedArray a) { start void ");
-
-		super.initializeFadingEdge(a);
-		System.out.println("resp1onse CustomLinearLayout2: protected void initializeFadingEdge(TypedArray a) { end void ");
-	}
 
 	@Override
 	public int getVerticalFadingEdgeLength() {
@@ -1255,13 +1248,6 @@ public class CustomLinearLayout2 extends LinearLayout {
 		return super.getHorizontalScrollbarHeight();
 	}
 
-	@Override
-	protected void initializeScrollbars(TypedArray a) {
-		System.out.println("resp1onse CustomLinearLayout2: protected void initializeScrollbars(TypedArray a) { start void ");
-
-		super.initializeScrollbars(a);
-		System.out.println("resp1onse CustomLinearLayout2: protected void initializeScrollbars(TypedArray a) { end void ");
-	}
 
 	@Override
 	public void setVerticalScrollbarPosition(int position) {

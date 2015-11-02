@@ -51,13 +51,6 @@ public class CustomView extends View {
 		return super.toString();
 	}
 
-	@Override
-	protected void initializeFadingEdge(TypedArray a) {
-		System.out.println("resp1onse CustomView: protected void initializeFadingEdge(TypedArray a) { start void ");
-
-		super.initializeFadingEdge(a);
-		System.out.println("resp1onse CustomView: protected void initializeFadingEdge(TypedArray a) { end void ");
-	}
 
 	@Override
 	public int getVerticalFadingEdgeLength() {
@@ -97,14 +90,6 @@ public class CustomView extends View {
 		System.out.println("resp1onse CustomView: protected int getHorizontalScrollbarHeight() { start return ");
 		System.out.println("resp1onse CustomView: protected int getHorizontalScrollbarHeight() { end return ");
 		return super.getHorizontalScrollbarHeight();
-	}
-
-	@Override
-	protected void initializeScrollbars(TypedArray a) {
-		System.out.println("resp1onse CustomView: protected void initializeScrollbars(TypedArray a) { start void ");
-
-		super.initializeScrollbars(a);
-		System.out.println("resp1onse CustomView: protected void initializeScrollbars(TypedArray a) { end void ");
 	}
 
 	@Override

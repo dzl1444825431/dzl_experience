@@ -21,7 +21,7 @@ public class 生成findViewById {
 //		getFindViewId("D:\\baiduYun\\baiduYun-dzl-office-150810\\yidianyun_dzl\\res\\layout\\menu_layout.xml");
 //		getFindViewId("D:\\baiduYun\\baiduYun-dzl-office-150810\\yidianyun_dzl\\res\\layout\\menu_layout_main.xml");
 //		getFindViewId("D:\\baiduYun\\baiduYun-dzl-office-150810\\yidianyun_dzl\\res\\layout\\act_category_listview.xml");
-		getFindViewId("D:\\baiduYun\\github_dzl\\dzl_experience\\android_ep\\res\\layout\\activity_phoneinfo.xml");
+		getFindViewId("D:\\baiduYun\\github_dzl\\1dianyun\\yidianyun\\yidianyun_dzl\\res\\layout\\frag_main_jingxian_header.xml");
 //		getFindViewId("D:\\work\\android\\sources\\app\\res\\layout\\fragment_home_app_subsidy_header.xml");
 	}
 
