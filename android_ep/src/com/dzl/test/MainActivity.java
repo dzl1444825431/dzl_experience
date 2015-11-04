@@ -42,6 +42,7 @@ import com.dzl.test.register.RegisterActivity;
 import com.dzl.test.relativeLayout.RelativeLayoutActivity;
 import com.dzl.test.shell.PsShellActivity;
 import com.dzl.test.sim.Sim_CpuActivity;
+import com.dzl.test.slidingMenu.SlidingMenuActivity;
 import com.dzl.test.textview.Multi_lineTextViewActivity;
 import com.dzl.test.textview.TextViewActivity;
 import com.dzl.test.typeArray.TypeArrayActivity;
@@ -107,6 +108,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			LoginActivity.class,
 			RegisterActivity.class,
 			PasswordActivity.class,
+			SlidingMenuActivity.class,
 	};
 	
 	private ListView listView;
