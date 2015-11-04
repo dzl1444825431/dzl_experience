@@ -194,6 +194,9 @@
         <activity android:name="com.dzl.test.ps.PS_R_Activity"/>
         <activity android:name="com.dzl.test.phoneInfo.PhoneInfoActivity"/>
         <activity android:name="com.dzl.test.progressBar.ProgressBarLoadingActivity"/>
+        <activity android:name="com.dzl.test.login.LoginActivity"/>
+        <activity android:name="com.dzl.test.register.RegisterActivity"/>
+        <activity android:name="com.dzl.test.password.PasswordActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />

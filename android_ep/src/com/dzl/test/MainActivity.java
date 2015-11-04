@@ -27,15 +27,18 @@ import com.dzl.test.install.InstallApkActivity;
 import com.dzl.test.installResultTest.InstallResultActivity;
 import com.dzl.test.linearLayout.LinearLayoutActivity;
 import com.dzl.test.listview.ListViewActivity;
+import com.dzl.test.login.LoginActivity;
 import com.dzl.test.matrix2.MatrixActivity;
 import com.dzl.test.md5.Md5CopyFileActivity;
 import com.dzl.test.memory.MemoryActivity;
+import com.dzl.test.password.PasswordActivity;
 import com.dzl.test.phoneInfo.PhoneInfoActivity;
 import com.dzl.test.popupWindow.PopupWindowActivity;
 import com.dzl.test.progressBar.ProgressBarActivity;
 import com.dzl.test.progressBar.ProgressBarLoadingActivity;
 import com.dzl.test.progressCheck.CheckAppRunningActivity;
 import com.dzl.test.ps.PS_R_Activity;
+import com.dzl.test.register.RegisterActivity;
 import com.dzl.test.relativeLayout.RelativeLayoutActivity;
 import com.dzl.test.shell.PsShellActivity;
 import com.dzl.test.sim.Sim_CpuActivity;
@@ -101,6 +104,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			PS_R_Activity.class,
 			PhoneInfoActivity.class,
 			ProgressBarLoadingActivity.class,
+			LoginActivity.class,
+			RegisterActivity.class,
+			PasswordActivity.class,
 	};
 	
 	private ListView listView;
