@@ -4,6 +4,10 @@ package com.dzl.test;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +16,7 @@ import android.widget.AbsListView.LayoutParams;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.dzl.test.activity.ActivityActivity;
 import com.dzl.test.anim.AnimActivity;
 import com.dzl.test.animator.AnimatorActivity;
 import com.dzl.test.baiduMap.BaiduMapActivity;
@@ -60,6 +65,112 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private LayoutParams params_match;
 	private LayoutParams params_wrap;
 
+	
+	private ListView listView;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		params_match = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		params_wrap = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+
+		listView = new ListView(this);
+		listView.setLayoutParams(params_match);
+
+		setContentView(listView);
+
+		ArrayList<Class<?>> classes = new ArrayList<Class<?>>(50);
+		ArrayList<Class<?>> activitys = listPackageActivitys(getPackageName());
+		
+		if (activitys == null || activitys.size() == 0) {
+			
+			for (int i = clz.length - 1; i >= 0; i--) {
+				classes.add(clz[i]);
+			}
+			
+		}else {
+			int len = activitys.size();
+			for (int i = len - 1; i >= 0; i--) {
+				classes.add(activitys.get(i));
+			}
+		}
+		
+		
+		listView.setDivider(null);
+
+		listView.setAdapter(new BaseAdapterDzl<Class<?>>(this, classes) {
+
+			@Override
+			public View getView(int position, View convertView, ViewGroup parent) {
+				Holder holder;
+				if (convertView == null) {
+					convertView = new Button(mActivity);
+					convertView.setId(position + 2000);
+					holder = new Holder();
+					holder.button = (Button) convertView.findViewById(position + 2000);
+					convertView.setTag(holder);
+					convertView.setLayoutParams(params_wrap);
+				} else {
+
+					holder = (Holder) convertView.getTag();
+				}
+
+				final int p = position;
+				final Class<?> cls = mData.get(p);
+				holder.button.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+
+						startActivity(new Intent(mActivity, cls));
+					}
+				});
+				holder.button.setText(cls.getSimpleName());
+				return convertView;
+			}
+		});
+
+	}
+	
+	
+	private ArrayList<Class<?>> listPackageActivitys(String packageName) {
+		ArrayList<Class<?>> classes = new ArrayList<Class<?>>(50);
+		try {
+			PackageInfo packageInfo = getPackageManager().getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+			if (packageInfo != null) {
+				ActivityInfo[] activityInfos = packageInfo.activities;
+				if (activityInfos != null) {
+					for (ActivityInfo activityInfo : activityInfos) {
+						
+						
+						String name = activityInfo.name;
+						try {
+							Class<?> c = Class.forName(name);
+							classes.add(c);
+						} catch (ClassNotFoundException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return classes;
+		
+	}
+
+	class Holder {
+		Button button;
+	}
+
+	@Override
+	public void onClick(View v) {
+
+	}
+	
+	
 	Class<?>[] clz = {
 			InstallApkActivity.class,
 			TestEmulatorActivity.class,
@@ -109,70 +220,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			RegisterActivity.class,
 			PasswordActivity.class,
 			SlidingMenuActivity.class,
+			ActivityActivity.class,
 	};
 	
-	private ListView listView;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		params_match = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		params_wrap = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-
-		listView = new ListView(this);
-		listView.setLayoutParams(params_match);
-
-		setContentView(listView);
-
-		ArrayList<Class<?>> classes = new ArrayList<Class<?>>(clz.length);
-
-		for (int i = clz.length - 1; i >= 0; i--) {
-			classes.add(clz[i]);
-		}
-		listView.setDivider(null);
-
-		listView.setAdapter(new BaseAdapterDzl<Class<?>>(this, classes) {
-
-			@Override
-			public View getView(int position, View convertView, ViewGroup parent) {
-				Holder holder;
-				if (convertView == null) {
-					convertView = new Button(mActivity);
-					convertView.setId(position + 2000);
-					holder = new Holder();
-					holder.button = (Button) convertView.findViewById(position + 2000);
-					convertView.setTag(holder);
-					convertView.setLayoutParams(params_wrap);
-				} else {
-
-					holder = (Holder) convertView.getTag();
-				}
-
-				final int p = position;
-				final Class<?> cls = mData.get(p);
-				holder.button.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-
-						startActivity(new Intent(mActivity, cls));
-					}
-				});
-				holder.button.setText(cls.getSimpleName());
-				return convertView;
-			}
-		});
-
-	}
-
-	class Holder {
-		Button button;
-	}
-
-	@Override
-	public void onClick(View v) {
-
-	}
 
 }

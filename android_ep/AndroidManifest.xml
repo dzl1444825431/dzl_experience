@@ -198,6 +198,7 @@
         <activity android:name="com.dzl.test.register.RegisterActivity"/>
         <activity android:name="com.dzl.test.password.PasswordActivity"/>
         <activity android:name="com.dzl.test.slidingMenu.SlidingMenuActivity"/>
+        <activity android:name="com.dzl.test.activity.ActivityActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />

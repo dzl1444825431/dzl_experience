@@ -60,10 +60,8 @@ public class SlidingMenuActivity extends BaseActivity {
 			return false;
 
 		default:
-			System.out.println("resp1one : 1 = " + 1);
 			break;
 		}
-		System.out.println("resp1one : 2 = " + 2);
 		return super.onKeyDown(keyCode, event);
 	}
 	
