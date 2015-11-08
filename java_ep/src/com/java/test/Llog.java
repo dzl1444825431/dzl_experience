@@ -45,7 +45,7 @@ public class Llog {
 //		addLogforMethods3("D:\\work\\workspace_eclipse\\miFile\\src\\org\\swiftp\\ProxyDataSocketFactory.java");
 //		addLogforMethods3("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\viewPager\\ViewPagerFragment.java");
 //		addLogforMethods3("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\textview\\CustomTextView.java");
-		addLogforMethods3("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\Dzl_BaseAdapter.java");
+		addLogforMethods3("D:\\baiduYun\\dzl_github\\1dianyun\\yidianyun\\yidianyun_dzl\\src\\com\\dzl\\zyyidianyun\\ui\\HorizontalListView.java");
 //		replaceResourceIntToResourceType("D:\\baiduYun\\baiduYun-dzl-office-150810\\dianyixia-dzl\\src\\com\\dingzai\\dianyixia\\ui\\StartupActivity.java");
 //		replaceResourceIntToResourceType("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\viewPager\\ViewPagerFragment.java");
 //String a = "e			} catch (Exception ee) {}e";
