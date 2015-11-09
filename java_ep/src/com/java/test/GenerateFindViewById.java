@@ -57,11 +57,17 @@ public class GenerateFindViewById {
 			}
 		}
 		
-		System.out.println("\n\nrespone : activity 、 fragment 、holder  private 变量 -------------------------------\n" );
+		System.out.println("\n\nrespone : activity 、 fragment   private 变量 -------------------------------\n" );
 		
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println("private " + entry.getValue() + " " + entry.getKey() + ";");
+		}
+		
+		System.out.println("\n\nrespone :holder  变量 -------------------------------\n" );
+		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
+			Entry<String, String> entry = it.next();
+			System.out.println(entry.getValue() + " " + entry.getKey() + ";");
 		}
 		
 		System.out.println("\n\nrespone : activity 、 fragment      findViewById -------------------------------\n" );

@@ -11,7 +11,8 @@ public class 生成findViewById {
 	public static void main(String[] args) {
 		
 		//xml 文件路径
-		String filePath = "D:\\baiduYun\\dzl_github\\dzl_experience\\android_ep\\res\\layout\\activity_login.xml";
+		String filePath = "D:\\baiduYun\\dzl_github\\yunserver\\guamu\\res\\layout\\"
+				+ "item_recruit.xml";
 		
 		
 		GenerateFindViewById.getFindViewId(filePath, map);
