@@ -12,7 +12,7 @@ public class 生成findViewById {
 		
 		//xml 文件路径
 		String filePath = "D:\\baiduYun\\dzl_github\\yunserver\\guamu\\res\\layout\\"
-				+ "item_recruit.xml";
+				+ "item_dream.xml";
 		
 		
 		GenerateFindViewById.getFindViewId(filePath, map);

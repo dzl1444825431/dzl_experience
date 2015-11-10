@@ -19,7 +19,9 @@ public class 非递归增加SystemOut {
 //		scanDirNoRecursion("D:\\work\\workspace_eclipse\\zirco-browser\\src");
 //		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\dianyixia-dzl\\src\\com\\dingzai\\dianyixia");
 //		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\dianyixia-dzl");
-		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\viewPager");
+//		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\viewPager");
+		
+		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\hengeasy\\guamu\\droid");
 		System.out.println("resp1onse1: " + (System.currentTimeMillis() - a));
 		System.out.println(Llog.map);
 	}
@@ -27,12 +29,16 @@ public class 非递归增加SystemOut {
 	private static void operateMethod(File file) {
 //		Llog.addLogforMethods(file.getAbsolutePath());//增加 SystemOut
 //		Llog.addLogforMethods2(file.getAbsolutePath());//增加 SystemOut2
-		Llog.addLogforMethods3(file.getAbsolutePath());//增加 SystemOut3 2015-07-30 ok
+//		Llog.addLogforMethods3(file.getAbsolutePath());//增加 SystemOut3 2015-07-30 ok
 //		Llog.replaceResourceIntToResourceType(file.getAbsolutePath());//替换资源文件int类型 转变为 layout等类型 2015-08-11 ok
 //		Llog.getImportClasses(file.getAbsolutePath());//获取引用的API
 //		Llog.getChineseString(file.getAbsolutePath());//获取所有中文字符
+		
+		
+		com.android.生成匹配R与Id.writeFileIds(rFile, file.getAbsolutePath());//获取所有中文字符
 	}
 	
+	final static String rFile = "D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\hengeasy\\guamu\\droid\\R.java";
 	// 非递归
 	/**
 	 * @param path
