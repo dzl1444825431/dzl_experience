@@ -84,6 +84,8 @@ public class ListViewActivity extends BaseActivity {
 				holder = new Holder();
 				convertView = mInflater.inflate(R.layout.listview_item, null, false);;
 				holder.tv = (TextView) convertView.findViewById(R.id.textView1);
+				ListView.LayoutParams params = new ListView.LayoutParams(-1, 150);
+				convertView.setLayoutParams(params);
 				convertView.setTag(holder);
 			}else {
 				holder = (Holder) convertView.getTag();

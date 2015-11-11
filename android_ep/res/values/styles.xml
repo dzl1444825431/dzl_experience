@@ -42,4 +42,10 @@
         <item name="android:thumbOffset">10.0dip</item>
     </style>
 
+    <!-- popwindow 进入退出窗口 动画 -->
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/anim_pop_entry</item>
+        <item name="android:windowExitAnimation">@anim/anim_pop_exit</item>
+    </style>
+    
 </resources>
