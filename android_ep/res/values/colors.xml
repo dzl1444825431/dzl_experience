@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="weibo_listtab_off">#8d8d8d</color>
+    <color name="weibolist_bottombar_textcolor_selector">#ccc</color>
+</resources>

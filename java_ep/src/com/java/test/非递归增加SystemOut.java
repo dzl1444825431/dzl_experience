@@ -21,7 +21,7 @@ public class 非递归增加SystemOut {
 //		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\dianyixia-dzl");
 //		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\viewPager");
 		
-		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\hengeasy\\guamu\\droid");
+		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\ireadercity");
 		System.out.println("resp1onse1: " + (System.currentTimeMillis() - a));
 		System.out.println(Llog.map);
 	}
@@ -38,7 +38,7 @@ public class 非递归增加SystemOut {
 		com.android.生成匹配R与Id.writeFileIds(rFile, file.getAbsolutePath());//获取所有中文字符
 	}
 	
-	final static String rFile = "D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\hengeasy\\guamu\\droid\\R.java";
+	final static String rFile = "D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\ireadercity\\R.java";
 	// 非递归
 	/**
 	 * @param path

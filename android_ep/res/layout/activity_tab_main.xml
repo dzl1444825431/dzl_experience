@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 这里有三个标记是必须的
+	 Android:id="@android:id/tabhost"
+	 Android:id="@android:id/tabcontent"
+	 Android:id="@android:id/tabs"
+ -->
+<TabHost xmlns:Android="http://schemas.android.com/apk/res/android"
+    Android:id="@android:id/tabhost"
+    Android:layout_width="fill_parent"
+    Android:layout_height="fill_parent">
+    <RelativeLayout
+        Android:orientation="vertical"
+        Android:layout_width="fill_parent"
+        Android:layout_height="fill_parent">
+        
+        <FrameLayout
+            Android:id="@android:id/tabcontent"
+            Android:layout_width="fill_parent"
+            Android:layout_height="fill_parent"
+            Android:layout_weight="1">
+     </FrameLayout>
+     <TabWidget
+            Android:id="@android:id/tabs"
+            Android:layout_width="fill_parent"
+            Android:layout_height="60dp" 
+            Android:background="#FA83B3"
+            Android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+</TabHost>

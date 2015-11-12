@@ -199,6 +199,10 @@
         <activity android:name="com.dzl.test.password.PasswordActivity"/>
         <activity android:name="com.dzl.test.slidingMenu.SlidingMenuActivity"/>
         <activity android:name="com.dzl.test.activity.ActivityActivity"/>
+        <activity android:name="com.dzl.test.tab.fragment.TabFragmentActivity"/>
+        <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivity"/>
+        <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivitySub1"/>
+        <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivitySub2"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />
