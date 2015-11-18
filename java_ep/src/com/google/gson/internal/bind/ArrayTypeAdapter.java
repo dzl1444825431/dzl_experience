@@ -39,6 +39,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
   public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
     @SuppressWarnings({"unchecked", "rawtypes"})
     @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse ArrayTypeAdapter: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
       Type type = typeToken.getType();
       if (!(type instanceof GenericArrayType || type instanceof Class && ((Class<?>) type).isArray())) {
         return null;
@@ -46,6 +47,7 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
 
       Type componentType = $Gson$Types.getArrayComponentType(type);
       TypeAdapter<?> componentTypeAdapter = gson.getAdapter(TypeToken.get(componentType));
+		System.out.println("resp1onse ArrayTypeAdapter: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return  =1");
       return new ArrayTypeAdapter(
               gson, componentTypeAdapter, $Gson$Types.getRawType(componentType));
     }
@@ -55,9 +57,11 @@ public final class ArrayTypeAdapter<E> extends TypeAdapter<Object> {
   private final TypeAdapter<E> componentTypeAdapter;
 
   public ArrayTypeAdapter(Gson context, TypeAdapter<E> componentTypeAdapter, Class<E> componentType) {
+	  System.out.println("resp1onse ArrayTypeAdapter: public ArrayTypeAdapter(Gson context, TypeAdapter<E> componentTypeAdapter, Class<E> componentType) { start constructor ");
     this.componentTypeAdapter =
       new TypeAdapterRuntimeTypeWrapper<E>(context, componentTypeAdapter, componentType);
     this.componentType = componentType;
+		System.out.println("resp1onse ArrayTypeAdapter: public ArrayTypeAdapter(Gson context, TypeAdapter<E> componentTypeAdapter, Class<E> componentType) { end constructor ");
   }
 
   @Override public Object read(JsonReader in) throws IOException {

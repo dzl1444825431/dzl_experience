@@ -36,6 +36,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    */
   IDENTITY() {
     @Override public String translateName(Field f) {
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { start return ");
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { end return ");
       return f.getName();
     }
   },
@@ -52,6 +54,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    */
   UPPER_CAMEL_CASE() {
     @Override public String translateName(Field f) {
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { start return ");
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { end return ");
       return upperCaseFirstLetter(f.getName());
     }
   },
@@ -71,6 +75,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    */
   UPPER_CAMEL_CASE_WITH_SPACES() {
     @Override public String translateName(Field f) {
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { start return ");
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { end return ");
       return upperCaseFirstLetter(separateCamelCase(f.getName(), " "));
     }
   },
@@ -89,6 +95,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    */
   LOWER_CASE_WITH_UNDERSCORES() {
     @Override public String translateName(Field f) {
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { start return ");
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { end return ");
       return separateCamelCase(f.getName(), "_").toLowerCase(Locale.ENGLISH);
     }
   },
@@ -112,6 +120,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    */
   LOWER_CASE_WITH_DASHES() {
     @Override public String translateName(Field f) {
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { start return ");
+		System.out.println("resp1onse FieldNamingPolicy: @Override public String translateName(Field f) { end return ");
       return separateCamelCase(f.getName(), "-").toLowerCase(Locale.ENGLISH);
     }
   };
@@ -121,6 +131,7 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    * separate words that are separated by the provided {@code separatorString}.
    */
   private static String separateCamelCase(String name, String separator) {
+		System.out.println("resp1onse FieldNamingPolicy: private static String separateCamelCase(String name, String separator) { start return ");
     StringBuilder translation = new StringBuilder();
     for (int i = 0; i < name.length(); i++) {
       char character = name.charAt(i);
@@ -129,6 +140,7 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
       }
       translation.append(character);
     }
+		System.out.println("resp1onse FieldNamingPolicy: private static String separateCamelCase(String name, String separator) { end return  =1");
     return translation.toString();
   }
 
@@ -136,6 +148,7 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
    * Ensures the JSON field names begins with an upper case letter.
    */
   private static String upperCaseFirstLetter(String name) {
+		System.out.println("resp1onse FieldNamingPolicy: private static String upperCaseFirstLetter(String name) { start return ");
     StringBuilder fieldNameBuilder = new StringBuilder();
     int index = 0;
     char firstCharacter = name.charAt(index);
@@ -155,6 +168,7 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
 
     if (!Character.isUpperCase(firstCharacter)) {
       String modifiedTarget = modifyString(Character.toUpperCase(firstCharacter), name, ++index);
+		System.out.println("resp1onse FieldNamingPolicy: private static String upperCaseFirstLetter(String name) { end return if ");
       return fieldNameBuilder.append(modifiedTarget).toString();
     } else {
       return name;
@@ -162,6 +176,8 @@ public enum FieldNamingPolicy implements FieldNamingStrategy {
   }
 
   private static String modifyString(char firstCharacter, String srcString, int indexOfSubstring) {
+		System.out.println("resp1onse FieldNamingPolicy: private static String modifyString(char firstCharacter, String srcString, int indexOfSubstring) { start return ");
+		System.out.println("resp1onse FieldNamingPolicy: private static String modifyString(char firstCharacter, String srcString, int indexOfSubstring) { end return ");
     return (indexOfSubstring < srcString.length())
         ? firstCharacter + srcString.substring(indexOfSubstring)
         : String.valueOf(firstCharacter);

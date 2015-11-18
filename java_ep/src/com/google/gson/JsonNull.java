@@ -38,6 +38,7 @@ public final class JsonNull extends JsonElement {
   @Deprecated
   public JsonNull() {
     // Do nothing
+		System.out.println("resp1onse JsonNull: public JsonNull() { end constructor ");
   }
 
   @Override
@@ -50,6 +51,8 @@ public final class JsonNull extends JsonElement {
    */
   @Override
   public int hashCode() {
+		System.out.println("resp1onse JsonNull: public int hashCode() { start return ");
+		System.out.println("resp1onse JsonNull: public int hashCode() { end return ");
     return JsonNull.class.hashCode();
   }
 
@@ -58,6 +61,8 @@ public final class JsonNull extends JsonElement {
    */
   @Override
   public boolean equals(Object other) {
+		System.out.println("resp1onse JsonNull: public boolean equals(Object other) { start return ");
+		System.out.println("resp1onse JsonNull: public boolean equals(Object other) { end return ");
     return this == other || other instanceof JsonNull;
   }
 }

@@ -203,6 +203,8 @@
         <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivity"/>
         <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivitySub1"/>
         <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivitySub2"/>
+        <activity android:name="com.dzl.test.flowLayout.FlowLayoutActivity"/>
+        <activity android:name="com.dzl.test.gridview.GridviewActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />

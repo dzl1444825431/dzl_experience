@@ -42,14 +42,18 @@ public final class FieldAttributes {
    * @param f the field to pull attributes from
    */
   public FieldAttributes(Field f) {
+		System.out.println("resp1onse FieldAttributes: public FieldAttributes(Field f) { start constructor ");
     $Gson$Preconditions.checkNotNull(f);
     this.field = f;
+		System.out.println("resp1onse FieldAttributes: public FieldAttributes(Field f) { end constructor ");
   }
 
   /**
    * @return the declaring class that contains this field
    */
   public Class<?> getDeclaringClass() {
+		System.out.println("resp1onse FieldAttributes: public Class<?> getDeclaringClass() { start return ");
+		System.out.println("resp1onse FieldAttributes: public Class<?> getDeclaringClass() { end return ");
     return field.getDeclaringClass();
   }
 
@@ -57,6 +61,8 @@ public final class FieldAttributes {
    * @return the name of the field
    */
   public String getName() {
+		System.out.println("resp1onse FieldAttributes: public String getName() { start return ");
+		System.out.println("resp1onse FieldAttributes: public String getName() { end return ");
     return field.getName();
   }
 
@@ -77,6 +83,8 @@ public final class FieldAttributes {
    * @return the specific type declared for this field
    */
   public Type getDeclaredType() {
+		System.out.println("resp1onse FieldAttributes: public Type getDeclaredType() { start return ");
+		System.out.println("resp1onse FieldAttributes: public Type getDeclaredType() { end return ");
     return field.getGenericType();
   }
 
@@ -97,6 +105,8 @@ public final class FieldAttributes {
    * @return the specific class object that was declared for the field
    */
   public Class<?> getDeclaredClass() {
+		System.out.println("resp1onse FieldAttributes: public Class<?> getDeclaredClass() { start return ");
+		System.out.println("resp1onse FieldAttributes: public Class<?> getDeclaredClass() { end return ");
     return field.getType();
   }
 
@@ -108,6 +118,8 @@ public final class FieldAttributes {
    * @return the annotation instance if it is bound to the field; otherwise {@code null}
    */
   public <T extends Annotation> T getAnnotation(Class<T> annotation) {
+		System.out.println("resp1onse FieldAttributes: public <T extends Annotation> T getAnnotation(Class<T> annotation) { start return ");
+		System.out.println("resp1onse FieldAttributes: public <T extends Annotation> T getAnnotation(Class<T> annotation) { end return ");
     return field.getAnnotation(annotation);
   }
 
@@ -118,6 +130,8 @@ public final class FieldAttributes {
    * @since 1.4
    */
   public Collection<Annotation> getAnnotations() {
+		System.out.println("resp1onse FieldAttributes: public Collection<Annotation> getAnnotations() { start return ");
+		System.out.println("resp1onse FieldAttributes: public Collection<Annotation> getAnnotations() { end return ");
     return Arrays.asList(field.getAnnotations());
   }
 
@@ -132,6 +146,8 @@ public final class FieldAttributes {
    * @see java.lang.reflect.Modifier
    */
   public boolean hasModifier(int modifier) {
+		System.out.println("resp1onse FieldAttributes: public boolean hasModifier(int modifier) { start return ");
+		System.out.println("resp1onse FieldAttributes: public boolean hasModifier(int modifier) { end return ");
     return (field.getModifiers() & modifier) != 0;
   }
 

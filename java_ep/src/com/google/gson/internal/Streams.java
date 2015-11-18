@@ -34,6 +34,8 @@ import java.io.Writer;
  */
 public final class Streams {
   private Streams() {
+		System.out.println("resp1onse Streams: private Streams() { start constructor ");
+		System.out.println("resp1onse Streams: private Streams() { end constructor ");
     throw new UnsupportedOperationException();
   }
 
@@ -74,6 +76,8 @@ public final class Streams {
 
   @SuppressWarnings("resource")
   public static Writer writerForAppendable(Appendable appendable) {
+		System.out.println("resp1onse Streams: public static Writer writerForAppendable(Appendable appendable) { start return ");
+		System.out.println("resp1onse Streams: public static Writer writerForAppendable(Appendable appendable) { end return ");
     return appendable instanceof Writer ? (Writer) appendable : new AppendableWriter(appendable);
   }
 
@@ -87,6 +91,8 @@ public final class Streams {
 
     private AppendableWriter(Appendable appendable) {
       this.appendable = appendable;
+		System.out.println("resp1onse Streams: private AppendableWriter(Appendable appendable) { start constructor ");
+		System.out.println("resp1onse Streams: private AppendableWriter(Appendable appendable) { end constructor ");
     }
 
     @Override public void write(char[] chars, int offset, int length) throws IOException {
@@ -98,8 +104,8 @@ public final class Streams {
       appendable.append((char) i);
     }
 
-    @Override public void flush() {}
-    @Override public void close() {}
+    @Override public void flush() { System.out.println("resp1onse Streams: @Override public void flush() {} single");}
+    @Override public void close() { System.out.println("resp1onse Streams: @Override public void close() {} single");}
 
     /**
      * A mutable char sequence pointing at a single char[].
@@ -107,12 +113,18 @@ public final class Streams {
     static class CurrentWrite implements CharSequence {
       char[] chars;
       public int length() {
+		System.out.println("resp1onse Streams: public int length() { start return ");
+		System.out.println("resp1onse Streams: public int length() { end return ");
         return chars.length;
       }
       public char charAt(int i) {
+		System.out.println("resp1onse Streams: public char charAt(int i) { start return ");
+		System.out.println("resp1onse Streams: public char charAt(int i) { end return ");
         return chars[i];
       }
       public CharSequence subSequence(int start, int end) {
+		System.out.println("resp1onse Streams: public CharSequence subSequence(int start, int end) { start return ");
+		System.out.println("resp1onse Streams: public CharSequence subSequence(int start, int end) { end return ");
         return new String(chars, start, end - start);
       }
     }

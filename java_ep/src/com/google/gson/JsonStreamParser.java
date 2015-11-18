@@ -59,6 +59,8 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
    */
   public JsonStreamParser(String json) {
     this(new StringReader(json));      
+		System.out.println("resp1onse JsonStreamParser: public JsonStreamParser(String json) { start constructor ");
+		System.out.println("resp1onse JsonStreamParser: public JsonStreamParser(String json) { end constructor ");
   }
   
   /**
@@ -66,9 +68,11 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
    * @since 1.4
    */
   public JsonStreamParser(Reader reader) {
+		System.out.println("resp1onse JsonStreamParser: public JsonStreamParser(Reader reader) { start constructor ");
     parser = new JsonReader(reader);
     parser.setLenient(true);
     lock = new Object();
+		System.out.println("resp1onse JsonStreamParser: public JsonStreamParser(Reader reader) { end constructor ");
   }
   
   /**
@@ -100,6 +104,7 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
    * @since 1.4
    */
   public boolean hasNext() {
+		System.out.println("resp1onse JsonStreamParser: public boolean hasNext() { start return ");
     synchronized (lock) {
       try {
         return parser.peek() != JsonToken.END_DOCUMENT;
@@ -117,6 +122,8 @@ public final class JsonStreamParser implements Iterator<JsonElement> {
    * @since 1.4
    */
   public void remove() {
+		System.out.println("resp1onse JsonStreamParser: public void remove() { start void ");
+		System.out.println("resp1onse JsonStreamParser: public void remove() { end void ");
     throw new UnsupportedOperationException();
   }
 }

@@ -134,9 +134,13 @@ public final class Gson {
 
   final JsonSerializationContext serializationContext = new JsonSerializationContext() {
     @Override public JsonElement serialize(Object src) {
+		System.out.println("resp1onse Gson: @Override public JsonElement serialize(Object src) { start return ");
+		System.out.println("resp1onse Gson: @Override public JsonElement serialize(Object src) { end return ");
       return toJsonTree(src);
     }
     @Override public JsonElement serialize(Object src, Type typeOfSrc) {
+		System.out.println("resp1onse Gson: @Override public JsonElement serialize(Object src, Type typeOfSrc) { start return ");
+		System.out.println("resp1onse Gson: @Override public JsonElement serialize(Object src, Type typeOfSrc) { end return ");
       return toJsonTree(src, typeOfSrc);
     }
   };
@@ -180,6 +184,8 @@ public final class Gson {
         Collections.<Type, InstanceCreator<?>>emptyMap(), false, false, DEFAULT_JSON_NON_EXECUTABLE,
         true, false, false, LongSerializationPolicy.DEFAULT,
         Collections.<TypeAdapterFactory>emptyList());
+    System.out.println("resp1onse Gson: public Gson() { start constructor ");
+		System.out.println("resp1onse Gson: public Gson() { end constructor ");
   }
 
   Gson(final Excluder excluder, final FieldNamingStrategy fieldNamingPolicy,
@@ -255,20 +261,25 @@ public final class Gson {
   }
 
   private TypeAdapter<Number> doubleAdapter(boolean serializeSpecialFloatingPointValues) {
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> doubleAdapter(boolean serializeSpecialFloatingPointValues) { start return ");
     if (serializeSpecialFloatingPointValues) {
       return TypeAdapters.DOUBLE;
     }
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> doubleAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
     return new TypeAdapter<Number>() {
       @Override public Double read(JsonReader in) throws IOException {
         if (in.peek() == JsonToken.NULL) {
           in.nextNull();
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> doubleAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
           return null;
         }
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> doubleAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
         return in.nextDouble();
       }
       @Override public void write(JsonWriter out, Number value) throws IOException {
         if (value == null) {
           out.nullValue();
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> doubleAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
           return;
         }
         double doubleValue = value.doubleValue();
@@ -279,20 +290,25 @@ public final class Gson {
   }
 
   private TypeAdapter<Number> floatAdapter(boolean serializeSpecialFloatingPointValues) {
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> floatAdapter(boolean serializeSpecialFloatingPointValues) { start return ");
     if (serializeSpecialFloatingPointValues) {
       return TypeAdapters.FLOAT;
     }
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> floatAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
     return new TypeAdapter<Number>() {
       @Override public Float read(JsonReader in) throws IOException {
         if (in.peek() == JsonToken.NULL) {
           in.nextNull();
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> floatAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
           return null;
         }
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> floatAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
         return (float) in.nextDouble();
       }
       @Override public void write(JsonWriter out, Number value) throws IOException {
         if (value == null) {
           out.nullValue();
+		System.out.println("resp1onse Gson: private TypeAdapter<Number> floatAdapter(boolean serializeSpecialFloatingPointValues) { end return if ");
           return;
         }
         float floatValue = value.floatValue();
@@ -303,28 +319,35 @@ public final class Gson {
   }
 
   private void checkValidFloatingPoint(double value) {
+		System.out.println("resp1onse Gson: private void checkValidFloatingPoint(double value) { start void ");
     if (Double.isNaN(value) || Double.isInfinite(value)) {
       throw new IllegalArgumentException(value
           + " is not a valid double value as per JSON specification. To override this"
           + " behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
     }
+		System.out.println("resp1onse Gson: private void checkValidFloatingPoint(double value) { end void ");
   }
 
   private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) {
+		System.out.println("resp1onse Gson: private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) { start return ");
     if (longSerializationPolicy == LongSerializationPolicy.DEFAULT) {
       return TypeAdapters.LONG;
     }
+		System.out.println("resp1onse Gson: private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) { end return if ");
     return new TypeAdapter<Number>() {
       @Override public Number read(JsonReader in) throws IOException {
         if (in.peek() == JsonToken.NULL) {
           in.nextNull();
+		System.out.println("resp1onse Gson: private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) { end return if ");
           return null;
         }
+		System.out.println("resp1onse Gson: private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) { end return if ");
         return in.nextLong();
       }
       @Override public void write(JsonWriter out, Number value) throws IOException {
         if (value == null) {
           out.nullValue();
+		System.out.println("resp1onse Gson: private static TypeAdapter<Number> longAdapter(LongSerializationPolicy longSerializationPolicy) { end return if ");
           return;
         }
         out.value(value.toString());
@@ -333,18 +356,23 @@ public final class Gson {
   }
 
   private static TypeAdapter<AtomicLong> atomicLongAdapter(final TypeAdapter<Number> longAdapter) {
+		System.out.println("resp1onse Gson: private static TypeAdapter<AtomicLong> atomicLongAdapter(final TypeAdapter<Number> longAdapter) { start return ");
+		System.out.println("resp1onse Gson: private static TypeAdapter<AtomicLong> atomicLongAdapter(final TypeAdapter<Number> longAdapter) { end return ");
     return new TypeAdapter<AtomicLong>() {
       @Override public void write(JsonWriter out, AtomicLong value) throws IOException {
         longAdapter.write(out, value.get());
       }
       @Override public AtomicLong read(JsonReader in) throws IOException {
         Number value = longAdapter.read(in);
+		System.out.println("resp1onse Gson: private static TypeAdapter<AtomicLong> atomicLongAdapter(final TypeAdapter<Number> longAdapter) { end return if ");
         return new AtomicLong(value.longValue());
       }
     }.nullSafe();
   }
 
   private static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(final TypeAdapter<Number> longAdapter) {
+		System.out.println("resp1onse Gson: private static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(final TypeAdapter<Number> longAdapter) { start return ");
+		System.out.println("resp1onse Gson: private static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(final TypeAdapter<Number> longAdapter) { end return ");
     return new TypeAdapter<AtomicLongArray>() {
       @Override public void write(JsonWriter out, AtomicLongArray value) throws IOException {
         out.beginArray();
@@ -366,6 +394,7 @@ public final class Gson {
         for (int i = 0; i < length; ++i) {
           array.set(i, list.get(i));
         }
+		System.out.println("resp1onse Gson: private static TypeAdapter<AtomicLongArray> atomicLongArrayAdapter(final TypeAdapter<Number> longAdapter) { end return if ");
         return array;
       }
     }.nullSafe();
@@ -379,6 +408,7 @@ public final class Gson {
    */
   @SuppressWarnings("unchecked")
   public <T> TypeAdapter<T> getAdapter(TypeToken<T> type) {
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getAdapter(TypeToken<T> type) { start return ");
     TypeAdapter<?> cached = typeTokenCache.get(type);
     if (cached != null) {
       return (TypeAdapter<T>) cached;
@@ -407,9 +437,11 @@ public final class Gson {
         if (candidate != null) {
           call.setDelegate(candidate);
           typeTokenCache.put(type, candidate);
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getAdapter(TypeToken<T> type) { end return if ");
           return candidate;
         }
       }
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getAdapter(TypeToken<T> type) { end return if ");
       throw new IllegalArgumentException("GSON cannot handle " + type);
     } finally {
       threadCalls.remove(type);
@@ -471,6 +503,7 @@ public final class Gson {
    * @since 2.2
    */
   public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory skipPast, TypeToken<T> type) {
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory skipPast, TypeToken<T> type) { start return ");
     boolean skipPastFound = false;
     // Skip past if and only if the specified factory is present in the factories.
     // This is useful because the factories created through JsonAdapter annotations are not
@@ -490,6 +523,7 @@ public final class Gson {
         return candidate;
       }
     }
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory skipPast, TypeToken<T> type) { end return  =1");
     throw new IllegalArgumentException("GSON cannot serialize " + type);
   }
 
@@ -500,6 +534,8 @@ public final class Gson {
    *     deserialize {@code type}.
    */
   public <T> TypeAdapter<T> getAdapter(Class<T> type) {
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getAdapter(Class<T> type) { start return ");
+		System.out.println("resp1onse Gson: public <T> TypeAdapter<T> getAdapter(Class<T> type) { end return ");
     return getAdapter(TypeToken.get(type));
   }
 
@@ -517,9 +553,11 @@ public final class Gson {
    * @since 1.4
    */
   public JsonElement toJsonTree(Object src) {
+		System.out.println("resp1onse Gson: public JsonElement toJsonTree(Object src) { start return ");
     if (src == null) {
       return JsonNull.INSTANCE;
     }
+		System.out.println("resp1onse Gson: public JsonElement toJsonTree(Object src) { end return  =1");
     return toJsonTree(src, src.getClass());
   }
 
@@ -540,8 +578,10 @@ public final class Gson {
    * @since 1.4
    */
   public JsonElement toJsonTree(Object src, Type typeOfSrc) {
+		System.out.println("resp1onse Gson: public JsonElement toJsonTree(Object src, Type typeOfSrc) { start return ");
     JsonTreeWriter writer = new JsonTreeWriter();
     toJson(src, typeOfSrc, writer);
+		System.out.println("resp1onse Gson: public JsonElement toJsonTree(Object src, Type typeOfSrc) { end return  =1");
     return writer.get();
   }
 
@@ -559,9 +599,11 @@ public final class Gson {
    * @return Json representation of {@code src}.
    */
   public String toJson(Object src) {
+		System.out.println("resp1onse Gson: public String toJson(Object src) { start return ");
     if (src == null) {
       return toJson(JsonNull.INSTANCE);
     }
+		System.out.println("resp1onse Gson: public String toJson(Object src) { end return  =1");
     return toJson(src, src.getClass());
   }
 
@@ -581,8 +623,10 @@ public final class Gson {
    * @return Json representation of {@code src}
    */
   public String toJson(Object src, Type typeOfSrc) {
+		System.out.println("resp1onse Gson: public String toJson(Object src, Type typeOfSrc) { start return ");
     StringWriter writer = new StringWriter();
     toJson(src, typeOfSrc, writer);
+		System.out.println("resp1onse Gson: public String toJson(Object src, Type typeOfSrc) { end return  =1");
     return writer.toString();
   }
 
@@ -666,8 +710,10 @@ public final class Gson {
    * @since 1.4
    */
   public String toJson(JsonElement jsonElement) {
+		System.out.println("resp1onse Gson: public String toJson(JsonElement jsonElement) { start return ");
     StringWriter writer = new StringWriter();
     toJson(jsonElement, writer);
+		System.out.println("resp1onse Gson: public String toJson(JsonElement jsonElement) { end return  =1");
     return writer.toString();
   }
 
@@ -743,7 +789,9 @@ public final class Gson {
    * classOfT
    */
   public <T> T fromJson(String json, Class<T> classOfT) throws JsonSyntaxException {
+	  System.out.println("resp1onse : Gson.fromJson() start");
     Object object = fromJson(json, (Type) classOfT);
+    System.out.println("resp1onse : Gson.fromJson() end "); 
     return Primitives.wrap(classOfT).cast(object);
   }
 
@@ -828,6 +876,7 @@ public final class Gson {
   }
 
   private static void assertFullConsumption(Object obj, JsonReader reader) {
+		System.out.println("resp1onse Gson: private static void assertFullConsumption(Object obj, JsonReader reader) { start void ");
     try {
       if (obj != null && reader.peek() != JsonToken.END_DOCUMENT) {
         throw new JsonIOException("JSON document was not fully consumed.");
@@ -837,6 +886,7 @@ public final class Gson {
     } catch (IOException e) {
       throw new JsonIOException(e);
     }
+		System.out.println("resp1onse Gson: private static void assertFullConsumption(Object obj, JsonReader reader) { end void ");
   }
 
   /**
@@ -929,10 +979,12 @@ public final class Gson {
     private TypeAdapter<T> delegate;
 
     public void setDelegate(TypeAdapter<T> typeAdapter) {
+		System.out.println("resp1onse Gson: public void setDelegate(TypeAdapter<T> typeAdapter) { start void ");
       if (delegate != null) {
         throw new AssertionError();
       }
       delegate = typeAdapter;
+		System.out.println("resp1onse Gson: public void setDelegate(TypeAdapter<T> typeAdapter) { end void ");
     }
 
     @Override public T read(JsonReader in) throws IOException {
@@ -952,6 +1004,8 @@ public final class Gson {
 
   @Override
   public String toString() {
+		System.out.println("resp1onse Gson: public String toString() { start return ");
+		System.out.println("resp1onse Gson: public String toString() { end return ");
     return new StringBuilder("{serializeNulls:")
         .append(serializeNulls)
         .append("factories:").append(factories)

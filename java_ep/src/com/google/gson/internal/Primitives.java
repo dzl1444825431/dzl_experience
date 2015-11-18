@@ -30,6 +30,8 @@ import java.util.Map;
  */
 public final class Primitives {
   private Primitives() {
+	  System.out.println("resp1onse Primitives: private Primitives() { start constructor ");
+	  System.out.println("resp1onse Primitives: private Primitives() { end constructor ");
     throw new UnsupportedOperationException();
   }
 
@@ -69,6 +71,8 @@ public final class Primitives {
    * Returns true if this type is a primitive.
    */
   public static boolean isPrimitive(Type type) {
+		System.out.println("resp1onse Primitives: public static boolean isPrimitive(Type type) { start return ");
+		System.out.println("resp1onse Primitives: public static boolean isPrimitive(Type type) { end return ");
     return PRIMITIVE_TO_WRAPPER_TYPE.containsKey(type);
   }
 
@@ -79,6 +83,8 @@ public final class Primitives {
    * @see Class#isPrimitive
    */
   public static boolean isWrapperType(Type type) {
+		System.out.println("resp1onse Primitives: public static boolean isWrapperType(Type type) { start return ");
+		System.out.println("resp1onse Primitives: public static boolean isWrapperType(Type type) { end return ");
     return WRAPPER_TO_PRIMITIVE_TYPE.containsKey(
         $Gson$Preconditions.checkNotNull(type));
   }
@@ -94,9 +100,11 @@ public final class Primitives {
    */
   public static <T> Class<T> wrap(Class<T> type) {
     // cast is safe: long.class and Long.class are both of type Class<Long>
+		System.out.println("resp1onse Primitives: public static <T> Class<T> wrap(Class<T> type) { start return ");
     @SuppressWarnings("unchecked")
     Class<T> wrapped = (Class<T>) PRIMITIVE_TO_WRAPPER_TYPE.get(
         $Gson$Preconditions.checkNotNull(type));
+		System.out.println("resp1onse Primitives: public static <T> Class<T> wrap(Class<T> type) { end return  =1");
     return (wrapped == null) ? type : wrapped;
   }
 
@@ -111,9 +119,11 @@ public final class Primitives {
    */
   public static <T> Class<T> unwrap(Class<T> type) {
     // cast is safe: long.class and Long.class are both of type Class<Long>
+		System.out.println("resp1onse Primitives: public static <T> Class<T> unwrap(Class<T> type) { start return ");
     @SuppressWarnings("unchecked")
     Class<T> unwrapped = (Class<T>) WRAPPER_TO_PRIMITIVE_TYPE.get(
         $Gson$Preconditions.checkNotNull(type));
+		System.out.println("resp1onse Primitives: public static <T> Class<T> unwrap(Class<T> type) { end return  =1");
     return (unwrapped == null) ? type : unwrapped;
   }
 }

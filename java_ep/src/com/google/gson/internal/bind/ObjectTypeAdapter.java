@@ -38,9 +38,11 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
   public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
     @SuppressWarnings("unchecked")
     @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+		System.out.println("resp1onse ObjectTypeAdapter: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) { start return ");
       if (type.getRawType() == Object.class) {
         return (TypeAdapter<T>) new ObjectTypeAdapter(gson);
       }
+		System.out.println("resp1onse ObjectTypeAdapter: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) { end return  =1");
       return null;
     }
   };
@@ -49,6 +51,8 @@ public final class ObjectTypeAdapter extends TypeAdapter<Object> {
 
   private ObjectTypeAdapter(Gson gson) {
     this.gson = gson;
+		System.out.println("resp1onse ObjectTypeAdapter: private ObjectTypeAdapter(Gson gson) { start constructor ");
+		System.out.println("resp1onse ObjectTypeAdapter: private ObjectTypeAdapter(Gson gson) { end constructor ");
   }
 
   @Override public Object read(JsonReader in) throws IOException {

@@ -183,6 +183,8 @@ public abstract class TypeAdapter<T> {
    * Note that we didn't need to check for nulls in our type adapter after we used nullSafe.
    */
   public final TypeAdapter<T> nullSafe() {
+		System.out.println("resp1onse TypeAdapter: public final TypeAdapter<T> nullSafe() { start return ");
+		System.out.println("resp1onse TypeAdapter: public final TypeAdapter<T> nullSafe() { end return ");
     return new TypeAdapter<T>() {
       @Override public void write(JsonWriter out, T value) throws IOException {
         if (value == null) {
@@ -194,8 +196,10 @@ public abstract class TypeAdapter<T> {
       @Override public T read(JsonReader reader) throws IOException {
         if (reader.peek() == JsonToken.NULL) {
           reader.nextNull();
+		System.out.println("resp1onse TypeAdapter: public final TypeAdapter<T> nullSafe() { end return if ");
           return null;
         }
+		System.out.println("resp1onse TypeAdapter: public final TypeAdapter<T> nullSafe() { end return if ");
         return TypeAdapter.this.read(reader);
       }
     };
@@ -212,12 +216,14 @@ public abstract class TypeAdapter<T> {
    * @since 2.2
    */
   public final String toJson(T value) {
+		System.out.println("resp1onse TypeAdapter: public final String toJson(T value) { start return ");
     StringWriter stringWriter = new StringWriter();
     try {
       toJson(stringWriter, value);
     } catch (IOException e) {
       throw new AssertionError(e); // No I/O writing to a StringWriter.
     }
+		System.out.println("resp1onse TypeAdapter: public final String toJson(T value) { end return  =1");
     return stringWriter.toString();
   }
 
@@ -229,9 +235,11 @@ public abstract class TypeAdapter<T> {
    * @since 2.2
    */
   public final JsonElement toJsonTree(T value) {
+		System.out.println("resp1onse TypeAdapter: public final JsonElement toJsonTree(T value) { start return ");
     try {
       JsonTreeWriter jsonWriter = new JsonTreeWriter();
       write(jsonWriter, value);
+		System.out.println("resp1onse TypeAdapter: public final JsonElement toJsonTree(T value) { end return if ");
       return jsonWriter.get();
     } catch (IOException e) {
       throw new JsonIOException(e);
@@ -280,8 +288,10 @@ public abstract class TypeAdapter<T> {
    * @since 2.2
    */
   public final T fromJsonTree(JsonElement jsonTree) {
+		System.out.println("resp1onse TypeAdapter: public final T fromJsonTree(JsonElement jsonTree) { start return ");
     try {
       JsonReader jsonReader = new JsonTreeReader(jsonTree);
+		System.out.println("resp1onse TypeAdapter: public final T fromJsonTree(JsonElement jsonTree) { end return if ");
       return read(jsonReader);
     } catch (IOException e) {
       throw new JsonIOException(e);

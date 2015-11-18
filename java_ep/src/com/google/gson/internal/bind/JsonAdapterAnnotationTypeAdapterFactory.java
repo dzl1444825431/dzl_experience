@@ -35,15 +35,19 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
 
   public JsonAdapterAnnotationTypeAdapterFactory(ConstructorConstructor constructorConstructor) {
     this.constructorConstructor = constructorConstructor;
+		System.out.println("resp1onse JsonAdapterAnnotationTypeAdapterFactory: public JsonAdapterAnnotationTypeAdapterFactory(ConstructorConstructor constructorConstructor) { start constructor ");
+		System.out.println("resp1onse JsonAdapterAnnotationTypeAdapterFactory: public JsonAdapterAnnotationTypeAdapterFactory(ConstructorConstructor constructorConstructor) { end constructor ");
   }
 
   @SuppressWarnings("unchecked")
   @Override
   public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> targetType) {
+		System.out.println("resp1onse JsonAdapterAnnotationTypeAdapterFactory: public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> targetType) { start return ");
     JsonAdapter annotation = targetType.getRawType().getAnnotation(JsonAdapter.class);
     if (annotation == null) {
       return null;
     }
+		System.out.println("resp1onse JsonAdapterAnnotationTypeAdapterFactory: public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> targetType) { end return  =1");
     return (TypeAdapter<T>) getTypeAdapter(constructorConstructor, gson, targetType, annotation);
   }
 

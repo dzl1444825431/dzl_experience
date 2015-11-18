@@ -51,7 +51,9 @@ public final class JsonTreeReader extends JsonReader {
 
   public JsonTreeReader(JsonElement element) {
     super(UNREADABLE_READER);
+		System.out.println("resp1onse JsonTreeReader: public JsonTreeReader(JsonElement element) { start constructor ");
     stack.add(element);
+		System.out.println("resp1onse JsonTreeReader: public JsonTreeReader(JsonElement element) { end constructor ");
   }
 
   @Override public void beginArray() throws IOException {
@@ -127,10 +129,14 @@ public final class JsonTreeReader extends JsonReader {
   }
 
   private Object peekStack() {
+		System.out.println("resp1onse JsonTreeReader: private Object peekStack() { start return ");
+		System.out.println("resp1onse JsonTreeReader: private Object peekStack() { end return ");
     return stack.get(stack.size() - 1);
   }
 
   private Object popStack() {
+		System.out.println("resp1onse JsonTreeReader: private Object popStack() { start return ");
+		System.out.println("resp1onse JsonTreeReader: private Object popStack() { end return ");
     return stack.remove(stack.size() - 1);
   }
 
@@ -213,6 +219,8 @@ public final class JsonTreeReader extends JsonReader {
   }
 
   @Override public String toString() {
+		System.out.println("resp1onse JsonTreeReader: @Override public String toString() { start return ");
+		System.out.println("resp1onse JsonTreeReader: @Override public String toString() { end return ");
     return getClass().getSimpleName();
   }
 

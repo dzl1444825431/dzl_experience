@@ -113,6 +113,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
   }
 
   @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse MapTypeAdapterFactory: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
     Type type = typeToken.getType();
 
     Class<? super T> rawType = typeToken.getRawType();
@@ -130,6 +131,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     // we don't define a type parameter for the key or value types
     TypeAdapter<T> result = new Adapter(gson, keyAndValueTypes[0], keyAdapter,
         keyAndValueTypes[1], valueAdapter, constructor);
+		System.out.println("resp1onse MapTypeAdapterFactory: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return  =1");
     return result;
   }
 
@@ -137,6 +139,8 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
    * Returns a type adapter that writes the value as a string.
    */
   private TypeAdapter<?> getKeyAdapter(Gson context, Type keyType) {
+		System.out.println("resp1onse MapTypeAdapterFactory: private TypeAdapter<?> getKeyAdapter(Gson context, Type keyType) { start return ");
+		System.out.println("resp1onse MapTypeAdapterFactory: private TypeAdapter<?> getKeyAdapter(Gson context, Type keyType) { end return ");
     return (keyType == boolean.class || keyType == Boolean.class)
         ? TypeAdapters.BOOLEAN_AS_STRING
         : context.getAdapter(TypeToken.get(keyType));
@@ -243,6 +247,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     private String keyToString(JsonElement keyElement) {
+		System.out.println("resp1onse MapTypeAdapterFactory: private String keyToString(JsonElement keyElement) { start return ");
       if (keyElement.isJsonPrimitive()) {
         JsonPrimitive primitive = keyElement.getAsJsonPrimitive();
         if (primitive.isNumber()) {

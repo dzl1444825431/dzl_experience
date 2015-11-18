@@ -91,6 +91,7 @@ public final class GsonBuilder {
    * {@link #create()}.
    */
   public GsonBuilder() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder() { end constructor ");
   }
 
   /**
@@ -101,7 +102,9 @@ public final class GsonBuilder {
    * @return a reference to this {@code GsonBuilder} object to fulfill the "Builder" pattern
    */
   public GsonBuilder setVersion(double ignoreVersionsAfter) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setVersion(double ignoreVersionsAfter) { start return ");
     excluder = excluder.withVersion(ignoreVersionsAfter);
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setVersion(double ignoreVersionsAfter) { end return  =1");
     return this;
   }
 
@@ -117,7 +120,9 @@ public final class GsonBuilder {
    * @return a reference to this {@code GsonBuilder} object to fulfill the "Builder" pattern
    */
   public GsonBuilder excludeFieldsWithModifiers(int... modifiers) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder excludeFieldsWithModifiers(int... modifiers) { start return ");
     excluder = excluder.withModifiers(modifiers);
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder excludeFieldsWithModifiers(int... modifiers) { end return  =1");
     return this;
   }
 
@@ -131,7 +136,9 @@ public final class GsonBuilder {
    * @since 1.3
    */
   public GsonBuilder generateNonExecutableJson() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder generateNonExecutableJson() { start return ");
     this.generateNonExecutableJson = true;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder generateNonExecutableJson() { end return  =1");
     return this;
   }
 
@@ -142,7 +149,9 @@ public final class GsonBuilder {
    * @return a reference to this {@code GsonBuilder} object to fulfill the "Builder" pattern
    */
   public GsonBuilder excludeFieldsWithoutExposeAnnotation() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder excludeFieldsWithoutExposeAnnotation() { start return ");
     excluder = excluder.excludeFieldsWithoutExposeAnnotation();
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder excludeFieldsWithoutExposeAnnotation() { end return  =1");
     return this;
   }
 
@@ -154,7 +163,9 @@ public final class GsonBuilder {
    * @since 1.2
    */
   public GsonBuilder serializeNulls() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder serializeNulls() { start return ");
     this.serializeNulls = true;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder serializeNulls() { end return  =1");
     return this;
   }
 
@@ -235,7 +246,9 @@ public final class GsonBuilder {
    * @since 1.7
    */
   public GsonBuilder enableComplexMapKeySerialization() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder enableComplexMapKeySerialization() { start return ");
     complexMapKeySerialization = true;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder enableComplexMapKeySerialization() { end return  =1");
     return this;
   }
 
@@ -246,7 +259,9 @@ public final class GsonBuilder {
    * @since 1.3
    */
   public GsonBuilder disableInnerClassSerialization() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder disableInnerClassSerialization() { start return ");
     excluder = excluder.disableInnerClassSerialization();
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder disableInnerClassSerialization() { end return  =1");
     return this;
   }
 
@@ -259,7 +274,9 @@ public final class GsonBuilder {
    * @since 1.3
    */
   public GsonBuilder setLongSerializationPolicy(LongSerializationPolicy serializationPolicy) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setLongSerializationPolicy(LongSerializationPolicy serializationPolicy) { start return ");
     this.longSerializationPolicy = serializationPolicy;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setLongSerializationPolicy(LongSerializationPolicy serializationPolicy) { end return  =1");
     return this;
   }
 
@@ -272,7 +289,9 @@ public final class GsonBuilder {
    * @return a reference to this {@code GsonBuilder} object to fulfill the "Builder" pattern
    */
   public GsonBuilder setFieldNamingPolicy(FieldNamingPolicy namingConvention) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setFieldNamingPolicy(FieldNamingPolicy namingConvention) { start return ");
     this.fieldNamingPolicy = namingConvention;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setFieldNamingPolicy(FieldNamingPolicy namingConvention) { end return  =1");
     return this;
   }
 
@@ -285,7 +304,9 @@ public final class GsonBuilder {
    * @since 1.3
    */
   public GsonBuilder setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) { start return ");
     this.fieldNamingPolicy = fieldNamingStrategy;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setFieldNamingStrategy(FieldNamingStrategy fieldNamingStrategy) { end return  =1");
     return this;
   }
 
@@ -300,9 +321,11 @@ public final class GsonBuilder {
    * @since 1.4
    */
   public GsonBuilder setExclusionStrategies(ExclusionStrategy... strategies) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setExclusionStrategies(ExclusionStrategy... strategies) { start return ");
     for (ExclusionStrategy strategy : strategies) {
       excluder = excluder.withExclusionStrategy(strategy, true, true);
     }
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setExclusionStrategies(ExclusionStrategy... strategies) { end return  =1");
     return this;
   }
 
@@ -319,7 +342,9 @@ public final class GsonBuilder {
    * @since 1.7
    */
   public GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy strategy) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy strategy) { start return ");
     excluder = excluder.withExclusionStrategy(strategy, true, false);
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder addSerializationExclusionStrategy(ExclusionStrategy strategy) { end return  =1");
     return this;
   }
 
@@ -336,7 +361,9 @@ public final class GsonBuilder {
    * @since 1.7
    */
   public GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy strategy) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy strategy) { start return ");
     excluder = excluder.withExclusionStrategy(strategy, false, true);
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder addDeserializationExclusionStrategy(ExclusionStrategy strategy) { end return  =1");
     return this;
   }
 
@@ -347,7 +374,9 @@ public final class GsonBuilder {
    * @return a reference to this {@code GsonBuilder} object to fulfill the "Builder" pattern
    */
   public GsonBuilder setPrettyPrinting() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setPrettyPrinting() { start return ");
     prettyPrinting = true;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setPrettyPrinting() { end return  =1");
     return this;
   }
 
@@ -359,7 +388,9 @@ public final class GsonBuilder {
    * @since 1.3
    */
   public GsonBuilder disableHtmlEscaping() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder disableHtmlEscaping() { start return ");
     this.escapeHtmlChars = false;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder disableHtmlEscaping() { end return  =1");
     return this;
   }
 
@@ -381,7 +412,9 @@ public final class GsonBuilder {
    */
   public GsonBuilder setDateFormat(String pattern) {
     // TODO(Joel): Make this fail fast if it is an invalid date format
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setDateFormat(String pattern) { start return ");
     this.datePattern = pattern;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setDateFormat(String pattern) { end return  =1");
     return this;
   }
 
@@ -400,8 +433,10 @@ public final class GsonBuilder {
    * @since 1.2
    */
   public GsonBuilder setDateFormat(int style) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setDateFormat(int style) { start return ");
     this.dateStyle = style;
     this.datePattern = null;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setDateFormat(int style) { end return  =1");
     return this;
   }
 
@@ -421,9 +456,11 @@ public final class GsonBuilder {
    * @since 1.2
    */
   public GsonBuilder setDateFormat(int dateStyle, int timeStyle) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setDateFormat(int dateStyle, int timeStyle) { start return ");
     this.dateStyle = dateStyle;
     this.timeStyle = timeStyle;
     this.datePattern = null;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder setDateFormat(int dateStyle, int timeStyle) { end return  =1");
     return this;
   }
 
@@ -445,6 +482,7 @@ public final class GsonBuilder {
    */
   @SuppressWarnings({"unchecked", "rawtypes"})
   public GsonBuilder registerTypeAdapter(Type type, Object typeAdapter) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder registerTypeAdapter(Type type, Object typeAdapter) { start return ");
     $Gson$Preconditions.checkArgument(typeAdapter instanceof JsonSerializer<?>
         || typeAdapter instanceof JsonDeserializer<?>
         || typeAdapter instanceof InstanceCreator<?>
@@ -459,6 +497,7 @@ public final class GsonBuilder {
     if (typeAdapter instanceof TypeAdapter<?>) {
       factories.add(TypeAdapters.newFactory(TypeToken.get(type), (TypeAdapter)typeAdapter));
     }
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder registerTypeAdapter(Type type, Object typeAdapter) { end return  =1");
     return this;
   }
 
@@ -471,7 +510,9 @@ public final class GsonBuilder {
    * @since 2.1
    */
   public GsonBuilder registerTypeAdapterFactory(TypeAdapterFactory factory) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder registerTypeAdapterFactory(TypeAdapterFactory factory) { start return ");
     factories.add(factory);
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder registerTypeAdapterFactory(TypeAdapterFactory factory) { end return  =1");
     return this;
   }
 
@@ -491,6 +532,7 @@ public final class GsonBuilder {
    */
   @SuppressWarnings({"unchecked", "rawtypes"})
   public GsonBuilder registerTypeHierarchyAdapter(Class<?> baseType, Object typeAdapter) {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder registerTypeHierarchyAdapter(Class<?> baseType, Object typeAdapter) { start return ");
     $Gson$Preconditions.checkArgument(typeAdapter instanceof JsonSerializer<?>
         || typeAdapter instanceof JsonDeserializer<?>
         || typeAdapter instanceof TypeAdapter<?>);
@@ -501,6 +543,7 @@ public final class GsonBuilder {
     if (typeAdapter instanceof TypeAdapter<?>) {
       factories.add(TypeAdapters.newTypeHierarchyFactory(baseType, (TypeAdapter)typeAdapter));
     }
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder registerTypeHierarchyAdapter(Class<?> baseType, Object typeAdapter) { end return  =1");
     return this;
   }
 
@@ -525,7 +568,9 @@ public final class GsonBuilder {
    * @since 1.3
    */
   public GsonBuilder serializeSpecialFloatingPointValues() {
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder serializeSpecialFloatingPointValues() { start return ");
     this.serializeSpecialFloatingPointValues = true;
+		System.out.println("resp1onse GsonBuilder: public GsonBuilder serializeSpecialFloatingPointValues() { end return  =1");
     return this;
   }
 
@@ -536,12 +581,14 @@ public final class GsonBuilder {
    * @return an instance of Gson configured with the options currently set in this builder
    */
   public Gson create() {
+		System.out.println("resp1onse GsonBuilder: public Gson create() { start return ");
     List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>();
     factories.addAll(this.factories);
     Collections.reverse(factories);
     factories.addAll(this.hierarchyFactories);
     addTypeAdaptersForDate(datePattern, dateStyle, timeStyle, factories);
 
+		System.out.println("resp1onse GsonBuilder: public Gson create() { end return  =1");
     return new Gson(excluder, fieldNamingPolicy, instanceCreators,
         serializeNulls, complexMapKeySerialization,
         generateNonExecutableJson, escapeHtmlChars, prettyPrinting,

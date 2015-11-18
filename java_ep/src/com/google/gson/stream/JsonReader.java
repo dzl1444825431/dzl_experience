@@ -287,10 +287,12 @@ public class JsonReader implements Closeable {
    * Creates a new instance that reads a JSON-encoded stream from {@code in}.
    */
   public JsonReader(Reader in) {
+		System.out.println("resp1onse JsonReader: public JsonReader(Reader in) { start constructor ");
     if (in == null) {
       throw new NullPointerException("in == null");
     }
     this.in = in;
+		System.out.println("resp1onse JsonReader: public JsonReader(Reader in) { end constructor ");
   }
 
   /**
@@ -323,13 +325,17 @@ public class JsonReader implements Closeable {
    * </ul>
    */
   public final void setLenient(boolean lenient) {
+		System.out.println("resp1onse JsonReader: public final void setLenient(boolean lenient) { start void ");
     this.lenient = lenient;
+		System.out.println("resp1onse JsonReader: public final void setLenient(boolean lenient) { end void ");
   }
 
   /**
    * Returns true if this parser is liberal in what it accepts.
    */
   public final boolean isLenient() {
+		System.out.println("resp1onse JsonReader: public final boolean isLenient() { start return ");
+		System.out.println("resp1onse JsonReader: public final boolean isLenient() { end return ");
     return lenient;
   }
 
@@ -1266,6 +1272,7 @@ public class JsonReader implements Closeable {
   }
 
   private void push(int newTop) {
+		System.out.println("resp1onse JsonReader: private void push(int newTop) { start void ");
     if (stackSize == stack.length) {
       int[] newStack = new int[stackSize * 2];
       int[] newPathIndices = new int[stackSize * 2];
@@ -1278,6 +1285,7 @@ public class JsonReader implements Closeable {
       pathNames = newPathNames;
     }
     stack[stackSize++] = newTop;
+		System.out.println("resp1onse JsonReader: private void push(int newTop) { end void ");
   }
 
   /**
@@ -1315,10 +1323,14 @@ public class JsonReader implements Closeable {
   }
 
   private int getLineNumber() {
+		System.out.println("resp1onse JsonReader: private int getLineNumber() { start return ");
+		System.out.println("resp1onse JsonReader: private int getLineNumber() { end return ");
     return lineNumber + 1;
   }
 
   private int getColumnNumber() {
+		System.out.println("resp1onse JsonReader: private int getColumnNumber() { start return ");
+		System.out.println("resp1onse JsonReader: private int getColumnNumber() { end return ");
     return pos - lineStart + 1;
   }
 
@@ -1464,6 +1476,8 @@ public class JsonReader implements Closeable {
   }
 
   @Override public String toString() {
+		System.out.println("resp1onse JsonReader: @Override public String toString() { start return ");
+		System.out.println("resp1onse JsonReader: @Override public String toString() { end return ");
     return getClass().getSimpleName()
         + " at line " + getLineNumber() + " column " + getColumnNumber();
   }
@@ -1473,6 +1487,7 @@ public class JsonReader implements Closeable {
    * the current location in the JSON value.
    */
   public String getPath() {
+		System.out.println("resp1onse JsonReader: public String getPath() { start return ");
     StringBuilder result = new StringBuilder().append('$');
     for (int i = 0, size = stackSize; i < size; i++) {
       switch (stack[i]) {
@@ -1496,6 +1511,7 @@ public class JsonReader implements Closeable {
           break;
       }
     }
+		System.out.println("resp1onse JsonReader: public String getPath() { end return  =1");
     return result.toString();
   }
 

@@ -44,7 +44,9 @@ public final class JsonPrimitive extends JsonElement {
    * @param bool the value to create the primitive with.
    */
   public JsonPrimitive(Boolean bool) {
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(Boolean bool) { start constructor ");
     setValue(bool);
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(Boolean bool) { end constructor ");
   }
 
   /**
@@ -53,7 +55,9 @@ public final class JsonPrimitive extends JsonElement {
    * @param number the value to create the primitive with.
    */
   public JsonPrimitive(Number number) {
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(Number number) { start constructor ");
     setValue(number);
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(Number number) { end constructor ");
   }
 
   /**
@@ -62,7 +66,9 @@ public final class JsonPrimitive extends JsonElement {
    * @param string the value to create the primitive with.
    */
   public JsonPrimitive(String string) {
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(String string) { start constructor ");
     setValue(string);
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(String string) { end constructor ");
   }
 
   /**
@@ -72,7 +78,9 @@ public final class JsonPrimitive extends JsonElement {
    * @param c the value to create the primitive with.
    */
   public JsonPrimitive(Character c) {
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(Character c) { start constructor ");
     setValue(c);
+		System.out.println("resp1onse JsonPrimitive: public JsonPrimitive(Character c) { end constructor ");
   }
 
   /**
@@ -91,6 +99,7 @@ public final class JsonPrimitive extends JsonElement {
   }
 
   void setValue(Object primitive) {
+		System.out.println("resp1onse JsonPrimitive: void setValue(Object primitive) { start void ");
     if (primitive instanceof Character) {
       // convert characters to strings since in JSON, characters are represented as a single
       // character string
@@ -101,6 +110,7 @@ public final class JsonPrimitive extends JsonElement {
               || isPrimitiveOrString(primitive));
       this.value = primitive;
     }
+		System.out.println("resp1onse JsonPrimitive: void setValue(Object primitive) { end void ");
   }
 
   /**
@@ -109,6 +119,8 @@ public final class JsonPrimitive extends JsonElement {
    * @return true if this primitive contains a boolean value, false otherwise.
    */
   public boolean isBoolean() {
+		System.out.println("resp1onse JsonPrimitive: public boolean isBoolean() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public boolean isBoolean() { end return ");
     return value instanceof Boolean;
   }
 
@@ -129,6 +141,7 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public boolean getAsBoolean() {
+		System.out.println("resp1onse JsonPrimitive: public boolean getAsBoolean() { start return ");
     if (isBoolean()) {
       return getAsBooleanWrapper().booleanValue();
     } else {
@@ -143,6 +156,8 @@ public final class JsonPrimitive extends JsonElement {
    * @return true if this primitive contains a Number, false otherwise.
    */
   public boolean isNumber() {
+		System.out.println("resp1onse JsonPrimitive: public boolean isNumber() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public boolean isNumber() { end return ");
     return value instanceof Number;
   }
 
@@ -154,6 +169,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public Number getAsNumber() {
+		System.out.println("resp1onse JsonPrimitive: public Number getAsNumber() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public Number getAsNumber() { end return ");
     return value instanceof String ? new LazilyParsedNumber((String) value) : (Number) value;
   }
 
@@ -163,6 +180,8 @@ public final class JsonPrimitive extends JsonElement {
    * @return true if this primitive contains a String value, false otherwise.
    */
   public boolean isString() {
+		System.out.println("resp1onse JsonPrimitive: public boolean isString() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public boolean isString() { end return ");
     return value instanceof String;
   }
 
@@ -173,6 +192,7 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public String getAsString() {
+		System.out.println("resp1onse JsonPrimitive: public String getAsString() { start return ");
     if (isNumber()) {
       return getAsNumber().toString();
     } else if (isBoolean()) {
@@ -190,6 +210,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public double getAsDouble() {
+		System.out.println("resp1onse JsonPrimitive: public double getAsDouble() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public double getAsDouble() { end return ");
     return isNumber() ? getAsNumber().doubleValue() : Double.parseDouble(getAsString());
   }
 
@@ -201,6 +223,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public BigDecimal getAsBigDecimal() {
+		System.out.println("resp1onse JsonPrimitive: public BigDecimal getAsBigDecimal() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public BigDecimal getAsBigDecimal() { end return ");
     return value instanceof BigDecimal ? (BigDecimal) value : new BigDecimal(value.toString());
   }
 
@@ -212,6 +236,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public BigInteger getAsBigInteger() {
+		System.out.println("resp1onse JsonPrimitive: public BigInteger getAsBigInteger() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public BigInteger getAsBigInteger() { end return ");
     return value instanceof BigInteger ?
         (BigInteger) value : new BigInteger(value.toString());
   }
@@ -224,6 +250,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public float getAsFloat() {
+		System.out.println("resp1onse JsonPrimitive: public float getAsFloat() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public float getAsFloat() { end return ");
     return isNumber() ? getAsNumber().floatValue() : Float.parseFloat(getAsString());
   }
 
@@ -235,6 +263,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public long getAsLong() {
+		System.out.println("resp1onse JsonPrimitive: public long getAsLong() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public long getAsLong() { end return ");
     return isNumber() ? getAsNumber().longValue() : Long.parseLong(getAsString());
   }
 
@@ -246,6 +276,8 @@ public final class JsonPrimitive extends JsonElement {
    */
   @Override
   public short getAsShort() {
+		System.out.println("resp1onse JsonPrimitive: public short getAsShort() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public short getAsShort() { end return ");
     return isNumber() ? getAsNumber().shortValue() : Short.parseShort(getAsString());
   }
 
@@ -257,20 +289,27 @@ public final class JsonPrimitive extends JsonElement {
   */
   @Override
   public int getAsInt() {
+		System.out.println("resp1onse JsonPrimitive: public int getAsInt() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public int getAsInt() { end return ");
     return isNumber() ? getAsNumber().intValue() : Integer.parseInt(getAsString());
   }
 
   @Override
   public byte getAsByte() {
+		System.out.println("resp1onse JsonPrimitive: public byte getAsByte() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public byte getAsByte() { end return ");
     return isNumber() ? getAsNumber().byteValue() : Byte.parseByte(getAsString());
   }
 
   @Override
   public char getAsCharacter() {
+		System.out.println("resp1onse JsonPrimitive: public char getAsCharacter() { start return ");
+		System.out.println("resp1onse JsonPrimitive: public char getAsCharacter() { end return ");
     return getAsString().charAt(0);
   }
 
   private static boolean isPrimitiveOrString(Object target) {
+		System.out.println("resp1onse JsonPrimitive: private static boolean isPrimitiveOrString(Object target) { start return ");
     if (target instanceof String) {
       return true;
     }
@@ -281,28 +320,34 @@ public final class JsonPrimitive extends JsonElement {
         return true;
       }
     }
+		System.out.println("resp1onse JsonPrimitive: private static boolean isPrimitiveOrString(Object target) { end return  =1");
     return false;
   }
 
   @Override
   public int hashCode() {
+		System.out.println("resp1onse JsonPrimitive: public int hashCode() { start return ");
     if (value == null) {
       return 31;
     }
     // Using recommended hashing algorithm from Effective Java for longs and doubles
     if (isIntegral(this)) {
       long value = getAsNumber().longValue();
+		System.out.println("resp1onse JsonPrimitive: public int hashCode() { end return if ");
       return (int) (value ^ (value >>> 32));
     }
     if (value instanceof Number) {
       long value = Double.doubleToLongBits(getAsNumber().doubleValue());
+		System.out.println("resp1onse JsonPrimitive: public int hashCode() { end return if ");
       return (int) (value ^ (value >>> 32));
     }
+		System.out.println("resp1onse JsonPrimitive: public int hashCode() { end return  =1");
     return value.hashCode();
   }
 
   @Override
   public boolean equals(Object obj) {
+		System.out.println("resp1onse JsonPrimitive: public boolean equals(Object obj) { start return ");
     if (this == obj) {
       return true;
     }
@@ -321,8 +366,10 @@ public final class JsonPrimitive extends JsonElement {
       // Java standard types other than double return true for two NaN. So, need
       // special handling for double.
       double b = other.getAsNumber().doubleValue();
+		System.out.println("resp1onse JsonPrimitive: public boolean equals(Object obj) { end return if ");
       return a == b || (Double.isNaN(a) && Double.isNaN(b));
     }
+		System.out.println("resp1onse JsonPrimitive: public boolean equals(Object obj) { end return  =1");
     return value.equals(other.value);
   }
 
@@ -331,11 +378,14 @@ public final class JsonPrimitive extends JsonElement {
    * (Long, Integer, Short, Byte, BigInteger)
    */
   private static boolean isIntegral(JsonPrimitive primitive) {
+		System.out.println("resp1onse JsonPrimitive: private static boolean isIntegral(JsonPrimitive primitive) { start return ");
     if (primitive.value instanceof Number) {
       Number number = (Number) primitive.value;
+		System.out.println("resp1onse JsonPrimitive: private static boolean isIntegral(JsonPrimitive primitive) { end return if ");
       return number instanceof BigInteger || number instanceof Long || number instanceof Integer
           || number instanceof Short || number instanceof Byte;
     }
+		System.out.println("resp1onse JsonPrimitive: private static boolean isIntegral(JsonPrimitive primitive) { end return  =1");
     return false;
   }
 }

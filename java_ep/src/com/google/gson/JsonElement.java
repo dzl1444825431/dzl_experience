@@ -43,6 +43,8 @@ public abstract class JsonElement {
    * @return true if this element is of type {@link JsonArray}, false otherwise.
    */
   public boolean isJsonArray() {
+		System.out.println("resp1onse JsonElement: public boolean isJsonArray() { start return ");
+		System.out.println("resp1onse JsonElement: public boolean isJsonArray() { end return ");
     return this instanceof JsonArray;
   }
 
@@ -52,6 +54,8 @@ public abstract class JsonElement {
    * @return true if this element is of type {@link JsonObject}, false otherwise.
    */
   public boolean isJsonObject() {
+		System.out.println("resp1onse JsonElement: public boolean isJsonObject() { start return ");
+		System.out.println("resp1onse JsonElement: public boolean isJsonObject() { end return ");
     return this instanceof JsonObject;
   }
 
@@ -61,6 +65,8 @@ public abstract class JsonElement {
    * @return true if this element is of type {@link JsonPrimitive}, false otherwise.
    */
   public boolean isJsonPrimitive() {
+		System.out.println("resp1onse JsonElement: public boolean isJsonPrimitive() { start return ");
+		System.out.println("resp1onse JsonElement: public boolean isJsonPrimitive() { end return ");
     return this instanceof JsonPrimitive;
   }
 
@@ -71,6 +77,8 @@ public abstract class JsonElement {
    * @since 1.2
    */
   public boolean isJsonNull() {
+		System.out.println("resp1onse JsonElement: public boolean isJsonNull() { start return ");
+		System.out.println("resp1onse JsonElement: public boolean isJsonNull() { end return ");
     return this instanceof JsonNull;
   }
 
@@ -84,9 +92,11 @@ public abstract class JsonElement {
    * @throws IllegalStateException if the element is of another type.
    */
   public JsonObject getAsJsonObject() {
+		System.out.println("resp1onse JsonElement: public JsonObject getAsJsonObject() { start return ");
     if (isJsonObject()) {
       return (JsonObject) this;
     }
+		System.out.println("resp1onse JsonElement: public JsonObject getAsJsonObject() { end return  =1");
     throw new IllegalStateException("Not a JSON Object: " + this);
   }
 
@@ -100,9 +110,11 @@ public abstract class JsonElement {
    * @throws IllegalStateException if the element is of another type.
    */
   public JsonArray getAsJsonArray() {
+		System.out.println("resp1onse JsonElement: public JsonArray getAsJsonArray() { start return ");
     if (isJsonArray()) {
       return (JsonArray) this;
     }
+		System.out.println("resp1onse JsonElement: public JsonArray getAsJsonArray() { end return  =1");
     throw new IllegalStateException("This is not a JSON Array.");
   }
 
@@ -116,9 +128,11 @@ public abstract class JsonElement {
    * @throws IllegalStateException if the element is of another type.
    */
   public JsonPrimitive getAsJsonPrimitive() {
+		System.out.println("resp1onse JsonElement: public JsonPrimitive getAsJsonPrimitive() { start return ");
     if (isJsonPrimitive()) {
       return (JsonPrimitive) this;
     }
+		System.out.println("resp1onse JsonElement: public JsonPrimitive getAsJsonPrimitive() { end return  =1");
     throw new IllegalStateException("This is not a JSON Primitive.");
   }
 
@@ -133,9 +147,11 @@ public abstract class JsonElement {
    * @since 1.2
    */
   public JsonNull getAsJsonNull() {
+		System.out.println("resp1onse JsonElement: public JsonNull getAsJsonNull() { start return ");
     if (isJsonNull()) {
       return (JsonNull) this;
     }
+		System.out.println("resp1onse JsonElement: public JsonNull getAsJsonNull() { end return  =1");
     throw new IllegalStateException("This is not a JSON Null.");
   }
 
@@ -149,6 +165,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public boolean getAsBoolean() {
+		System.out.println("resp1onse JsonElement: public boolean getAsBoolean() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -175,6 +192,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public Number getAsNumber() {
+		System.out.println("resp1onse JsonElement: public Number getAsNumber() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -188,6 +206,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public String getAsString() {
+		System.out.println("resp1onse JsonElement: public String getAsString() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -201,6 +220,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public double getAsDouble() {
+		System.out.println("resp1onse JsonElement: public double getAsDouble() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -214,6 +234,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public float getAsFloat() {
+		System.out.println("resp1onse JsonElement: public float getAsFloat() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -227,6 +248,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public long getAsLong() {
+		System.out.println("resp1onse JsonElement: public long getAsLong() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -240,6 +262,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public int getAsInt() {
+		System.out.println("resp1onse JsonElement: public int getAsInt() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -254,6 +277,7 @@ public abstract class JsonElement {
    * @since 1.3
    */
   public byte getAsByte() {
+		System.out.println("resp1onse JsonElement: public byte getAsByte() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -268,6 +292,7 @@ public abstract class JsonElement {
    * @since 1.3
    */
   public char getAsCharacter() {
+		System.out.println("resp1onse JsonElement: public char getAsCharacter() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -282,6 +307,7 @@ public abstract class JsonElement {
    * @since 1.2
    */
   public BigDecimal getAsBigDecimal() {
+		System.out.println("resp1onse JsonElement: public BigDecimal getAsBigDecimal() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -296,6 +322,7 @@ public abstract class JsonElement {
    * @since 1.2
    */
   public BigInteger getAsBigInteger() {
+		System.out.println("resp1onse JsonElement: public BigInteger getAsBigInteger() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -309,6 +336,7 @@ public abstract class JsonElement {
    * more than a single element.
    */
   public short getAsShort() {
+		System.out.println("resp1onse JsonElement: public short getAsShort() { start return ");
     throw new UnsupportedOperationException(getClass().getSimpleName());
   }
 
@@ -317,11 +345,13 @@ public abstract class JsonElement {
    */
   @Override
   public String toString() {
+		System.out.println("resp1onse JsonElement: public String toString() { start return ");
     try {
       StringWriter stringWriter = new StringWriter();
       JsonWriter jsonWriter = new JsonWriter(stringWriter);
       jsonWriter.setLenient(true);
       Streams.write(this, jsonWriter);
+		System.out.println("resp1onse JsonElement: public String toString() { end return if ");
       return stringWriter.toString();
     } catch (IOException e) {
       throw new AssertionError(e);

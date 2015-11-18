@@ -72,10 +72,12 @@ final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
    * Finds a compatible runtime type if it is more specific
    */
   private Type getRuntimeTypeIfMoreSpecific(Type type, Object value) {
+		System.out.println("resp1onse TypeAdapterRuntimeTypeWrapper: private Type getRuntimeTypeIfMoreSpecific(Type type, Object value) { start return ");
     if (value != null
         && (type == Object.class || type instanceof TypeVariable<?> || type instanceof Class<?>)) {
       type = value.getClass();
     }
+		System.out.println("resp1onse TypeAdapterRuntimeTypeWrapper: private Type getRuntimeTypeIfMoreSpecific(Type type, Object value) { end return  =1");
     return type;
   }
 }

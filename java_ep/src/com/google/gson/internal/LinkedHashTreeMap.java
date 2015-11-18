@@ -41,6 +41,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
   @SuppressWarnings({ "unchecked", "rawtypes" }) // to avoid Comparable<Comparable<Comparable<...>>>
   private static final Comparator<Comparable> NATURAL_ORDER = new Comparator<Comparable>() {
     public int compare(Comparable a, Comparable b) {
+		System.out.println("resp1onse LinkedHashTreeMap: public int compare(Comparable a, Comparable b) { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: public int compare(Comparable a, Comparable b) { end return ");
       return a.compareTo(b);
     }
   };
@@ -59,6 +61,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
   @SuppressWarnings("unchecked") // unsafe! this assumes K is comparable
   public LinkedHashTreeMap() {
     this((Comparator<? super K>) NATURAL_ORDER);
+		System.out.println("resp1onse LinkedHashTreeMap: public LinkedHashTreeMap() { start constructor ");
+		System.out.println("resp1onse LinkedHashTreeMap: public LinkedHashTreeMap() { end constructor ");
   }
 
   /**
@@ -70,38 +74,49 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
    */
   @SuppressWarnings({ "unchecked", "rawtypes" }) // unsafe! if comparator is null, this assumes K is comparable
   public LinkedHashTreeMap(Comparator<? super K> comparator) {
+	  System.out.println("resp1onse LinkedHashTreeMap: public LinkedHashTreeMap(Comparator<? super K> comparator) { start constructor ");
     this.comparator = comparator != null
         ? comparator
         : (Comparator) NATURAL_ORDER;
     this.header = new Node<K, V>();
     this.table = new Node[16]; // TODO: sizing/resizing policies
     this.threshold = (table.length / 2) + (table.length / 4); // 3/4 capacity
+		System.out.println("resp1onse LinkedHashTreeMap: public LinkedHashTreeMap(Comparator<? super K> comparator) { end constructor ");
   }
 
   @Override public int size() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int size() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int size() { end return ");
     return size;
   }
 
   @Override public V get(Object key) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public V get(Object key) { start return ");
     Node<K, V> node = findByObject(key);
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public V get(Object key) { end return  =1");
     return node != null ? node.value : null;
   }
 
   @Override public boolean containsKey(Object key) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean containsKey(Object key) { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean containsKey(Object key) { end return ");
     return findByObject(key) != null;
   }
 
   @Override public V put(K key, V value) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public V put(K key, V value) { start return ");
     if (key == null) {
       throw new NullPointerException("key == null");
     }
     Node<K, V> created = find(key, true);
     V result = created.value;
     created.value = value;
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public V put(K key, V value) { end return  =1");
     return result;
   }
 
   @Override public void clear() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public void clear() { start void ");
     Arrays.fill(table, null);
     size = 0;
     modCount++;
@@ -115,10 +130,13 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     header.next = header.prev = header;
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public void clear() { end void ");
   }
 
   @Override public V remove(Object key) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public V remove(Object key) { start return ");
     Node<K, V> node = removeInternalByKey(key);
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public V remove(Object key) { end return  =1");
     return node != null ? node.value : null;
   }
 
@@ -221,6 +239,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
   }
 
   private boolean equal(Object a, Object b) {
+		System.out.println("resp1onse LinkedHashTreeMap: private boolean equal(Object a, Object b) { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: private boolean equal(Object a, Object b) { end return ");
     return a == b || (a != null && a.equals(b));
   }
 
@@ -232,7 +252,9 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
    */
   private static int secondaryHash(int h) {
     // Doug Lea's supplemental hash function
+		System.out.println("resp1onse LinkedHashTreeMap: private static int secondaryHash(int h) { start return ");
     h ^= (h >>> 20) ^ (h >>> 12);
+		System.out.println("resp1onse LinkedHashTreeMap: private static int secondaryHash(int h) { end return  =1");
     return h ^ (h >>> 7) ^ (h >>> 4);
   }
 
@@ -243,6 +265,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
    * @param unlink true to also unlink this node from the iteration linked list.
    */
   void removeInternal(Node<K, V> node, boolean unlink) {
+		System.out.println("resp1onse LinkedHashTreeMap: void removeInternal(Node<K, V> node, boolean unlink) { start void ");
     if (unlink) {
       node.prev.next = node.next;
       node.next.prev = node.prev;
@@ -284,6 +307,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
       }
       adjacent.height = Math.max(leftHeight, rightHeight) + 1;
       replaceInParent(node, adjacent);
+		System.out.println("resp1onse LinkedHashTreeMap: void removeInternal(Node<K, V> node, boolean unlink) { end return if ");
       return;
     } else if (left != null) {
       replaceInParent(node, left);
@@ -298,6 +322,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     rebalance(originalParent, false);
     size--;
     modCount++;
+		System.out.println("resp1onse LinkedHashTreeMap: void removeInternal(Node<K, V> node, boolean unlink) { end void ");
   }
 
   Node<K, V> removeInternalByKey(Object key) {
@@ -309,6 +334,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
   }
 
   private void replaceInParent(Node<K, V> node, Node<K, V> replacement) {
+		System.out.println("resp1onse LinkedHashTreeMap: private void replaceInParent(Node<K, V> node, Node<K, V> replacement) { start void ");
     Node<K, V> parent = node.parent;
     node.parent = null;
     if (replacement != null) {
@@ -326,6 +352,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
       int index = node.hash & (table.length - 1);
       table[index] = replacement;
     }
+		System.out.println("resp1onse LinkedHashTreeMap: private void replaceInParent(Node<K, V> node, Node<K, V> replacement) { end void ");
   }
 
   /**
@@ -336,6 +363,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
    *     was by a removal.
    */
   private void rebalance(Node<K, V> unbalanced, boolean insert) {
+		System.out.println("resp1onse LinkedHashTreeMap: private void rebalance(Node<K, V> unbalanced, boolean insert) { start void ");
     for (Node<K, V> node = unbalanced; node != null; node = node.parent) {
       Node<K, V> left = node.left;
       Node<K, V> right = node.right;
@@ -393,12 +421,14 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         }
       }
     }
+		System.out.println("resp1onse LinkedHashTreeMap: private void rebalance(Node<K, V> unbalanced, boolean insert) { end void ");
   }
 
   /**
    * Rotates the subtree so that its root's right child is the new root.
    */
   private void rotateLeft(Node<K, V> root) {
+		System.out.println("resp1onse LinkedHashTreeMap: private void rotateLeft(Node<K, V> root) { start void ");
     Node<K, V> left = root.left;
     Node<K, V> pivot = root.right;
     Node<K, V> pivotLeft = pivot.left;
@@ -421,12 +451,14 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         pivotLeft != null ? pivotLeft.height : 0) + 1;
     pivot.height = Math.max(root.height,
         pivotRight != null ? pivotRight.height : 0) + 1;
+		System.out.println("resp1onse LinkedHashTreeMap: private void rotateLeft(Node<K, V> root) { end void ");
   }
 
   /**
    * Rotates the subtree so that its root's left child is the new root.
    */
   private void rotateRight(Node<K, V> root) {
+		System.out.println("resp1onse LinkedHashTreeMap: private void rotateRight(Node<K, V> root) { start void ");
     Node<K, V> pivot = root.left;
     Node<K, V> right = root.right;
     Node<K, V> pivotLeft = pivot.left;
@@ -449,18 +481,23 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         pivotRight != null ? pivotRight.height : 0) + 1;
     pivot.height = Math.max(root.height,
         pivotLeft != null ? pivotLeft.height : 0) + 1;
+		System.out.println("resp1onse LinkedHashTreeMap: private void rotateRight(Node<K, V> root) { end void ");
   }
 
   private EntrySet entrySet;
   private KeySet keySet;
 
   @Override public Set<Entry<K, V>> entrySet() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Set<Entry<K, V>> entrySet() { start return ");
     EntrySet result = entrySet;
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Set<Entry<K, V>> entrySet() { end return  =1");
     return result != null ? result : (entrySet = new EntrySet());
   }
 
   @Override public Set<K> keySet() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Set<K> keySet() { start return ");
     KeySet result = keySet;
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Set<K> keySet() { end return  =1");
     return result != null ? result : (keySet = new KeySet());
   }
 
@@ -495,35 +532,48 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     public K getKey() {
+		System.out.println("resp1onse LinkedHashTreeMap: public K getKey() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: public K getKey() { end return ");
       return key;
     }
 
     public V getValue() {
+		System.out.println("resp1onse LinkedHashTreeMap: public V getValue() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: public V getValue() { end return ");
       return value;
     }
 
     public V setValue(V value) {
+		System.out.println("resp1onse LinkedHashTreeMap: public V setValue(V value) { start return ");
       V oldValue = this.value;
       this.value = value;
+		System.out.println("resp1onse LinkedHashTreeMap: public V setValue(V value) { end return  =1");
       return oldValue;
     }
 
     @SuppressWarnings("rawtypes")
     @Override public boolean equals(Object o) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean equals(Object o) { start return ");
       if (o instanceof Entry) {
         Entry other = (Entry) o;
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean equals(Object o) { end return if ");
         return (key == null ? other.getKey() == null : key.equals(other.getKey()))
             && (value == null ? other.getValue() == null : value.equals(other.getValue()));
       }
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean equals(Object o) { end return  =1");
       return false;
     }
 
     @Override public int hashCode() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int hashCode() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int hashCode() { end return ");
       return (key == null ? 0 : key.hashCode())
           ^ (value == null ? 0 : value.hashCode());
     }
 
     @Override public String toString() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public String toString() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public String toString() { end return ");
       return key + "=" + value;
     }
 
@@ -531,12 +581,14 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
      * Returns the first node in this subtree.
      */
     public Node<K, V> first() {
+		System.out.println("resp1onse LinkedHashTreeMap: public Node<K, V> first() { start return ");
       Node<K, V> node = this;
       Node<K, V> child = node.left;
       while (child != null) {
         node = child;
         child = node.left;
       }
+		System.out.println("resp1onse LinkedHashTreeMap: public Node<K, V> first() { end return  =1");
       return node;
     }
 
@@ -544,19 +596,23 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
      * Returns the last node in this subtree.
      */
     public Node<K, V> last() {
+		System.out.println("resp1onse LinkedHashTreeMap: public Node<K, V> last() { start return ");
       Node<K, V> node = this;
       Node<K, V> child = node.right;
       while (child != null) {
         node = child;
         child = node.right;
       }
+		System.out.println("resp1onse LinkedHashTreeMap: public Node<K, V> last() { end return  =1");
       return node;
     }
   }
 
   private void doubleCapacity() {
+		System.out.println("resp1onse LinkedHashTreeMap: private void doubleCapacity() { start void ");
     table = doubleCapacity(table);
     threshold = (table.length / 2) + (table.length / 4); // 3/4 capacity
+		System.out.println("resp1onse LinkedHashTreeMap: private void doubleCapacity() { end void ");
   }
 
   /**
@@ -565,6 +621,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
    */
   static <K, V> Node<K, V>[] doubleCapacity(Node<K, V>[] oldTable) {
     // TODO: don't do anything if we're already at MAX_CAPACITY
+		System.out.println("resp1onse LinkedHashTreeMap: static <K, V> Node<K, V>[] doubleCapacity(Node<K, V>[] oldTable) { start return ");
     int oldCapacity = oldTable.length;
     @SuppressWarnings("unchecked") // Arrays and generics don't get along.
     Node<K, V>[] newTable = new Node[oldCapacity * 2];
@@ -607,6 +664,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
       newTable[i] = leftSize > 0 ? leftBuilder.root() : null;
       newTable[i + oldCapacity] = rightSize > 0 ? rightBuilder.root() : null;
     }
+		System.out.println("resp1onse LinkedHashTreeMap: static <K, V> Node<K, V>[] doubleCapacity(Node<K, V>[] oldTable) { end return  =1");
     return newTable;
   }
 
@@ -624,15 +682,18 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     private Node<K, V> stackTop;
 
     void reset(Node<K, V> root) {
+		System.out.println("resp1onse LinkedHashTreeMap: void reset(Node<K, V> root) { start void ");
       Node<K, V> stackTop = null;
       for (Node<K, V> n = root; n != null; n = n.left) {
         n.parent = stackTop;
         stackTop = n; // Stack push.
       }
       this.stackTop = stackTop;
+		System.out.println("resp1onse LinkedHashTreeMap: void reset(Node<K, V> root) { end void ");
     }
 
     public Node<K, V> next() {
+		System.out.println("resp1onse LinkedHashTreeMap: public Node<K, V> next() { start return ");
       Node<K, V> stackTop = this.stackTop;
       if (stackTop == null) {
         return null;
@@ -645,6 +706,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         stackTop = n; // Stack push.
       }
       this.stackTop = stackTop;
+		System.out.println("resp1onse LinkedHashTreeMap: public Node<K, V> next() { end return  =1");
       return result;
     }
   }
@@ -675,15 +737,18 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     private int size;
 
     void reset(int targetSize) {
+		System.out.println("resp1onse LinkedHashTreeMap: void reset(int targetSize) { start void ");
       // compute the target tree size. This is a power of 2 minus one, like 15 or 31.
       int treeCapacity = Integer.highestOneBit(targetSize) * 2 - 1;
       leavesToSkip = treeCapacity - targetSize;
       size = 0;
       leavesSkipped = 0;
       stack = null;
+		System.out.println("resp1onse LinkedHashTreeMap: void reset(int targetSize) { end void ");
     }
 
     void add(Node<K, V> node) {
+		System.out.println("resp1onse LinkedHashTreeMap: void add(Node<K, V> node) { start void ");
       node.left = node.parent = node.right = null;
       node.height = 1;
 
@@ -746,6 +811,7 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
           leavesSkipped = 0;
         }
       }
+		System.out.println("resp1onse LinkedHashTreeMap: void add(Node<K, V> node) { end void ");
     }
 
     Node<K, V> root() {
@@ -763,6 +829,8 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     int expectedModCount = modCount;
 
     public final boolean hasNext() {
+		System.out.println("resp1onse LinkedHashTreeMap: public final boolean hasNext() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: public final boolean hasNext() { end return ");
       return next != header;
     }
 
@@ -779,33 +847,43 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
     }
 
     public final void remove() {
+		System.out.println("resp1onse LinkedHashTreeMap: public final void remove() { start void ");
       if (lastReturned == null) {
         throw new IllegalStateException();
       }
       removeInternal(lastReturned, true);
       lastReturned = null;
       expectedModCount = modCount;
+		System.out.println("resp1onse LinkedHashTreeMap: public final void remove() { end void ");
     }
   }
 
   final class EntrySet extends AbstractSet<Entry<K, V>> {
     @Override public int size() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int size() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int size() { end return ");
       return size;
     }
 
     @Override public Iterator<Entry<K, V>> iterator() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Iterator<Entry<K, V>> iterator() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Iterator<Entry<K, V>> iterator() { end return ");
       return new LinkedTreeMapIterator<Entry<K, V>>() {
         public Entry<K, V> next() {
+		System.out.println("resp1onse LinkedHashTreeMap: public Entry<K, V> next() { start internal 3");
           return nextNode();
         }
       };
     }
 
     @Override public boolean contains(Object o) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean contains(Object o) { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean contains(Object o) { end return ");
       return o instanceof Entry && findByEntry((Entry<?, ?>) o) != null;
     }
 
     @Override public boolean remove(Object o) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean remove(Object o) { start return ");
       if (!(o instanceof Entry)) {
         return false;
       }
@@ -815,37 +893,51 @@ public final class LinkedHashTreeMap<K, V> extends AbstractMap<K, V> implements 
         return false;
       }
       removeInternal(node, true);
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean remove(Object o) { end return  =1");
       return true;
     }
 
     @Override public void clear() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public void clear() { start void ");
       LinkedHashTreeMap.this.clear();
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public void clear() { end void ");
     }
   }
 
   final class KeySet extends AbstractSet<K> {
     @Override public int size() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int size() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public int size() { end return ");
       return size;
     }
 
     @Override public Iterator<K> iterator() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Iterator<K> iterator() { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public Iterator<K> iterator() { end return ");
       return new LinkedTreeMapIterator<K>() {
         public K next() {
+		System.out.println("resp1onse LinkedHashTreeMap: public K next() { start internal 3");
           return nextNode().key;
         }
       };
     }
 
     @Override public boolean contains(Object o) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean contains(Object o) { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean contains(Object o) { end return ");
       return containsKey(o);
     }
 
     @Override public boolean remove(Object key) {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean remove(Object key) { start return ");
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public boolean remove(Object key) { end return ");
       return removeInternalByKey(key) != null;
     }
 
     @Override public void clear() {
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public void clear() { start void ");
       LinkedHashTreeMap.this.clear();
+		System.out.println("resp1onse LinkedHashTreeMap: @Override public void clear() { end void ");
     }
   }
 

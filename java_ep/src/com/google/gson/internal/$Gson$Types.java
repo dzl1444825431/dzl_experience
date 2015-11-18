@@ -44,6 +44,8 @@ public final class $Gson$Types {
   static final Type[] EMPTY_TYPE_ARRAY = new Type[] {};
 
   private $Gson$Types() {
+		System.out.println("resp1onse $Gson$Types: private $Gson$Types() { start constructor ");
+		System.out.println("resp1onse $Gson$Types: private $Gson$Types() { end constructor ");
     throw new UnsupportedOperationException();
   }
 
@@ -65,6 +67,8 @@ public final class $Gson$Types {
    * @return a {@link java.io.Serializable serializable} generic array type.
    */
   public static GenericArrayType arrayOf(Type componentType) {
+		System.out.println("resp1onse $Gson$Types: public static GenericArrayType arrayOf(Type componentType) { start return ");
+		System.out.println("resp1onse $Gson$Types: public static GenericArrayType arrayOf(Type componentType) { end return ");
     return new GenericArrayTypeImpl(componentType);
   }
 
@@ -75,6 +79,8 @@ public final class $Gson$Types {
    * this returns {@code ?}, which is shorthand for {@code ? extends Object}.
    */
   public static WildcardType subtypeOf(Type bound) {
+		System.out.println("resp1onse $Gson$Types: public static WildcardType subtypeOf(Type bound) { start return ");
+		System.out.println("resp1onse $Gson$Types: public static WildcardType subtypeOf(Type bound) { end return ");
     return new WildcardTypeImpl(new Type[] { bound }, EMPTY_TYPE_ARRAY);
   }
 
@@ -84,6 +90,8 @@ public final class $Gson$Types {
    * super String}.
    */
   public static WildcardType supertypeOf(Type bound) {
+		System.out.println("resp1onse $Gson$Types: public static WildcardType supertypeOf(Type bound) { start return ");
+		System.out.println("resp1onse $Gson$Types: public static WildcardType supertypeOf(Type bound) { end return ");
     return new WildcardTypeImpl(new Type[] { Object.class }, new Type[] { bound });
   }
 
@@ -93,21 +101,26 @@ public final class $Gson$Types {
    * type is {@link java.io.Serializable}.
    */
   public static Type canonicalize(Type type) {
+		System.out.println("resp1onse $Gson$Types: public static Type canonicalize(Type type) { start return ");
     if (type instanceof Class) {
       Class<?> c = (Class<?>) type;
+		System.out.println("resp1onse $Gson$Types: public static Type canonicalize(Type type) { end return if ");
       return c.isArray() ? new GenericArrayTypeImpl(canonicalize(c.getComponentType())) : c;
 
     } else if (type instanceof ParameterizedType) {
       ParameterizedType p = (ParameterizedType) type;
+		System.out.println("resp1onse $Gson$Types: public static Type canonicalize(Type type) { end return if ");
       return new ParameterizedTypeImpl(p.getOwnerType(),
           p.getRawType(), p.getActualTypeArguments());
 
     } else if (type instanceof GenericArrayType) {
       GenericArrayType g = (GenericArrayType) type;
+		System.out.println("resp1onse $Gson$Types: public static Type canonicalize(Type type) { end return if ");
       return new GenericArrayTypeImpl(g.getGenericComponentType());
 
     } else if (type instanceof WildcardType) {
       WildcardType w = (WildcardType) type;
+		System.out.println("resp1onse $Gson$Types: public static Type canonicalize(Type type) { end return if ");
       return new WildcardTypeImpl(w.getUpperBounds(), w.getLowerBounds());
 
     } else {
@@ -117,6 +130,7 @@ public final class $Gson$Types {
   }
 
   public static Class<?> getRawType(Type type) {
+		System.out.println("resp1onse $Gson$Types: public static Class<?> getRawType(Type type) { start return ");
     if (type instanceof Class<?>) {
       // type is a normal class.
       return (Class<?>) type;
@@ -129,10 +143,12 @@ public final class $Gson$Types {
       // to nested classes exists.
       Type rawType = parameterizedType.getRawType();
       checkArgument(rawType instanceof Class);
+		System.out.println("resp1onse $Gson$Types: public static Class<?> getRawType(Type type) { end return if ");
       return (Class<?>) rawType;
 
     } else if (type instanceof GenericArrayType) {
       Type componentType = ((GenericArrayType)type).getGenericComponentType();
+		System.out.println("resp1onse $Gson$Types: public static Class<?> getRawType(Type type) { end return if ");
       return Array.newInstance(getRawType(componentType), 0).getClass();
 
     } else if (type instanceof TypeVariable) {
@@ -145,12 +161,15 @@ public final class $Gson$Types {
 
     } else {
       String className = type == null ? "null" : type.getClass().getName();
+		System.out.println("resp1onse $Gson$Types: public static Class<?> getRawType(Type type) { end return if ");
       throw new IllegalArgumentException("Expected a Class, ParameterizedType, or "
           + "GenericArrayType, but <" + type + "> is of type " + className);
     }
   }
 
   static boolean equal(Object a, Object b) {
+		System.out.println("resp1onse $Gson$Types: static boolean equal(Object a, Object b) { start return ");
+		System.out.println("resp1onse $Gson$Types: static boolean equal(Object a, Object b) { end return ");
     return a == b || (a != null && a.equals(b));
   }
 
@@ -158,6 +177,7 @@ public final class $Gson$Types {
    * Returns true if {@code a} and {@code b} are equal.
    */
   public static boolean equals(Type a, Type b) {
+		System.out.println("resp1onse $Gson$Types: public static boolean equals(Type a, Type b) { start return ");
     if (a == b) {
       // also handles (a == null && b == null)
       return true;
@@ -174,6 +194,7 @@ public final class $Gson$Types {
       // TODO: save a .clone() call
       ParameterizedType pa = (ParameterizedType) a;
       ParameterizedType pb = (ParameterizedType) b;
+		System.out.println("resp1onse $Gson$Types: public static boolean equals(Type a, Type b) { end return if ");
       return equal(pa.getOwnerType(), pb.getOwnerType())
           && pa.getRawType().equals(pb.getRawType())
           && Arrays.equals(pa.getActualTypeArguments(), pb.getActualTypeArguments());
@@ -185,6 +206,7 @@ public final class $Gson$Types {
 
       GenericArrayType ga = (GenericArrayType) a;
       GenericArrayType gb = (GenericArrayType) b;
+		System.out.println("resp1onse $Gson$Types: public static boolean equals(Type a, Type b) { end return if ");
       return equals(ga.getGenericComponentType(), gb.getGenericComponentType());
 
     } else if (a instanceof WildcardType) {
@@ -194,6 +216,7 @@ public final class $Gson$Types {
 
       WildcardType wa = (WildcardType) a;
       WildcardType wb = (WildcardType) b;
+		System.out.println("resp1onse $Gson$Types: public static boolean equals(Type a, Type b) { end return if ");
       return Arrays.equals(wa.getUpperBounds(), wb.getUpperBounds())
           && Arrays.equals(wa.getLowerBounds(), wb.getLowerBounds());
 
@@ -203,6 +226,7 @@ public final class $Gson$Types {
       }
       TypeVariable<?> va = (TypeVariable<?>) a;
       TypeVariable<?> vb = (TypeVariable<?>) b;
+		System.out.println("resp1onse $Gson$Types: public static boolean equals(Type a, Type b) { end return if ");
       return va.getGenericDeclaration() == vb.getGenericDeclaration()
           && va.getName().equals(vb.getName());
 
@@ -213,10 +237,14 @@ public final class $Gson$Types {
   }
 
   private static int hashCodeOrZero(Object o) {
+		System.out.println("resp1onse $Gson$Types: private static int hashCodeOrZero(Object o) { start return ");
+		System.out.println("resp1onse $Gson$Types: private static int hashCodeOrZero(Object o) { end return ");
     return o != null ? o.hashCode() : 0;
   }
 
   public static String typeToString(Type type) {
+		System.out.println("resp1onse $Gson$Types: public static String typeToString(Type type) { start return ");
+		System.out.println("resp1onse $Gson$Types: public static String typeToString(Type type) { end return ");
     return type instanceof Class ? ((Class<?>) type).getName() : type.toString();
   }
 
@@ -226,6 +254,7 @@ public final class $Gson$Types {
    * result when the supertype is {@code Collection.class} is {@code Collection<Integer>}.
    */
   static Type getGenericSupertype(Type context, Class<?> rawType, Class<?> toResolve) {
+		System.out.println("resp1onse $Gson$Types: static Type getGenericSupertype(Type context, Class<?> rawType, Class<?> toResolve) { start return ");
     if (toResolve == rawType) {
       return context;
     }
@@ -256,6 +285,7 @@ public final class $Gson$Types {
     }
 
     // we can't resolve this further
+		System.out.println("resp1onse $Gson$Types: static Type getGenericSupertype(Type context, Class<?> rawType, Class<?> toResolve) { end return  =1");
     return toResolve;
   }
 
@@ -267,7 +297,9 @@ public final class $Gson$Types {
    * @param supertype a superclass of, or interface implemented by, this.
    */
   static Type getSupertype(Type context, Class<?> contextRawType, Class<?> supertype) {
+		System.out.println("resp1onse $Gson$Types: static Type getSupertype(Type context, Class<?> contextRawType, Class<?> supertype) { start return ");
     checkArgument(supertype.isAssignableFrom(contextRawType));
+		System.out.println("resp1onse $Gson$Types: static Type getSupertype(Type context, Class<?> contextRawType, Class<?> supertype) { end return  =1");
     return resolve(context, contextRawType,
         $Gson$Types.getGenericSupertype(context, contextRawType, supertype));
   }
@@ -277,6 +309,8 @@ public final class $Gson$Types {
    * @throws ClassCastException if this type is not an array.
    */
   public static Type getArrayComponentType(Type array) {
+		System.out.println("resp1onse $Gson$Types: public static Type getArrayComponentType(Type array) { start return ");
+		System.out.println("resp1onse $Gson$Types: public static Type getArrayComponentType(Type array) { end return ");
     return array instanceof GenericArrayType
         ? ((GenericArrayType) array).getGenericComponentType()
         : ((Class<?>) array).getComponentType();
@@ -287,6 +321,7 @@ public final class $Gson$Types {
    * @throws IllegalArgumentException if this type is not a collection.
    */
   public static Type getCollectionElementType(Type context, Class<?> contextRawType) {
+		System.out.println("resp1onse $Gson$Types: public static Type getCollectionElementType(Type context, Class<?> contextRawType) { start return ");
     Type collectionType = getSupertype(context, contextRawType, Collection.class);
 
     if (collectionType instanceof WildcardType) {
@@ -295,6 +330,7 @@ public final class $Gson$Types {
     if (collectionType instanceof ParameterizedType) {
       return ((ParameterizedType) collectionType).getActualTypeArguments()[0];
     }
+		System.out.println("resp1onse $Gson$Types: public static Type getCollectionElementType(Type context, Class<?> contextRawType) { end return  =1");
     return Object.class;
   }
 
@@ -308,6 +344,7 @@ public final class $Gson$Types {
      * class should extend Hashtable<String, String>, but it's declared to
      * extend Hashtable<Object, Object>.
      */
+		System.out.println("resp1onse $Gson$Types: public static Type[] getMapKeyAndValueTypes(Type context, Class<?> contextRawType) { start return ");
     if (context == Properties.class) {
       return new Type[] { String.class, String.class }; // TODO: test subclasses of Properties!
     }
@@ -316,13 +353,16 @@ public final class $Gson$Types {
     // TODO: strip wildcards?
     if (mapType instanceof ParameterizedType) {
       ParameterizedType mapParameterizedType = (ParameterizedType) mapType;
+		System.out.println("resp1onse $Gson$Types: public static Type[] getMapKeyAndValueTypes(Type context, Class<?> contextRawType) { end return if ");
       return mapParameterizedType.getActualTypeArguments();
     }
+		System.out.println("resp1onse $Gson$Types: public static Type[] getMapKeyAndValueTypes(Type context, Class<?> contextRawType) { end return  =1");
     return new Type[] { Object.class, Object.class };
   }
 
   public static Type resolve(Type context, Class<?> contextRawType, Type toResolve) {
     // this implementation is made a little more complicated in an attempt to avoid object-creation
+		System.out.println("resp1onse $Gson$Types: public static Type resolve(Type context, Class<?> contextRawType, Type toResolve) { start return ");
     while (true) {
       if (toResolve instanceof TypeVariable) {
         TypeVariable<?> typeVariable = (TypeVariable<?>) toResolve;
@@ -335,6 +375,7 @@ public final class $Gson$Types {
         Class<?> original = (Class<?>) toResolve;
         Type componentType = original.getComponentType();
         Type newComponentType = resolve(context, contextRawType, componentType);
+		System.out.println("resp1onse $Gson$Types: public static Type resolve(Type context, Class<?> contextRawType, Type toResolve) { end return if ");
         return componentType == newComponentType
             ? original
             : arrayOf(newComponentType);
@@ -343,6 +384,7 @@ public final class $Gson$Types {
         GenericArrayType original = (GenericArrayType) toResolve;
         Type componentType = original.getGenericComponentType();
         Type newComponentType = resolve(context, contextRawType, componentType);
+		System.out.println("resp1onse $Gson$Types: public static Type resolve(Type context, Class<?> contextRawType, Type toResolve) { end return if ");
         return componentType == newComponentType
             ? original
             : arrayOf(newComponentType);
@@ -365,6 +407,7 @@ public final class $Gson$Types {
           }
         }
 
+		System.out.println("resp1onse $Gson$Types: public static Type resolve(Type context, Class<?> contextRawType, Type toResolve) { end return if ");
         return changed
             ? newParameterizedTypeWithOwner(newOwnerType, original.getRawType(), args)
             : original;
@@ -385,6 +428,7 @@ public final class $Gson$Types {
             return subtypeOf(upperBound);
           }
         }
+		System.out.println("resp1onse $Gson$Types: public static Type resolve(Type context, Class<?> contextRawType, Type toResolve) { end return if ");
         return original;
 
       } else {
@@ -394,6 +438,7 @@ public final class $Gson$Types {
   }
 
   static Type resolveTypeVariable(Type context, Class<?> contextRawType, TypeVariable<?> unknown) {
+		System.out.println("resp1onse $Gson$Types: static Type resolveTypeVariable(Type context, Class<?> contextRawType, TypeVariable<?> unknown) { start return ");
     Class<?> declaredByRaw = declaringClassOf(unknown);
 
     // we can't reduce this further
@@ -404,18 +449,22 @@ public final class $Gson$Types {
     Type declaredBy = getGenericSupertype(context, contextRawType, declaredByRaw);
     if (declaredBy instanceof ParameterizedType) {
       int index = indexOf(declaredByRaw.getTypeParameters(), unknown);
+		System.out.println("resp1onse $Gson$Types: static Type resolveTypeVariable(Type context, Class<?> contextRawType, TypeVariable<?> unknown) { end return if ");
       return ((ParameterizedType) declaredBy).getActualTypeArguments()[index];
     }
 
+		System.out.println("resp1onse $Gson$Types: static Type resolveTypeVariable(Type context, Class<?> contextRawType, TypeVariable<?> unknown) { end return  =1");
     return unknown;
   }
 
   private static int indexOf(Object[] array, Object toFind) {
+		System.out.println("resp1onse $Gson$Types: private static int indexOf(Object[] array, Object toFind) { start return ");
     for (int i = 0; i < array.length; i++) {
       if (toFind.equals(array[i])) {
         return i;
       }
     }
+		System.out.println("resp1onse $Gson$Types: private static int indexOf(Object[] array, Object toFind) { end return  =1");
     throw new NoSuchElementException();
   }
 
@@ -424,14 +473,18 @@ public final class $Gson$Types {
    * a class.
    */
   private static Class<?> declaringClassOf(TypeVariable<?> typeVariable) {
+		System.out.println("resp1onse $Gson$Types: private static Class<?> declaringClassOf(TypeVariable<?> typeVariable) { start return ");
     GenericDeclaration genericDeclaration = typeVariable.getGenericDeclaration();
+		System.out.println("resp1onse $Gson$Types: private static Class<?> declaringClassOf(TypeVariable<?> typeVariable) { end return  =1");
     return genericDeclaration instanceof Class
         ? (Class<?>) genericDeclaration
         : null;
   }
 
   private static void checkNotPrimitive(Type type) {
+		System.out.println("resp1onse $Gson$Types: private static void checkNotPrimitive(Type type) { start void ");
     checkArgument(!(type instanceof Class<?>) || !((Class<?>) type).isPrimitive());
+		System.out.println("resp1onse $Gson$Types: private static void checkNotPrimitive(Type type) { end void ");
   }
 
   private static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
@@ -441,6 +494,7 @@ public final class $Gson$Types {
 
     public ParameterizedTypeImpl(Type ownerType, Type rawType, Type... typeArguments) {
       // require an owner type if the raw type needs it
+		System.out.println("resp1onse $Gson$Types: public ParameterizedTypeImpl(Type ownerType, Type rawType, Type... typeArguments) { start constructor ");
       if (rawType instanceof Class<?>) {
         Class<?> rawTypeAsClass = (Class<?>) rawType;
         boolean isStaticOrTopLevelClass = Modifier.isStatic(rawTypeAsClass.getModifiers())
@@ -456,32 +510,44 @@ public final class $Gson$Types {
         checkNotPrimitive(this.typeArguments[t]);
         this.typeArguments[t] = canonicalize(this.typeArguments[t]);
       }
+		System.out.println("resp1onse $Gson$Types: public ParameterizedTypeImpl(Type ownerType, Type rawType, Type... typeArguments) { end constructor ");
     }
 
     public Type[] getActualTypeArguments() {
+		System.out.println("resp1onse $Gson$Types: public Type[] getActualTypeArguments() { start return ");
+		System.out.println("resp1onse $Gson$Types: public Type[] getActualTypeArguments() { end return ");
       return typeArguments.clone();
     }
 
     public Type getRawType() {
+		System.out.println("resp1onse $Gson$Types: public Type getRawType() { start return ");
+		System.out.println("resp1onse $Gson$Types: public Type getRawType() { end return ");
       return rawType;
     }
 
     public Type getOwnerType() {
+		System.out.println("resp1onse $Gson$Types: public Type getOwnerType() { start return ");
+		System.out.println("resp1onse $Gson$Types: public Type getOwnerType() { end return ");
       return ownerType;
     }
 
     @Override public boolean equals(Object other) {
+		System.out.println("resp1onse $Gson$Types: @Override public boolean equals(Object other) { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public boolean equals(Object other) { end return ");
       return other instanceof ParameterizedType
           && $Gson$Types.equals(this, (ParameterizedType) other);
     }
 
     @Override public int hashCode() {
+		System.out.println("resp1onse $Gson$Types: @Override public int hashCode() { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public int hashCode() { end return ");
       return Arrays.hashCode(typeArguments)
           ^ rawType.hashCode()
           ^ hashCodeOrZero(ownerType);
     }
 
     @Override public String toString() {
+		System.out.println("resp1onse $Gson$Types: @Override public String toString() { start return ");
       StringBuilder stringBuilder = new StringBuilder(30 * (typeArguments.length + 1));
       stringBuilder.append(typeToString(rawType));
 
@@ -493,6 +559,7 @@ public final class $Gson$Types {
       for (int i = 1; i < typeArguments.length; i++) {
         stringBuilder.append(", ").append(typeToString(typeArguments[i]));
       }
+		System.out.println("resp1onse $Gson$Types: @Override public String toString() { end return  =1");
       return stringBuilder.append(">").toString();
     }
 
@@ -504,22 +571,32 @@ public final class $Gson$Types {
 
     public GenericArrayTypeImpl(Type componentType) {
       this.componentType = canonicalize(componentType);
+		System.out.println("resp1onse $Gson$Types: public GenericArrayTypeImpl(Type componentType) { start constructor ");
+		System.out.println("resp1onse $Gson$Types: public GenericArrayTypeImpl(Type componentType) { end constructor ");
     }
 
     public Type getGenericComponentType() {
+		System.out.println("resp1onse $Gson$Types: public Type getGenericComponentType() { start return ");
+		System.out.println("resp1onse $Gson$Types: public Type getGenericComponentType() { end return ");
       return componentType;
     }
 
     @Override public boolean equals(Object o) {
+		System.out.println("resp1onse $Gson$Types: @Override public boolean equals(Object o) { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public boolean equals(Object o) { end return ");
       return o instanceof GenericArrayType
           && $Gson$Types.equals(this, (GenericArrayType) o);
     }
 
     @Override public int hashCode() {
+		System.out.println("resp1onse $Gson$Types: @Override public int hashCode() { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public int hashCode() { end return ");
       return componentType.hashCode();
     }
 
     @Override public String toString() {
+		System.out.println("resp1onse $Gson$Types: @Override public String toString() { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public String toString() { end return ");
       return typeToString(componentType) + "[]";
     }
 
@@ -536,6 +613,7 @@ public final class $Gson$Types {
     private final Type lowerBound;
 
     public WildcardTypeImpl(Type[] upperBounds, Type[] lowerBounds) {
+		System.out.println("resp1onse $Gson$Types: public WildcardTypeImpl(Type[] upperBounds, Type[] lowerBounds) { start constructor ");
       checkArgument(lowerBounds.length <= 1);
       checkArgument(upperBounds.length == 1);
 
@@ -552,28 +630,38 @@ public final class $Gson$Types {
         this.lowerBound = null;
         this.upperBound = canonicalize(upperBounds[0]);
       }
+		System.out.println("resp1onse $Gson$Types: public WildcardTypeImpl(Type[] upperBounds, Type[] lowerBounds) { end constructor ");
     }
 
     public Type[] getUpperBounds() {
+		System.out.println("resp1onse $Gson$Types: public Type[] getUpperBounds() { start return ");
+		System.out.println("resp1onse $Gson$Types: public Type[] getUpperBounds() { end return ");
       return new Type[] { upperBound };
     }
 
     public Type[] getLowerBounds() {
+		System.out.println("resp1onse $Gson$Types: public Type[] getLowerBounds() { start return ");
+		System.out.println("resp1onse $Gson$Types: public Type[] getLowerBounds() { end return ");
       return lowerBound != null ? new Type[] { lowerBound } : EMPTY_TYPE_ARRAY;
     }
 
     @Override public boolean equals(Object other) {
+		System.out.println("resp1onse $Gson$Types: @Override public boolean equals(Object other) { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public boolean equals(Object other) { end return ");
       return other instanceof WildcardType
           && $Gson$Types.equals(this, (WildcardType) other);
     }
 
     @Override public int hashCode() {
       // this equals Arrays.hashCode(getLowerBounds()) ^ Arrays.hashCode(getUpperBounds());
+		System.out.println("resp1onse $Gson$Types: @Override public int hashCode() { start return ");
+		System.out.println("resp1onse $Gson$Types: @Override public int hashCode() { end return ");
       return (lowerBound != null ? 31 + lowerBound.hashCode() : 1)
           ^ (31 + upperBound.hashCode());
     }
 
     @Override public String toString() {
+		System.out.println("resp1onse $Gson$Types: @Override public String toString() { start return ");
       if (lowerBound != null) {
         return "? super " + typeToString(lowerBound);
       } else if (upperBound == Object.class) {

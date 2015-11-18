@@ -33,6 +33,8 @@ public enum LongSerializationPolicy {
    */
   DEFAULT() {
     @Override public JsonElement serialize(Long value) {
+		System.out.println("resp1onse LongSerializationPolicy: @Override public JsonElement serialize(Long value) { start return ");
+		System.out.println("resp1onse LongSerializationPolicy: @Override public JsonElement serialize(Long value) { end return ");
       return new JsonPrimitive(value);
     }
   },
@@ -44,6 +46,8 @@ public enum LongSerializationPolicy {
    */
   STRING() {
     @Override public JsonElement serialize(Long value) {
+		System.out.println("resp1onse LongSerializationPolicy: @Override public JsonElement serialize(Long value) { start return ");
+		System.out.println("resp1onse LongSerializationPolicy: @Override public JsonElement serialize(Long value) { end return ");
       return new JsonPrimitive(String.valueOf(value));
     }
   };

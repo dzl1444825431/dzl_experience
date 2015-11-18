@@ -50,9 +50,12 @@ public final class ConstructorConstructor {
 
   public ConstructorConstructor(Map<Type, InstanceCreator<?>> instanceCreators) {
     this.instanceCreators = instanceCreators;
+		System.out.println("resp1onse ConstructorConstructor: public ConstructorConstructor(Map<Type, InstanceCreator<?>> instanceCreators) { start constructor ");
+		System.out.println("resp1onse ConstructorConstructor: public ConstructorConstructor(Map<Type, InstanceCreator<?>> instanceCreators) { end constructor ");
   }
 
   public <T> ObjectConstructor<T> get(TypeToken<T> typeToken) {
+		System.out.println("resp1onse ConstructorConstructor: public <T> ObjectConstructor<T> get(TypeToken<T> typeToken) { start return ");
     final Type type = typeToken.getType();
     final Class<? super T> rawType = typeToken.getRawType();
 
@@ -63,6 +66,7 @@ public final class ConstructorConstructor {
     if (typeCreator != null) {
       return new ObjectConstructor<T>() {
         @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start internal 4");
           return typeCreator.createInstance(type);
         }
       };
@@ -75,6 +79,7 @@ public final class ConstructorConstructor {
     if (rawTypeCreator != null) {
       return new ObjectConstructor<T>() {
         @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start internal 4");
           return rawTypeCreator.createInstance(type);
         }
       };
@@ -91,20 +96,26 @@ public final class ConstructorConstructor {
     }
 
     // finally try unsafe
+		System.out.println("resp1onse ConstructorConstructor: public <T> ObjectConstructor<T> get(TypeToken<T> typeToken) { end return  =1");
     return newUnsafeAllocator(type, rawType);
   }
 
   private <T> ObjectConstructor<T> newDefaultConstructor(Class<? super T> rawType) {
+		System.out.println("resp1onse ConstructorConstructor: private <T> ObjectConstructor<T> newDefaultConstructor(Class<? super T> rawType) { start return ");
     try {
       final Constructor<? super T> constructor = rawType.getDeclaredConstructor();
       if (!constructor.isAccessible()) {
         constructor.setAccessible(true);
       }
+		System.out.println("resp1onse ConstructorConstructor: private <T> ObjectConstructor<T> newDefaultConstructor(Class<? super T> rawType) { end return if ");
       return new ObjectConstructor<T>() {
         @SuppressWarnings("unchecked") // T is the same raw type as is requested
         @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start internal 4");
           try {
             Object[] args = null;
+		System.out.println("resp1onse ConstructorConstructor: private <T> ObjectConstructor<T> newDefaultConstructor(Class<? super T> rawType) { end return if ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end internal 4");
             return (T) constructor.newInstance(args);
           } catch (InstantiationException e) {
             // TODO: JsonParseException ?
@@ -135,6 +146,8 @@ public final class ConstructorConstructor {
       if (SortedSet.class.isAssignableFrom(rawType)) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new TreeSet<Object>();
           }
         };
@@ -142,6 +155,7 @@ public final class ConstructorConstructor {
         return new ObjectConstructor<T>() {
           @SuppressWarnings("rawtypes")
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
             if (type instanceof ParameterizedType) {
               Type elementType = ((ParameterizedType) type).getActualTypeArguments()[0];
               if (elementType instanceof Class) {
@@ -157,18 +171,24 @@ public final class ConstructorConstructor {
       } else if (Set.class.isAssignableFrom(rawType)) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new LinkedHashSet<Object>();
           }
         };
       } else if (Queue.class.isAssignableFrom(rawType)) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new LinkedList<Object>();
           }
         };
       } else {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new ArrayList<Object>();
           }
         };
@@ -179,18 +199,24 @@ public final class ConstructorConstructor {
       if (ConcurrentNavigableMap.class.isAssignableFrom(rawType)) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new ConcurrentSkipListMap<Object, Object>();
           }
         };
       } else if (ConcurrentMap.class.isAssignableFrom(rawType)) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new ConcurrentHashMap<Object, Object>();
           }
         };
       } else if (SortedMap.class.isAssignableFrom(rawType)) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new TreeMap<Object, Object>();
           }
         };
@@ -198,12 +224,16 @@ public final class ConstructorConstructor {
           TypeToken.get(((ParameterizedType) type).getActualTypeArguments()[0]).getRawType()))) {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new LinkedHashMap<Object, Object>();
           }
         };
       } else {
         return new ObjectConstructor<T>() {
           @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return ");
             return (T) new LinkedTreeMap<String, Object>();
           }
         };
@@ -219,8 +249,10 @@ public final class ConstructorConstructor {
       private final UnsafeAllocator unsafeAllocator = UnsafeAllocator.create();
       @SuppressWarnings("unchecked")
       @Override public T construct() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { start return ");
         try {
           Object newInstance = unsafeAllocator.newInstance(rawType);
+		System.out.println("resp1onse ConstructorConstructor: @Override public T construct() { end return if ");
           return (T) newInstance;
         } catch (Exception e) {
           throw new RuntimeException(("Unable to invoke no-args constructor for " + type + ". "
@@ -231,6 +263,8 @@ public final class ConstructorConstructor {
   }
 
   @Override public String toString() {
+		System.out.println("resp1onse ConstructorConstructor: @Override public String toString() { start return ");
+		System.out.println("resp1onse ConstructorConstructor: @Override public String toString() { end return ");
     return instanceCreators.toString();
   }
 }

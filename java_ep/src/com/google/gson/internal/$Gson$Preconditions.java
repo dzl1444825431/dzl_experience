@@ -31,19 +31,25 @@ package com.google.gson.internal;
  */
 public final class $Gson$Preconditions {
   private $Gson$Preconditions() {
+		System.out.println("resp1onse $Gson$Preconditions: private $Gson$Preconditions() { start constructor ");
+		System.out.println("resp1onse $Gson$Preconditions: private $Gson$Preconditions() { end constructor ");
     throw new UnsupportedOperationException();
   }
 
   public static <T> T checkNotNull(T obj) {
+		System.out.println("resp1onse $Gson$Preconditions: public static <T> T checkNotNull(T obj) { start return ");
     if (obj == null) {
       throw new NullPointerException();
     }
+		System.out.println("resp1onse $Gson$Preconditions: public static <T> T checkNotNull(T obj) { end return  =1");
     return obj;
   }
 
   public static void checkArgument(boolean condition) {
+		System.out.println("resp1onse $Gson$Preconditions: public static void checkArgument(boolean condition) { start void ");
     if (!condition) {
       throw new IllegalArgumentException();
     }
+		System.out.println("resp1onse $Gson$Preconditions: public static void checkArgument(boolean condition) { end void ");
   }
 }

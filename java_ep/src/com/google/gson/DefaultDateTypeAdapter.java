@@ -56,6 +56,8 @@ final class DefaultDateTypeAdapter implements JsonSerializer<Date>, JsonDeserial
   public DefaultDateTypeAdapter(int dateStyle, int timeStyle) {
     this(DateFormat.getDateTimeInstance(dateStyle, timeStyle, Locale.US),
         DateFormat.getDateTimeInstance(dateStyle, timeStyle));
+    System.out.println("resp1onse DefaultDateTypeAdapter: public DefaultDateTypeAdapter(int dateStyle, int timeStyle) { start constructor ");
+		System.out.println("resp1onse DefaultDateTypeAdapter: public DefaultDateTypeAdapter(int dateStyle, int timeStyle) { end constructor ");
   }
 
   DefaultDateTypeAdapter(DateFormat enUsFormat, DateFormat localFormat) {
@@ -69,8 +71,10 @@ final class DefaultDateTypeAdapter implements JsonSerializer<Date>, JsonDeserial
   // See issue 162
   @Override
   public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) {
+		System.out.println("resp1onse DefaultDateTypeAdapter: public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) { start return ");
     synchronized (localFormat) {
       String dateFormatAsString = enUsFormat.format(src);
+		System.out.println("resp1onse DefaultDateTypeAdapter: public JsonElement serialize(Date src, Type typeOfSrc, JsonSerializationContext context) { end return if ");
       return new JsonPrimitive(dateFormatAsString);
     }
   }
@@ -94,6 +98,7 @@ final class DefaultDateTypeAdapter implements JsonSerializer<Date>, JsonDeserial
   }
 
   private Date deserializeToDate(JsonElement json) {
+		System.out.println("resp1onse DefaultDateTypeAdapter: private Date deserializeToDate(JsonElement json) { start return ");
     synchronized (localFormat) {
       try {
         return localFormat.parse(json.getAsString());
@@ -113,9 +118,11 @@ final class DefaultDateTypeAdapter implements JsonSerializer<Date>, JsonDeserial
 
   @Override
   public String toString() {
+		System.out.println("resp1onse DefaultDateTypeAdapter: public String toString() { start return ");
     StringBuilder sb = new StringBuilder();
     sb.append(DefaultDateTypeAdapter.class.getSimpleName());
     sb.append('(').append(localFormat.getClass().getSimpleName()).append(')');
+		System.out.println("resp1onse DefaultDateTypeAdapter: public String toString() { end return  =1");
     return sb.toString();
   }
 }

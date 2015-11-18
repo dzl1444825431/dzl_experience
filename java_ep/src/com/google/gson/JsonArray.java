@@ -37,7 +37,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * Creates an empty JsonArray.
    */
   public JsonArray() {
+		System.out.println("resp1onse JsonArray: public JsonArray() { start constructor ");
     elements = new ArrayList<JsonElement>();
+		System.out.println("resp1onse JsonArray: public JsonArray() { end constructor ");
   }
 
   @Override
@@ -55,7 +57,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @param bool the boolean that needs to be added to the array.
    */
   public void add(Boolean bool) {
+		System.out.println("resp1onse JsonArray: public void add(Boolean bool) { start void ");
     elements.add(bool == null ? JsonNull.INSTANCE : new JsonPrimitive(bool));
+		System.out.println("resp1onse JsonArray: public void add(Boolean bool) { end void ");
   }
 
   /**
@@ -64,7 +68,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @param character the character that needs to be added to the array.
    */
   public void add(Character character) {
+		System.out.println("resp1onse JsonArray: public void add(Character character) { start void ");
     elements.add(character == null ? JsonNull.INSTANCE : new JsonPrimitive(character));
+		System.out.println("resp1onse JsonArray: public void add(Character character) { end void ");
   }
 
   /**
@@ -73,7 +79,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @param number the number that needs to be added to the array.
    */
   public void add(Number number) {
+		System.out.println("resp1onse JsonArray: public void add(Number number) { start void ");
     elements.add(number == null ? JsonNull.INSTANCE : new JsonPrimitive(number));
+		System.out.println("resp1onse JsonArray: public void add(Number number) { end void ");
   }
 
   /**
@@ -82,7 +90,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @param string the string that needs to be added to the array.
    */
   public void add(String string) {
+		System.out.println("resp1onse JsonArray: public void add(String string) { start void ");
     elements.add(string == null ? JsonNull.INSTANCE : new JsonPrimitive(string));
+		System.out.println("resp1onse JsonArray: public void add(String string) { end void ");
   }
 
   /**
@@ -91,10 +101,12 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @param element the element that needs to be added to the array.
    */
   public void add(JsonElement element) {
+		System.out.println("resp1onse JsonArray: public void add(JsonElement element) { start void ");
     if (element == null) {
       element = JsonNull.INSTANCE;
     }
     elements.add(element);
+		System.out.println("resp1onse JsonArray: public void add(JsonElement element) { end void ");
   }
 
   /**
@@ -103,7 +115,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @param array the array whose elements need to be added to the array.
    */
   public void addAll(JsonArray array) {
+		System.out.println("resp1onse JsonArray: public void addAll(JsonArray array) { start void ");
     elements.addAll(array.elements);
+		System.out.println("resp1onse JsonArray: public void addAll(JsonArray array) { end void ");
   }
 
   /**
@@ -115,6 +129,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @throws IndexOutOfBoundsException if the specified index is outside the array bounds
    */
   public JsonElement set(int index, JsonElement element) {
+		System.out.println("resp1onse JsonArray: public JsonElement set(int index, JsonElement element) { start return ");
+		System.out.println("resp1onse JsonArray: public JsonElement set(int index, JsonElement element) { end return ");
     return elements.set(index, element);
   }
 
@@ -126,6 +142,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @since 2.3
    */
   public boolean remove(JsonElement element) {
+		System.out.println("resp1onse JsonArray: public boolean remove(JsonElement element) { start return ");
+		System.out.println("resp1onse JsonArray: public boolean remove(JsonElement element) { end return ");
     return elements.remove(element);
   }
 
@@ -139,6 +157,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @since 2.3
    */
   public JsonElement remove(int index) {
+		System.out.println("resp1onse JsonArray: public JsonElement remove(int index) { start return ");
+		System.out.println("resp1onse JsonArray: public JsonElement remove(int index) { end return ");
     return elements.remove(index);
   }
 
@@ -149,6 +169,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @since 2.3
    */
   public boolean contains(JsonElement element) {
+		System.out.println("resp1onse JsonArray: public boolean contains(JsonElement element) { start return ");
+		System.out.println("resp1onse JsonArray: public boolean contains(JsonElement element) { end return ");
     return elements.contains(element);
   }
 
@@ -158,6 +180,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @return the number of elements in the array.
    */
   public int size() {
+		System.out.println("resp1onse JsonArray: public int size() { start return ");
+		System.out.println("resp1onse JsonArray: public int size() { end return ");
     return elements.size();
   }
 
@@ -168,6 +192,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * @return an iterator to navigate the elements of the array.
    */
   public Iterator<JsonElement> iterator() {
+		System.out.println("resp1onse JsonArray: public Iterator<JsonElement> iterator() { start return ");
+		System.out.println("resp1onse JsonArray: public Iterator<JsonElement> iterator() { end return ");
     return elements.iterator();
   }
 
@@ -180,6 +206,8 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    * {@link #size()} of the array.
    */
   public JsonElement get(int i) {
+		System.out.println("resp1onse JsonArray: public JsonElement get(int i) { start return ");
+		System.out.println("resp1onse JsonArray: public JsonElement get(int i) { end return ");
     return elements.get(i);
   }
 
@@ -193,9 +221,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public Number getAsNumber() {
+		System.out.println("resp1onse JsonArray: public Number getAsNumber() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsNumber();
     }
+		System.out.println("resp1onse JsonArray: public Number getAsNumber() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -209,9 +239,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public String getAsString() {
+		System.out.println("resp1onse JsonArray: public String getAsString() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsString();
     }
+		System.out.println("resp1onse JsonArray: public String getAsString() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -225,9 +257,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public double getAsDouble() {
+		System.out.println("resp1onse JsonArray: public double getAsDouble() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsDouble();
     }
+		System.out.println("resp1onse JsonArray: public double getAsDouble() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -242,9 +276,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public BigDecimal getAsBigDecimal() {
+		System.out.println("resp1onse JsonArray: public BigDecimal getAsBigDecimal() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsBigDecimal();
     }
+		System.out.println("resp1onse JsonArray: public BigDecimal getAsBigDecimal() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -259,9 +295,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public BigInteger getAsBigInteger() {
+		System.out.println("resp1onse JsonArray: public BigInteger getAsBigInteger() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsBigInteger();
     }
+		System.out.println("resp1onse JsonArray: public BigInteger getAsBigInteger() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -275,9 +313,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public float getAsFloat() {
+		System.out.println("resp1onse JsonArray: public float getAsFloat() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsFloat();
     }
+		System.out.println("resp1onse JsonArray: public float getAsFloat() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -291,9 +331,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public long getAsLong() {
+		System.out.println("resp1onse JsonArray: public long getAsLong() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsLong();
     }
+		System.out.println("resp1onse JsonArray: public long getAsLong() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -307,25 +349,31 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public int getAsInt() {
+		System.out.println("resp1onse JsonArray: public int getAsInt() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsInt();
     }
+		System.out.println("resp1onse JsonArray: public int getAsInt() { end return  =1");
     throw new IllegalStateException();
   }
 
   @Override
   public byte getAsByte() {
+		System.out.println("resp1onse JsonArray: public byte getAsByte() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsByte();
     }
+		System.out.println("resp1onse JsonArray: public byte getAsByte() { end return  =1");
     throw new IllegalStateException();
   }
 
   @Override
   public char getAsCharacter() {
+		System.out.println("resp1onse JsonArray: public char getAsCharacter() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsCharacter();
     }
+		System.out.println("resp1onse JsonArray: public char getAsCharacter() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -339,9 +387,11 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public short getAsShort() {
+		System.out.println("resp1onse JsonArray: public short getAsShort() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsShort();
     }
+		System.out.println("resp1onse JsonArray: public short getAsShort() { end return  =1");
     throw new IllegalStateException();
   }
 
@@ -355,19 +405,25 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
    */
   @Override
   public boolean getAsBoolean() {
+		System.out.println("resp1onse JsonArray: public boolean getAsBoolean() { start return ");
     if (elements.size() == 1) {
       return elements.get(0).getAsBoolean();
     }
+		System.out.println("resp1onse JsonArray: public boolean getAsBoolean() { end return  =1");
     throw new IllegalStateException();
   }
 
   @Override
   public boolean equals(Object o) {
+		System.out.println("resp1onse JsonArray: public boolean equals(Object o) { start return ");
+		System.out.println("resp1onse JsonArray: public boolean equals(Object o) { end return ");
     return (o == this) || (o instanceof JsonArray && ((JsonArray) o).elements.equals(elements));
   }
 
   @Override
   public int hashCode() {
+		System.out.println("resp1onse JsonArray: public int hashCode() { start return ");
+		System.out.println("resp1onse JsonArray: public int hashCode() { end return ");
     return elements.hashCode();
   }
 }

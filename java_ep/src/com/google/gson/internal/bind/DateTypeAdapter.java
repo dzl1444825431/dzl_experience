@@ -42,6 +42,8 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
   public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() {
     @SuppressWarnings("unchecked") // we use a runtime check to make sure the 'T's equal
     @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse DateTypeAdapter: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
+		System.out.println("resp1onse DateTypeAdapter: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return ");
       return typeToken.getRawType() == Date.class ? (TypeAdapter<T>) new DateTypeAdapter() : null;
     }
   };
@@ -53,8 +55,10 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
   private final DateFormat iso8601Format = buildIso8601Format();
 
   private static DateFormat buildIso8601Format() {
+		System.out.println("resp1onse DateTypeAdapter: private static DateFormat buildIso8601Format() { start return ");
     DateFormat iso8601Format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
     iso8601Format.setTimeZone(TimeZone.getTimeZone("UTC"));
+		System.out.println("resp1onse DateTypeAdapter: private static DateFormat buildIso8601Format() { end return  =1");
     return iso8601Format;
   }
 
@@ -67,6 +71,7 @@ public final class DateTypeAdapter extends TypeAdapter<Date> {
   }
 
   private synchronized Date deserializeToDate(String json) {
+		System.out.println("resp1onse DateTypeAdapter: private synchronized Date deserializeToDate(String json) { start return ");
     try {
       return localFormat.parse(json);
     } catch (ParseException ignored) {

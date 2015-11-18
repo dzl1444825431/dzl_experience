@@ -33,6 +33,8 @@ import java.util.List;
 public final class JsonTreeWriter extends JsonWriter {
   private static final Writer UNWRITABLE_WRITER = new Writer() {
     @Override public void write(char[] buffer, int offset, int counter) {
+		System.out.println("resp1onse JsonTreeWriter: @Override public void write(char[] buffer, int offset, int counter) { start void ");
+		System.out.println("resp1onse JsonTreeWriter: @Override public void write(char[] buffer, int offset, int counter) { end void ");
       throw new AssertionError();
     }
     @Override public void flush() throws IOException {
@@ -56,23 +58,30 @@ public final class JsonTreeWriter extends JsonWriter {
 
   public JsonTreeWriter() {
     super(UNWRITABLE_WRITER);
+		System.out.println("resp1onse JsonTreeWriter: public JsonTreeWriter() { start constructor ");
+		System.out.println("resp1onse JsonTreeWriter: public JsonTreeWriter() { end constructor ");
   }
 
   /**
    * Returns the top level object produced by this writer.
    */
   public JsonElement get() {
+		System.out.println("resp1onse JsonTreeWriter: public JsonElement get() { start return ");
     if (!stack.isEmpty()) {
       throw new IllegalStateException("Expected one JSON element but was " + stack);
     }
+		System.out.println("resp1onse JsonTreeWriter: public JsonElement get() { end return  =1");
     return product;
   }
 
   private JsonElement peek() {
+		System.out.println("resp1onse JsonTreeWriter: private JsonElement peek() { start return ");
+		System.out.println("resp1onse JsonTreeWriter: private JsonElement peek() { end return ");
     return stack.get(stack.size() - 1);
   }
 
   private void put(JsonElement value) {
+		System.out.println("resp1onse JsonTreeWriter: private void put(JsonElement value) { start void ");
     if (pendingName != null) {
       if (!value.isJsonNull() || getSerializeNulls()) {
         JsonObject object = (JsonObject) peek();
@@ -89,6 +98,7 @@ public final class JsonTreeWriter extends JsonWriter {
         throw new IllegalStateException();
       }
     }
+		System.out.println("resp1onse JsonTreeWriter: private void put(JsonElement value) { end void ");
   }
 
   @Override public JsonWriter beginArray() throws IOException {

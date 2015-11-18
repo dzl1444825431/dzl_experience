@@ -195,10 +195,12 @@ public class JsonWriter implements Closeable, Flushable {
    * {@link java.io.BufferedWriter BufferedWriter} if necessary.
    */
   public JsonWriter(Writer out) {
+		System.out.println("resp1onse JsonWriter: public JsonWriter(Writer out) { start constructor ");
     if (out == null) {
       throw new NullPointerException("out == null");
     }
     this.out = out;
+		System.out.println("resp1onse JsonWriter: public JsonWriter(Writer out) { end constructor ");
   }
 
   /**
@@ -210,6 +212,7 @@ public class JsonWriter implements Closeable, Flushable {
    * @param indent a string containing only whitespace.
    */
   public final void setIndent(String indent) {
+		System.out.println("resp1onse JsonWriter: public final void setIndent(String indent) { start void ");
     if (indent.length() == 0) {
       this.indent = null;
       this.separator = ":";
@@ -217,6 +220,7 @@ public class JsonWriter implements Closeable, Flushable {
       this.indent = indent;
       this.separator = ": ";
     }
+		System.out.println("resp1onse JsonWriter: public final void setIndent(String indent) { end void ");
   }
 
   /**
@@ -232,13 +236,17 @@ public class JsonWriter implements Closeable, Flushable {
    * </ul>
    */
   public final void setLenient(boolean lenient) {
+		System.out.println("resp1onse JsonWriter: public final void setLenient(boolean lenient) { start void ");
     this.lenient = lenient;
+		System.out.println("resp1onse JsonWriter: public final void setLenient(boolean lenient) { end void ");
   }
 
   /**
    * Returns true if this writer has relaxed syntax rules.
    */
   public boolean isLenient() {
+		System.out.println("resp1onse JsonWriter: public boolean isLenient() { start return ");
+		System.out.println("resp1onse JsonWriter: public boolean isLenient() { end return ");
     return lenient;
   }
 
@@ -250,7 +258,9 @@ public class JsonWriter implements Closeable, Flushable {
    * corresponding escape sequences.
    */
   public final void setHtmlSafe(boolean htmlSafe) {
+		System.out.println("resp1onse JsonWriter: public final void setHtmlSafe(boolean htmlSafe) { start void ");
     this.htmlSafe = htmlSafe;
+		System.out.println("resp1onse JsonWriter: public final void setHtmlSafe(boolean htmlSafe) { end void ");
   }
 
   /**
@@ -258,6 +268,8 @@ public class JsonWriter implements Closeable, Flushable {
    * and XML documents.
    */
   public final boolean isHtmlSafe() {
+		System.out.println("resp1onse JsonWriter: public final boolean isHtmlSafe() { start return ");
+		System.out.println("resp1onse JsonWriter: public final boolean isHtmlSafe() { end return ");
     return htmlSafe;
   }
 
@@ -266,7 +278,9 @@ public class JsonWriter implements Closeable, Flushable {
    * This has no impact on array elements. The default is true.
    */
   public final void setSerializeNulls(boolean serializeNulls) {
+		System.out.println("resp1onse JsonWriter: public final void setSerializeNulls(boolean serializeNulls) { start void ");
     this.serializeNulls = serializeNulls;
+		System.out.println("resp1onse JsonWriter: public final void setSerializeNulls(boolean serializeNulls) { end void ");
   }
 
   /**
@@ -274,6 +288,8 @@ public class JsonWriter implements Closeable, Flushable {
    * This has no impact on array elements. The default is true.
    */
   public final boolean getSerializeNulls() {
+		System.out.println("resp1onse JsonWriter: public final boolean getSerializeNulls() { start return ");
+		System.out.println("resp1onse JsonWriter: public final boolean getSerializeNulls() { end return ");
     return serializeNulls;
   }
 
@@ -351,21 +367,25 @@ public class JsonWriter implements Closeable, Flushable {
   }
 
   private void push(int newTop) {
+		System.out.println("resp1onse JsonWriter: private void push(int newTop) { start void ");
     if (stackSize == stack.length) {
       int[] newStack = new int[stackSize * 2];
       System.arraycopy(stack, 0, newStack, 0, stackSize);
       stack = newStack;
     }
     stack[stackSize++] = newTop;
+		System.out.println("resp1onse JsonWriter: private void push(int newTop) { end void ");
   }
 
   /**
    * Returns the value on the top of the stack.
    */
   private int peek() {
+		System.out.println("resp1onse JsonWriter: private int peek() { start return ");
     if (stackSize == 0) {
       throw new IllegalStateException("JsonWriter is closed.");
     }
+		System.out.println("resp1onse JsonWriter: private int peek() { end return  =1");
     return stack[stackSize - 1];
   }
 
@@ -373,7 +393,9 @@ public class JsonWriter implements Closeable, Flushable {
    * Replace the value on the top of the stack with the given value.
    */
   private void replaceTop(int topOfStack) {
+		System.out.println("resp1onse JsonWriter: private void replaceTop(int topOfStack) { start void ");
     stack[stackSize - 1] = topOfStack;
+		System.out.println("resp1onse JsonWriter: private void replaceTop(int topOfStack) { end void ");
   }
 
   /**

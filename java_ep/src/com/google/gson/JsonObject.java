@@ -51,10 +51,12 @@ public final class JsonObject extends JsonElement {
    * @param value the member object.
    */
   public void add(String property, JsonElement value) {
+		System.out.println("resp1onse JsonObject: public void add(String property, JsonElement value) { start void ");
     if (value == null) {
       value = JsonNull.INSTANCE;
     }
     members.put(property, value);
+		System.out.println("resp1onse JsonObject: public void add(String property, JsonElement value) { end void ");
   }
 
   /**
@@ -65,6 +67,8 @@ public final class JsonObject extends JsonElement {
    * @since 1.3
    */
   public JsonElement remove(String property) {
+		System.out.println("resp1onse JsonObject: public JsonElement remove(String property) { start return ");
+		System.out.println("resp1onse JsonObject: public JsonElement remove(String property) { end return ");
     return members.remove(property);
   }
 
@@ -76,7 +80,9 @@ public final class JsonObject extends JsonElement {
    * @param value the string value associated with the member.
    */
   public void addProperty(String property, String value) {
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, String value) { start void ");
     add(property, createJsonElement(value));
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, String value) { end void ");
   }
 
   /**
@@ -87,7 +93,9 @@ public final class JsonObject extends JsonElement {
    * @param value the number value associated with the member.
    */
   public void addProperty(String property, Number value) {
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, Number value) { start void ");
     add(property, createJsonElement(value));
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, Number value) { end void ");
   }
 
   /**
@@ -98,7 +106,9 @@ public final class JsonObject extends JsonElement {
    * @param value the number value associated with the member.
    */
   public void addProperty(String property, Boolean value) {
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, Boolean value) { start void ");
     add(property, createJsonElement(value));
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, Boolean value) { end void ");
   }
 
   /**
@@ -109,7 +119,9 @@ public final class JsonObject extends JsonElement {
    * @param value the number value associated with the member.
    */
   public void addProperty(String property, Character value) {
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, Character value) { start void ");
     add(property, createJsonElement(value));
+		System.out.println("resp1onse JsonObject: public void addProperty(String property, Character value) { end void ");
   }
 
   /**
@@ -119,6 +131,8 @@ public final class JsonObject extends JsonElement {
    * @return a {@link JsonPrimitive} if the {@code value} is not null, otherwise a {@link JsonNull}
    */
   private JsonElement createJsonElement(Object value) {
+		System.out.println("resp1onse JsonObject: private JsonElement createJsonElement(Object value) { start return ");
+		System.out.println("resp1onse JsonObject: private JsonElement createJsonElement(Object value) { end return ");
     return value == null ? JsonNull.INSTANCE : new JsonPrimitive(value);
   }
 
@@ -129,6 +143,8 @@ public final class JsonObject extends JsonElement {
    * @return a set of members of this object.
    */
   public Set<Map.Entry<String, JsonElement>> entrySet() {
+		System.out.println("resp1onse JsonObject: public Set<Map.Entry<String, JsonElement>> entrySet() { start return ");
+		System.out.println("resp1onse JsonObject: public Set<Map.Entry<String, JsonElement>> entrySet() { end return ");
     return members.entrySet();
   }
 
@@ -139,6 +155,8 @@ public final class JsonObject extends JsonElement {
    * @return true if there is a member with the specified name, false otherwise.
    */
   public boolean has(String memberName) {
+		System.out.println("resp1onse JsonObject: public boolean has(String memberName) { start return ");
+		System.out.println("resp1onse JsonObject: public boolean has(String memberName) { end return ");
     return members.containsKey(memberName);
   }
 
@@ -149,6 +167,8 @@ public final class JsonObject extends JsonElement {
    * @return the member matching the name. Null if no such member exists.
    */
   public JsonElement get(String memberName) {
+		System.out.println("resp1onse JsonObject: public JsonElement get(String memberName) { start return ");
+		System.out.println("resp1onse JsonObject: public JsonElement get(String memberName) { end return ");
     return members.get(memberName);
   }
 
@@ -159,6 +179,8 @@ public final class JsonObject extends JsonElement {
    * @return the JsonPrimitive corresponding to the specified member.
    */
   public JsonPrimitive getAsJsonPrimitive(String memberName) {
+		System.out.println("resp1onse JsonObject: public JsonPrimitive getAsJsonPrimitive(String memberName) { start return ");
+		System.out.println("resp1onse JsonObject: public JsonPrimitive getAsJsonPrimitive(String memberName) { end return ");
     return (JsonPrimitive) members.get(memberName);
   }
 
@@ -169,6 +191,8 @@ public final class JsonObject extends JsonElement {
    * @return the JsonArray corresponding to the specified member.
    */
   public JsonArray getAsJsonArray(String memberName) {
+		System.out.println("resp1onse JsonObject: public JsonArray getAsJsonArray(String memberName) { start return ");
+		System.out.println("resp1onse JsonObject: public JsonArray getAsJsonArray(String memberName) { end return ");
     return (JsonArray) members.get(memberName);
   }
 
@@ -179,17 +203,23 @@ public final class JsonObject extends JsonElement {
    * @return the JsonObject corresponding to the specified member.
    */
   public JsonObject getAsJsonObject(String memberName) {
+		System.out.println("resp1onse JsonObject: public JsonObject getAsJsonObject(String memberName) { start return ");
+		System.out.println("resp1onse JsonObject: public JsonObject getAsJsonObject(String memberName) { end return ");
     return (JsonObject) members.get(memberName);
   }
 
   @Override
   public boolean equals(Object o) {
+		System.out.println("resp1onse JsonObject: public boolean equals(Object o) { start return ");
+		System.out.println("resp1onse JsonObject: public boolean equals(Object o) { end return ");
     return (o == this) || (o instanceof JsonObject
         && ((JsonObject) o).members.equals(members));
   }
 
   @Override
   public int hashCode() {
+		System.out.println("resp1onse JsonObject: public int hashCode() { start return ");
+		System.out.println("resp1onse JsonObject: public int hashCode() { end return ");
     return members.hashCode();
   }
 }

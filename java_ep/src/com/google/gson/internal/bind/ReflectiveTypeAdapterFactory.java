@@ -59,20 +59,27 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
   }
 
   public boolean excludeField(Field f, boolean serialize) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: public boolean excludeField(Field f, boolean serialize) { start return ");
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: public boolean excludeField(Field f, boolean serialize) { end return ");
     return excludeField(f, serialize, excluder);
   }
 
   static boolean excludeField(Field f, boolean serialize, Excluder excluder) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: static boolean excludeField(Field f, boolean serialize, Excluder excluder) { start return ");
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: static boolean excludeField(Field f, boolean serialize, Excluder excluder) { end return ");
     return !excluder.excludeClass(f.getType(), serialize) && !excluder.excludeField(f, serialize);
   }
 
   /** first element holds the default name */
   private List<String> getFieldNames(Field f) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private List<String> getFieldNames(Field f) { start return ");
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private List<String> getFieldNames(Field f) { end return ");
     return getFieldName(fieldNamingPolicy, f);
   }
 
   /** first element holds the default name */
   static List<String> getFieldName(FieldNamingStrategy fieldNamingPolicy, Field f) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: static List<String> getFieldName(FieldNamingStrategy fieldNamingPolicy, Field f) { start return ");
     SerializedName serializedName = f.getAnnotation(SerializedName.class);
     List<String> fieldNames = new LinkedList<String>();
     if (serializedName == null) {
@@ -83,10 +90,12 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         fieldNames.add(alternate);
       }
     }
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: static List<String> getFieldName(FieldNamingStrategy fieldNamingPolicy, Field f) { end return  =1");
     return fieldNames;
   }
 
   @Override public <T> TypeAdapter<T> create(Gson gson, final TypeToken<T> type) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: @Override public <T> TypeAdapter<T> create(Gson gson, final TypeToken<T> type) { start return ");
     Class<? super T> raw = type.getRawType();
 
     if (!Object.class.isAssignableFrom(raw)) {
@@ -94,6 +103,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     ObjectConstructor<T> constructor = constructorConstructor.get(type);
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: @Override public <T> TypeAdapter<T> create(Gson gson, final TypeToken<T> type) { end return  =1");
     return new Adapter<T>(constructor, getBoundFields(gson, type, raw));
   }
 
@@ -128,15 +138,18 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
   }
 
   private TypeAdapter<?> getFieldAdapter(Gson gson, Field field, TypeToken<?> fieldType) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private TypeAdapter<?> getFieldAdapter(Gson gson, Field field, TypeToken<?> fieldType) { start return ");
     JsonAdapter annotation = field.getAnnotation(JsonAdapter.class);
     if (annotation != null) {
       TypeAdapter<?> adapter = getTypeAdapter(constructorConstructor, gson, fieldType, annotation);
       if (adapter != null) return adapter;
     }
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private TypeAdapter<?> getFieldAdapter(Gson gson, Field field, TypeToken<?> fieldType) { end return  =1");
     return gson.getAdapter(fieldType);
   }
 
   private Map<String, BoundField> getBoundFields(Gson context, TypeToken<?> type, Class<?> raw) {
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private Map<String, BoundField> getBoundFields(Gson context, TypeToken<?> type, Class<?> raw) { start return ");
     Map<String, BoundField> result = new LinkedHashMap<String, BoundField>();
     if (raw.isInterface()) {
       return result;
@@ -171,6 +184,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
       type = TypeToken.get($Gson$Types.resolve(type.getType(), raw, raw.getGenericSuperclass()));
       raw = type.getRawType();
     }
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private Map<String, BoundField> getBoundFields(Gson context, TypeToken<?> type, Class<?> raw) { end return  =1");
     return result;
   }
 
@@ -181,8 +195,10 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
     protected BoundField(String name, boolean serialized, boolean deserialized) {
       this.name = name;
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: protected BoundField(String name, boolean serialized, boolean deserialized) { start constructor ");
       this.serialized = serialized;
       this.deserialized = deserialized;
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: protected BoundField(String name, boolean serialized, boolean deserialized) { end constructor ");
     }
     abstract boolean writeField(Object value) throws IOException, IllegalAccessException;
     abstract void write(JsonWriter writer, Object value) throws IOException, IllegalAccessException;
@@ -195,7 +211,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
 
     private Adapter(ObjectConstructor<T> constructor, Map<String, BoundField> boundFields) {
       this.constructor = constructor;
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private Adapter(ObjectConstructor<T> constructor, Map<String, BoundField> boundFields) { start constructor ");
       this.boundFields = boundFields;
+		System.out.println("resp1onse ReflectiveTypeAdapterFactory: private Adapter(ObjectConstructor<T> constructor, Map<String, BoundField> boundFields) { end constructor ");
     }
 
     @Override public T read(JsonReader in) throws IOException {

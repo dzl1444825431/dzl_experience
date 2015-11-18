@@ -59,6 +59,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
   private List<ExclusionStrategy> deserializationStrategies = Collections.emptyList();
 
   @Override protected Excluder clone() {
+		System.out.println("resp1onse Excluder: @Override protected Excluder clone() { start return ");
     try {
       return (Excluder) super.clone();
     } catch (CloneNotSupportedException e) {
@@ -67,29 +68,37 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
   }
 
   public Excluder withVersion(double ignoreVersionsAfter) {
+		System.out.println("resp1onse Excluder: public Excluder withVersion(double ignoreVersionsAfter) { start return ");
     Excluder result = clone();
     result.version = ignoreVersionsAfter;
+		System.out.println("resp1onse Excluder: public Excluder withVersion(double ignoreVersionsAfter) { end return  =1");
     return result;
   }
 
   public Excluder withModifiers(int... modifiers) {
+		System.out.println("resp1onse Excluder: public Excluder withModifiers(int... modifiers) { start return ");
     Excluder result = clone();
     result.modifiers = 0;
     for (int modifier : modifiers) {
       result.modifiers |= modifier;
     }
+		System.out.println("resp1onse Excluder: public Excluder withModifiers(int... modifiers) { end return  =1");
     return result;
   }
 
   public Excluder disableInnerClassSerialization() {
+		System.out.println("resp1onse Excluder: public Excluder disableInnerClassSerialization() { start return ");
     Excluder result = clone();
     result.serializeInnerClasses = false;
+		System.out.println("resp1onse Excluder: public Excluder disableInnerClassSerialization() { end return  =1");
     return result;
   }
 
   public Excluder excludeFieldsWithoutExposeAnnotation() {
+		System.out.println("resp1onse Excluder: public Excluder excludeFieldsWithoutExposeAnnotation() { start return ");
     Excluder result = clone();
     result.requireExpose = true;
+		System.out.println("resp1onse Excluder: public Excluder excludeFieldsWithoutExposeAnnotation() { end return  =1");
     return result;
   }
 
@@ -109,6 +118,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
   }
 
   public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) {
+		System.out.println("resp1onse Excluder: public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) { start return ");
     Class<?> rawType = type.getRawType();
     final boolean skipSerialize = excludeClass(rawType, true);
     final boolean skipDeserialize = excludeClass(rawType, false);
@@ -117,6 +127,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
       return null;
     }
 
+		System.out.println("resp1onse Excluder: public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) { end return if ");
     return new TypeAdapter<T>() {
       /** The delegate is lazily created because it may not be needed, and creating it may fail. */
       private TypeAdapter<T> delegate;
@@ -124,21 +135,27 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
       @Override public T read(JsonReader in) throws IOException {
         if (skipDeserialize) {
           in.skipValue();
+		System.out.println("resp1onse Excluder: public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) { end return if ");
           return null;
         }
+		System.out.println("resp1onse Excluder: public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) { end return if ");
         return delegate().read(in);
       }
 
       @Override public void write(JsonWriter out, T value) throws IOException {
         if (skipSerialize) {
           out.nullValue();
+		System.out.println("resp1onse Excluder: public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) { end return if ");
           return;
         }
         delegate().write(out, value);
       }
 
       private TypeAdapter<T> delegate() {
+		System.out.println("resp1onse Excluder: private TypeAdapter<T> delegate() { start internal 3");
         TypeAdapter<T> d = delegate;
+		System.out.println("resp1onse Excluder: public <T> TypeAdapter<T> create(final Gson gson, final TypeToken<T> type) { end return if ");
+		System.out.println("resp1onse Excluder: private TypeAdapter<T> delegate() { end internal 3");
         return d != null
             ? d
             : (delegate = gson.getDelegateAdapter(Excluder.this, type));
@@ -147,6 +164,7 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
   }
 
   public boolean excludeField(Field field, boolean serialize) {
+		System.out.println("resp1onse Excluder: public boolean excludeField(Field field, boolean serialize) { start return ");
     if ((modifiers & field.getModifiers()) != 0) {
       return true;
     }
@@ -185,10 +203,12 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
       }
     }
 
+		System.out.println("resp1onse Excluder: public boolean excludeField(Field field, boolean serialize) { end return  =1");
     return false;
   }
 
   public boolean excludeClass(Class<?> clazz, boolean serialize) {
+		System.out.println("resp1onse Excluder: public boolean excludeClass(Class<?> clazz, boolean serialize) { start return ");
     if (version != Excluder.IGNORE_VERSIONS
         && !isValidVersion(clazz.getAnnotation(Since.class), clazz.getAnnotation(Until.class))) {
       return true;
@@ -209,43 +229,56 @@ public final class Excluder implements TypeAdapterFactory, Cloneable {
       }
     }
 
+		System.out.println("resp1onse Excluder: public boolean excludeClass(Class<?> clazz, boolean serialize) { end return  =1");
     return false;
   }
 
   private boolean isAnonymousOrLocal(Class<?> clazz) {
+		System.out.println("resp1onse Excluder: private boolean isAnonymousOrLocal(Class<?> clazz) { start return ");
+		System.out.println("resp1onse Excluder: private boolean isAnonymousOrLocal(Class<?> clazz) { end return ");
     return !Enum.class.isAssignableFrom(clazz)
         && (clazz.isAnonymousClass() || clazz.isLocalClass());
   }
 
   private boolean isInnerClass(Class<?> clazz) {
+		System.out.println("resp1onse Excluder: private boolean isInnerClass(Class<?> clazz) { start return ");
+		System.out.println("resp1onse Excluder: private boolean isInnerClass(Class<?> clazz) { end return ");
     return clazz.isMemberClass() && !isStatic(clazz);
   }
 
   private boolean isStatic(Class<?> clazz) {
+		System.out.println("resp1onse Excluder: private boolean isStatic(Class<?> clazz) { start return ");
+		System.out.println("resp1onse Excluder: private boolean isStatic(Class<?> clazz) { end return ");
     return (clazz.getModifiers() & Modifier.STATIC) != 0;
   }
 
   private boolean isValidVersion(Since since, Until until) {
+		System.out.println("resp1onse Excluder: private boolean isValidVersion(Since since, Until until) { start return ");
+		System.out.println("resp1onse Excluder: private boolean isValidVersion(Since since, Until until) { end return ");
     return isValidSince(since) && isValidUntil(until);
   }
 
   private boolean isValidSince(Since annotation) {
+		System.out.println("resp1onse Excluder: private boolean isValidSince(Since annotation) { start return ");
     if (annotation != null) {
       double annotationVersion = annotation.value();
       if (annotationVersion > version) {
         return false;
       }
     }
+		System.out.println("resp1onse Excluder: private boolean isValidSince(Since annotation) { end return  =1");
     return true;
   }
 
   private boolean isValidUntil(Until annotation) {
+		System.out.println("resp1onse Excluder: private boolean isValidUntil(Until annotation) { start return ");
     if (annotation != null) {
       double annotationVersion = annotation.value();
       if (annotationVersion <= version) {
         return false;
       }
     }
+		System.out.println("resp1onse Excluder: private boolean isValidUntil(Until annotation) { end return  =1");
     return true;
   }
 }

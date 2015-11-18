@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.dzl.test.gridview.CustomGridView
+        android:id="@+id/item_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:listSelector="@null"
+        android:paddingBottom="1dp"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth" />
+
+    <!-- <com.dzl.test.gridview.CustomGridView
+        android:id="@+id/item_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:listSelector="@null"
+        android:numColumns="3"
+        android:padding="3dp"
+        android:stretchMode="columnWidth" /> -->
+
+</LinearLayout>

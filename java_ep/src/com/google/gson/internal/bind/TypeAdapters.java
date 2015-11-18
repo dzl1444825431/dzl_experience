@@ -61,6 +61,8 @@ import com.google.gson.stream.JsonWriter;
  */
 public final class TypeAdapters {
   private TypeAdapters() {
+		System.out.println("resp1onse TypeAdapters: private TypeAdapters() { start constructor ");
+		System.out.println("resp1onse TypeAdapters: private TypeAdapters() { end constructor ");
     throw new UnsupportedOperationException();
   }
 
@@ -579,14 +581,17 @@ public final class TypeAdapters {
   public static final TypeAdapterFactory TIMESTAMP_FACTORY = new TypeAdapterFactory() {
     @SuppressWarnings("unchecked") // we use a runtime check to make sure the 'T's equal
     @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
       if (typeToken.getRawType() != Timestamp.class) {
         return null;
       }
 
       final TypeAdapter<Date> dateTypeAdapter = gson.getAdapter(Date.class);
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return if ");
       return (TypeAdapter<T>) new TypeAdapter<Timestamp>() {
         @Override public Timestamp read(JsonReader in) throws IOException {
           Date date = dateTypeAdapter.read(in);
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return if ");
           return date != null ? new Timestamp(date.getTime()) : null;
         }
 
@@ -782,6 +787,7 @@ public final class TypeAdapters {
     private final Map<T, String> constantToName = new HashMap<T, String>();
 
     public EnumTypeAdapter(Class<T> classOfT) {
+		System.out.println("resp1onse TypeAdapters: public EnumTypeAdapter(Class<T> classOfT) { start constructor ");
       try {
         for (T constant : classOfT.getEnumConstants()) {
           String name = constant.name();
@@ -798,6 +804,7 @@ public final class TypeAdapters {
       } catch (NoSuchFieldException e) {
         throw new AssertionError();
       }
+		System.out.println("resp1onse TypeAdapters: public EnumTypeAdapter(Class<T> classOfT) { end constructor ");
     }
     @Override public T read(JsonReader in) throws IOException {
       if (in.peek() == JsonToken.NULL) {
@@ -815,6 +822,7 @@ public final class TypeAdapters {
   public static final TypeAdapterFactory ENUM_FACTORY = new TypeAdapterFactory() {
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
       Class<? super T> rawType = typeToken.getRawType();
       if (!Enum.class.isAssignableFrom(rawType) || rawType == Enum.class) {
         return null;
@@ -822,6 +830,7 @@ public final class TypeAdapters {
       if (!rawType.isEnum()) {
         rawType = rawType.getSuperclass(); // handle anonymous subclasses
       }
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return  =1");
       return (TypeAdapter<T>) new EnumTypeAdapter(rawType);
     }
   };
@@ -831,6 +840,8 @@ public final class TypeAdapters {
     return new TypeAdapterFactory() {
       @SuppressWarnings("unchecked") // we use a runtime check to make sure the 'T's equal
       @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return ");
         return typeToken.equals(type) ? (TypeAdapter<T>) typeAdapter : null;
       }
     };
@@ -841,9 +852,13 @@ public final class TypeAdapters {
     return new TypeAdapterFactory() {
       @SuppressWarnings("unchecked") // we use a runtime check to make sure the 'T's equal
       @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return ");
         return typeToken.getRawType() == type ? (TypeAdapter<T>) typeAdapter : null;
       }
       @Override public String toString() {
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { start return ");
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { end return ");
         return "Factory[type=" + type.getName() + ",adapter=" + typeAdapter + "]";
       }
     };
@@ -854,10 +869,14 @@ public final class TypeAdapters {
     return new TypeAdapterFactory() {
       @SuppressWarnings("unchecked") // we use a runtime check to make sure the 'T's equal
       @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
         Class<? super T> rawType = typeToken.getRawType();
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return  =1");
         return (rawType == unboxed || rawType == boxed) ? (TypeAdapter<T>) typeAdapter : null;
       }
       @Override public String toString() {
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { start return ");
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { end return ");
         return "Factory[type=" + boxed.getName()
             + "+" + unboxed.getName() + ",adapter=" + typeAdapter + "]";
       }
@@ -869,10 +888,14 @@ public final class TypeAdapters {
     return new TypeAdapterFactory() {
       @SuppressWarnings("unchecked") // we use a runtime check to make sure the 'T's equal
       @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
         Class<? super T> rawType = typeToken.getRawType();
+		System.out.println("resp1onse TypeAdapters: @Override public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return  =1");
         return (rawType == base || rawType == sub) ? (TypeAdapter<T>) typeAdapter : null;
       }
       @Override public String toString() {
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { start return ");
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { end return ");
         return "Factory[type=" + base.getName()
             + "+" + sub.getName() + ",adapter=" + typeAdapter + "]";
       }
@@ -888,10 +911,12 @@ public final class TypeAdapters {
     return new TypeAdapterFactory() {
       @SuppressWarnings("unchecked")
       @Override public <T2> TypeAdapter<T2> create(Gson gson, TypeToken<T2> typeToken) {
+		System.out.println("resp1onse TypeAdapters: @Override public <T2> TypeAdapter<T2> create(Gson gson, TypeToken<T2> typeToken) { start return ");
         final Class<? super T2> requestedType = typeToken.getRawType();
         if (!clazz.isAssignableFrom(requestedType)) {
           return null;
         }
+		System.out.println("resp1onse TypeAdapters: @Override public <T2> TypeAdapter<T2> create(Gson gson, TypeToken<T2> typeToken) { end return if ");
         return (TypeAdapter<T2>) new TypeAdapter<T1>() {
           @Override public void write(JsonWriter out, T1 value) throws IOException {
             typeAdapter.write(out, value);
@@ -903,11 +928,14 @@ public final class TypeAdapters {
               throw new JsonSyntaxException("Expected a " + requestedType.getName()
                   + " but was " + result.getClass().getName());
             }
+		System.out.println("resp1onse TypeAdapters: @Override public <T2> TypeAdapter<T2> create(Gson gson, TypeToken<T2> typeToken) { end return if ");
             return result;
           }
         };
       }
       @Override public String toString() {
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { start return ");
+		System.out.println("resp1onse TypeAdapters: @Override public String toString() { end return ");
         return "Factory[typeHierarchy=" + clazz.getName() + ",adapter=" + typeAdapter + "]";
       }
     };

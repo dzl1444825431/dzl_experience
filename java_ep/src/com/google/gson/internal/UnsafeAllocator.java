@@ -35,12 +35,14 @@ public abstract class UnsafeAllocator {
     // public class Unsafe {
     //   public Object allocateInstance(Class<?> type);
     // }
+		System.out.println("resp1onse UnsafeAllocator: public static UnsafeAllocator create() { start return ");
     try {
       Class<?> unsafeClass = Class.forName("sun.misc.Unsafe");
       Field f = unsafeClass.getDeclaredField("theUnsafe");
       f.setAccessible(true);
       final Object unsafe = f.get(null);
       final Method allocateInstance = unsafeClass.getMethod("allocateInstance", Class.class);
+		System.out.println("resp1onse UnsafeAllocator: public static UnsafeAllocator create() { end return if ");
       return new UnsafeAllocator() {
         @Override
         @SuppressWarnings("unchecked")
@@ -64,6 +66,7 @@ public abstract class UnsafeAllocator {
       final Method newInstance = ObjectStreamClass.class
           .getDeclaredMethod("newInstance", Class.class, int.class);
       newInstance.setAccessible(true);
+		System.out.println("resp1onse UnsafeAllocator: public static UnsafeAllocator create() { end return if ");
       return new UnsafeAllocator() {
         @Override
         @SuppressWarnings("unchecked")
@@ -83,6 +86,7 @@ public abstract class UnsafeAllocator {
       final Method newInstance = ObjectInputStream.class
           .getDeclaredMethod("newInstance", Class.class, Class.class);
       newInstance.setAccessible(true);
+		System.out.println("resp1onse UnsafeAllocator: public static UnsafeAllocator create() { end return if ");
       return new UnsafeAllocator() {
         @Override
         @SuppressWarnings("unchecked")
@@ -94,9 +98,12 @@ public abstract class UnsafeAllocator {
     }
 
     // give up
+		System.out.println("resp1onse UnsafeAllocator: public static UnsafeAllocator create() { end return if ");
     return new UnsafeAllocator() {
       @Override
       public <T> T newInstance(Class<T> c) {
+		System.out.println("resp1onse UnsafeAllocator: public <T> T newInstance(Class<T> c) { start internal 3");
+		System.out.println("resp1onse UnsafeAllocator: public <T> T newInstance(Class<T> c) { end internal 3");
         throw new UnsupportedOperationException("Cannot allocate " + c);
       }
     };

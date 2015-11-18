@@ -60,8 +60,10 @@ public class TypeToken<T> {
   @SuppressWarnings("unchecked")
   protected TypeToken() {
     this.type = getSuperclassTypeParameter(getClass());
+		System.out.println("resp1onse TypeToken: protected TypeToken() { start constructor ");
     this.rawType = (Class<? super T>) $Gson$Types.getRawType(type);
     this.hashCode = type.hashCode();
+		System.out.println("resp1onse TypeToken: protected TypeToken() { end constructor ");
   }
 
   /**
@@ -79,11 +81,13 @@ public class TypeToken<T> {
    * canonical form}.
    */
   static Type getSuperclassTypeParameter(Class<?> subclass) {
+		System.out.println("resp1onse TypeToken: static Type getSuperclassTypeParameter(Class<?> subclass) { start return ");
     Type superclass = subclass.getGenericSuperclass();
     if (superclass instanceof Class) {
       throw new RuntimeException("Missing type parameter.");
     }
     ParameterizedType parameterized = (ParameterizedType) superclass;
+		System.out.println("resp1onse TypeToken: static Type getSuperclassTypeParameter(Class<?> subclass) { end return  =1");
     return $Gson$Types.canonicalize(parameterized.getActualTypeArguments()[0]);
   }
 
@@ -91,6 +95,8 @@ public class TypeToken<T> {
    * Returns the raw (non-generic) type for this type.
    */
   public final Class<? super T> getRawType() {
+		System.out.println("resp1onse TypeToken: public final Class<? super T> getRawType() { start return ");
+		System.out.println("resp1onse TypeToken: public final Class<? super T> getRawType() { end return ");
     return rawType;
   }
 
@@ -98,6 +104,8 @@ public class TypeToken<T> {
    * Gets underlying {@code Type} instance.
    */
   public final Type getType() {
+		System.out.println("resp1onse TypeToken: public final Type getType() { start return ");
+		System.out.println("resp1onse TypeToken: public final Type getType() { end return ");
     return type;
   }
 
@@ -109,6 +117,8 @@ public class TypeToken<T> {
    */
   @Deprecated
   public boolean isAssignableFrom(Class<?> cls) {
+		System.out.println("resp1onse TypeToken: public boolean isAssignableFrom(Class<?> cls) { start return ");
+		System.out.println("resp1onse TypeToken: public boolean isAssignableFrom(Class<?> cls) { end return ");
     return isAssignableFrom((Type) cls);
   }
 
@@ -120,6 +130,7 @@ public class TypeToken<T> {
    */
   @Deprecated
   public boolean isAssignableFrom(Type from) {
+		System.out.println("resp1onse TypeToken: public boolean isAssignableFrom(Type from) { start return ");
     if (from == null) {
       return false;
     }
@@ -150,6 +161,8 @@ public class TypeToken<T> {
    */
   @Deprecated
   public boolean isAssignableFrom(TypeToken<?> token) {
+		System.out.println("resp1onse TypeToken: public boolean isAssignableFrom(TypeToken<?> token) { start return ");
+		System.out.println("resp1onse TypeToken: public boolean isAssignableFrom(TypeToken<?> token) { end return ");
     return isAssignableFrom(token.getType());
   }
 
@@ -158,6 +171,7 @@ public class TypeToken<T> {
    * the provided GenericArrayType.
    */
   private static boolean isAssignableFrom(Type from, GenericArrayType to) {
+		System.out.println("resp1onse TypeToken: private static boolean isAssignableFrom(Type from, GenericArrayType to) { start return ");
     Type toGenericComponentType = to.getGenericComponentType();
     if (toGenericComponentType instanceof ParameterizedType) {
       Type t = from;
@@ -170,11 +184,13 @@ public class TypeToken<T> {
         }
         t = classType;
       }
+		System.out.println("resp1onse TypeToken: private static boolean isAssignableFrom(Type from, GenericArrayType to) { end return if ");
       return isAssignableFrom(t, (ParameterizedType) toGenericComponentType,
           new HashMap<String, Type>());
     }
     // No generic defined on "to"; therefore, return true and let other
     // checks determine assignability
+		System.out.println("resp1onse TypeToken: private static boolean isAssignableFrom(Type from, GenericArrayType to) { end return  =1");
     return true;
   }
 
@@ -270,6 +286,8 @@ public class TypeToken<T> {
    * given in the type map that was provided.
    */
   private static boolean matches(Type from, Type to, Map<String, Type> typeMap) {
+		System.out.println("resp1onse TypeToken: private static boolean matches(Type from, Type to, Map<String, Type> typeMap) { start return ");
+		System.out.println("resp1onse TypeToken: private static boolean matches(Type from, Type to, Map<String, Type> typeMap) { end return ");
     return to.equals(from)
         || (from instanceof TypeVariable
         && to.equals(typeMap.get(((TypeVariable<?>) from).getName())));
@@ -277,15 +295,21 @@ public class TypeToken<T> {
   }
 
   @Override public final int hashCode() {
+		System.out.println("resp1onse TypeToken: @Override public final int hashCode() { start return ");
+		System.out.println("resp1onse TypeToken: @Override public final int hashCode() { end return ");
     return this.hashCode;
   }
 
   @Override public final boolean equals(Object o) {
+		System.out.println("resp1onse TypeToken: @Override public final boolean equals(Object o) { start return ");
+		System.out.println("resp1onse TypeToken: @Override public final boolean equals(Object o) { end return ");
     return o instanceof TypeToken<?>
         && $Gson$Types.equals(type, ((TypeToken<?>) o).type);
   }
 
   @Override public final String toString() {
+		System.out.println("resp1onse TypeToken: @Override public final String toString() { start return ");
+		System.out.println("resp1onse TypeToken: @Override public final String toString() { end return ");
     return $Gson$Types.typeToString(type);
   }
 
@@ -293,6 +317,8 @@ public class TypeToken<T> {
    * Gets type literal for the given {@code Type} instance.
    */
   public static TypeToken<?> get(Type type) {
+		System.out.println("resp1onse TypeToken: public static TypeToken<?> get(Type type) { start return ");
+		System.out.println("resp1onse TypeToken: public static TypeToken<?> get(Type type) { end return ");
     return new TypeToken<Object>(type);
   }
 
@@ -300,6 +326,8 @@ public class TypeToken<T> {
    * Gets type literal for the given {@code Class} instance.
    */
   public static <T> TypeToken<T> get(Class<T> type) {
+		System.out.println("resp1onse TypeToken: public static <T> TypeToken<T> get(Class<T> type) { start return ");
+		System.out.println("resp1onse TypeToken: public static <T> TypeToken<T> get(Class<T> type) { end return ");
     return new TypeToken<T>(type);
   }
 }

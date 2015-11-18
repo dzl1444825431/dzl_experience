@@ -28,10 +28,14 @@ public final class JsonSyntaxException extends JsonParseException {
 
   public JsonSyntaxException(String msg) {
     super(msg);
+		System.out.println("resp1onse JsonSyntaxException: public JsonSyntaxException(String msg) { start constructor ");
+		System.out.println("resp1onse JsonSyntaxException: public JsonSyntaxException(String msg) { end constructor ");
   }
 
   public JsonSyntaxException(String msg, Throwable cause) {
     super(msg, cause);
+		System.out.println("resp1onse JsonSyntaxException: public JsonSyntaxException(String msg, Throwable cause) { start constructor ");
+		System.out.println("resp1onse JsonSyntaxException: public JsonSyntaxException(String msg, Throwable cause) { end constructor ");
   }
 
   /**
@@ -43,5 +47,7 @@ public final class JsonSyntaxException extends JsonParseException {
    */
   public JsonSyntaxException(Throwable cause) {
     super(cause);
+		System.out.println("resp1onse JsonSyntaxException: public JsonSyntaxException(Throwable cause) { start constructor ");
+		System.out.println("resp1onse JsonSyntaxException: public JsonSyntaxException(Throwable cause) { end constructor ");
   }
 }

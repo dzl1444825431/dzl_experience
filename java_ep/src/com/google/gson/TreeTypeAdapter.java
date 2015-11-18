@@ -72,7 +72,9 @@ final class TreeTypeAdapter<T> extends TypeAdapter<T> {
   }
 
   private TypeAdapter<T> delegate() {
+		System.out.println("resp1onse TreeTypeAdapter: private TypeAdapter<T> delegate() { start return ");
     TypeAdapter<T> d = delegate;
+		System.out.println("resp1onse TreeTypeAdapter: private TypeAdapter<T> delegate() { end return  =1");
     return d != null
         ? d
         : (delegate = gson.getDelegateAdapter(skipPast, typeToken));
@@ -82,6 +84,8 @@ final class TreeTypeAdapter<T> extends TypeAdapter<T> {
    * Returns a new factory that will match each type against {@code exactType}.
    */
   public static TypeAdapterFactory newFactory(TypeToken<?> exactType, Object typeAdapter) {
+		System.out.println("resp1onse TreeTypeAdapter: public static TypeAdapterFactory newFactory(TypeToken<?> exactType, Object typeAdapter) { start return ");
+		System.out.println("resp1onse TreeTypeAdapter: public static TypeAdapterFactory newFactory(TypeToken<?> exactType, Object typeAdapter) { end return ");
     return new SingleTypeFactory(typeAdapter, exactType, false, null);
   }
 
@@ -129,9 +133,11 @@ final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     @SuppressWarnings("unchecked") // guarded by typeToken.equals() call
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+		System.out.println("resp1onse TreeTypeAdapter: public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) { start return ");
       boolean matches = exactType != null
           ? exactType.equals(type) || matchRawType && exactType.getType() == type.getRawType()
           : hierarchyType.isAssignableFrom(type.getRawType());
+		System.out.println("resp1onse TreeTypeAdapter: public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) { end return  =1");
       return matches
           ? new TreeTypeAdapter<T>((JsonSerializer<T>) serializer,
               (JsonDeserializer<T>) deserializer, gson, type, this)

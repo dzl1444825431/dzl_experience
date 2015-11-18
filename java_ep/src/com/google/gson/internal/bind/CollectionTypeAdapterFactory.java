@@ -38,10 +38,13 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
 
   public CollectionTypeAdapterFactory(ConstructorConstructor constructorConstructor) {
     this.constructorConstructor = constructorConstructor;
+		System.out.println("resp1onse CollectionTypeAdapterFactory: public CollectionTypeAdapterFactory(ConstructorConstructor constructorConstructor) { start constructor ");
+		System.out.println("resp1onse CollectionTypeAdapterFactory: public CollectionTypeAdapterFactory(ConstructorConstructor constructorConstructor) { end constructor ");
   }
 
   @Override
   public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) {
+		System.out.println("resp1onse CollectionTypeAdapterFactory: public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { start return ");
     Type type = typeToken.getType();
 
     Class<? super T> rawType = typeToken.getRawType();
@@ -55,6 +58,7 @@ public final class CollectionTypeAdapterFactory implements TypeAdapterFactory {
 
     @SuppressWarnings({"unchecked", "rawtypes"}) // create() doesn't define a type parameter
     TypeAdapter<T> result = new Adapter(gson, elementType, elementTypeAdapter, constructor);
+		System.out.println("resp1onse CollectionTypeAdapterFactory: public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> typeToken) { end return  =1");
     return result;
   }
 

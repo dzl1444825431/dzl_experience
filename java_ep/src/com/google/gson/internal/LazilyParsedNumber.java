@@ -29,10 +29,13 @@ public final class LazilyParsedNumber extends Number {
   /** @param value must not be null */
   public LazilyParsedNumber(String value) {
     this.value = value;
+		System.out.println("resp1onse LazilyParsedNumber: public LazilyParsedNumber(String value) { start constructor ");
+		System.out.println("resp1onse LazilyParsedNumber: public LazilyParsedNumber(String value) { end constructor ");
   }
 
   @Override
   public int intValue() {
+		System.out.println("resp1onse LazilyParsedNumber: public int intValue() { start return ");
     try {
       return Integer.parseInt(value);
     } catch (NumberFormatException e) {
@@ -46,6 +49,7 @@ public final class LazilyParsedNumber extends Number {
 
   @Override
   public long longValue() {
+		System.out.println("resp1onse LazilyParsedNumber: public long longValue() { start return ");
     try {
       return Long.parseLong(value);
     } catch (NumberFormatException e) {
@@ -55,16 +59,22 @@ public final class LazilyParsedNumber extends Number {
 
   @Override
   public float floatValue() {
+		System.out.println("resp1onse LazilyParsedNumber: public float floatValue() { start return ");
+		System.out.println("resp1onse LazilyParsedNumber: public float floatValue() { end return ");
     return Float.parseFloat(value);
   }
 
   @Override
   public double doubleValue() {
+		System.out.println("resp1onse LazilyParsedNumber: public double doubleValue() { start return ");
+		System.out.println("resp1onse LazilyParsedNumber: public double doubleValue() { end return ");
     return Double.parseDouble(value);
   }
 
   @Override
   public String toString() {
+		System.out.println("resp1onse LazilyParsedNumber: public String toString() { start return ");
+		System.out.println("resp1onse LazilyParsedNumber: public String toString() { end return ");
     return value;
   }
 
@@ -79,18 +89,23 @@ public final class LazilyParsedNumber extends Number {
 
   @Override
   public int hashCode() {
+		System.out.println("resp1onse LazilyParsedNumber: public int hashCode() { start return ");
+		System.out.println("resp1onse LazilyParsedNumber: public int hashCode() { end return ");
     return value.hashCode();
   }
 
   @Override
   public boolean equals(Object obj) {
+		System.out.println("resp1onse LazilyParsedNumber: public boolean equals(Object obj) { start return ");
     if (this == obj) {
       return true;
     }
     if (obj instanceof LazilyParsedNumber) {
       LazilyParsedNumber other = (LazilyParsedNumber) obj;
+		System.out.println("resp1onse LazilyParsedNumber: public boolean equals(Object obj) { end return if ");
       return value == other.value || value.equals(other.value);
     }
+		System.out.println("resp1onse LazilyParsedNumber: public boolean equals(Object obj) { end return  =1");
     return false;
   }
 }

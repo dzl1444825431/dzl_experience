@@ -12,7 +12,7 @@ public class 生成findViewById {
 		
 		//xml 文件路径
 		String filePath = "D:\\baiduYun\\dzl_github\\yunserver\\lizhireader\\res\\layout\\"
-				+ "activity_main.xml";
+				+ "fg_book_shelf.xml";
 		
 		
 		GenerateFindViewById.getFindViewId(filePath, map);
