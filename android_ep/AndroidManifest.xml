@@ -205,6 +205,11 @@
         <activity android:name="com.dzl.test.tab.mytabhost.TabMainActivitySub2"/>
         <activity android:name="com.dzl.test.flowLayout.FlowLayoutActivity"/>
         <activity android:name="com.dzl.test.gridview.GridviewActivity"/>
+        <activity android:name="com.dzl.test.location.LocationActivity"/>
+        <activity android:name="com.dzl.test.location.BaiduLocationActivity"/>
+        <activity android:name="com.dzl.test.listview.MultipleItemsListActivity"/>
+        <activity android:name="com.dzl.test.dialog.IndividualityDialogActivity"/>
+        <activity android:name="com.dzl.test.download.DownLoadActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />

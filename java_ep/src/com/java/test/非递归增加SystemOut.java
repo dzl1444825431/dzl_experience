@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 public class 非递归增加SystemOut {
 
+	private static String suffix = ".java";
 	public static void main(String[] args) {
 		long a = System.currentTimeMillis();
 		//scanDirNoRecursion("D:\\work\\android\\sources\\libs\\actionbarsherlock\\src");
@@ -22,7 +23,8 @@ public class 非递归增加SystemOut {
 //		scanDirNoRecursion("D:\\baiduYun\\baiduYun-dzl-office-150810\\test\\src\\com\\dzl\\test\\viewPager");
 		
 //		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\ireadercity");
-		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\dzl_experience\\java_ep\\src\\com\\google\\gson");
+		suffix = ".xml";
+		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\ecmobile_dzl\\res\\layout");
 		System.out.println("resp1onse1: " + (System.currentTimeMillis() - a));
 		System.out.println(Llog.map);
 	}
@@ -30,10 +32,12 @@ public class 非递归增加SystemOut {
 	private static void operateMethod(File file) {
 //		Llog.addLogforMethods(file.getAbsolutePath());//增加 SystemOut
 //		Llog.addLogforMethods2(file.getAbsolutePath());//增加 SystemOut2
-		Llog.addLogforMethods3(file.getAbsolutePath());//增加 SystemOut3 2015-07-30 ok
+//		Llog.addLogforMethods3(file.getAbsolutePath());//增加 SystemOut3 2015-07-30 ok
 //		Llog.replaceResourceIntToResourceType(file.getAbsolutePath());//替换资源文件int类型 转变为 layout等类型 2015-08-11 ok
 //		Llog.getImportClasses(file.getAbsolutePath());//获取引用的API
 //		Llog.getChineseString(file.getAbsolutePath());//获取所有中文字符
+		
+		GenerateFindViewById.getTag(file.getAbsolutePath());//获取xml各结点标签元素名
 		
 		
 //		com.android.生成匹配R与Id.writeFileIds(rFile, file.getAbsolutePath());//获取所有中文字符
@@ -48,11 +52,13 @@ public class 非递归增加SystemOut {
 		LinkedList<File> list = new LinkedList<File>();
 		File dir = new File(path);
 //		File file[] = dir.listFiles();
+		
+		
 		for (File f : dir.listFiles()) {
 			if (f.isDirectory())
 				list.add(f);
 			else {
-				if (f.getName().endsWith(".java")) {
+				if (f.getName().endsWith(suffix)) {
 					operateMethod(f);
 				}
 			}
@@ -71,7 +77,7 @@ public class 非递归增加SystemOut {
 					if (f.isDirectory())
 						list.add(f);// 目录则加入目录列表，关键
 					else {
-						if (f.getName().endsWith(".java")) {
+						if (f.getName().endsWith(suffix)) {
 							//System.out.println("resp1onse1:aa " + j + "  " + files[j]);
 							operateMethod(f);
 						}
@@ -88,7 +94,7 @@ public class 非递归增加SystemOut {
 					}
 				}*/
 			} else {
-				if (tmp.getName().endsWith(".java")) {
+				if (tmp.getName().endsWith(suffix)) {
 					//System.out.println("tem=====" + tmp.getAbsolutePath());
 					operateMethod(tmp);
 				}

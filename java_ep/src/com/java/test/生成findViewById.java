@@ -11,11 +11,21 @@ public class 生成findViewById {
 	public static void main(String[] args) {
 		
 		//xml 文件路径
-		String filePath = "D:\\baiduYun\\dzl_github\\yunserver\\lizhireader\\res\\layout\\"
-				+ "fg_book_shelf.xml";
+		String filePath = "D:\\work\\haoyangde\\haoyangde\\res\\layout\\"
+				+ "activity_pwd_forget.xml";
+		int[] a = new int[1];
+		String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.length());
+		if (fileName.startsWith("act")) {
+			a[0] = 1;
+			
+		}else if (fileName.startsWith("frag")) {
+			a[0] = 2;
+			
+		}else if (fileName.startsWith("item")) {
+			a[0] = 3;
+		}
 		
-		
-		GenerateFindViewById.getFindViewId(filePath, map);
+		GenerateFindViewById.getFindViewId(filePath, map, a);
 		
 		
 	}

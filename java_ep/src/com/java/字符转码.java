@@ -3,6 +3,8 @@ package com.java;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
+import org.omg.IOP.Encoding;
+
 public class 字符转码 {
 
 	public static void main(String[] args) {
@@ -26,5 +28,6 @@ public class 字符转码 {
 			e.printStackTrace();
 		}
 	}
+	
 
 }

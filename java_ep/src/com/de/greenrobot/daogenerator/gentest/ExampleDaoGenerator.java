@@ -34,7 +34,8 @@ public class ExampleDaoGenerator {
 
 	public static void main(String[] args) throws Exception {
 //		generator1();
-		generator2();
+//		generator2();
+		generator3();
 	}
 
 	private static void generator1() throws Exception, IOException {
@@ -64,6 +65,16 @@ public class ExampleDaoGenerator {
 		note.addIntProperty("fid");
 
 		new DaoGenerator().generateAll(schema, "../yidianyun_dzl/src-gen");
+	}
+	private static void generator3() throws Exception, IOException {
+		Schema schema = new Schema(1001, "com.zhs.haoyangde.entity");
+		
+		Entity note = schema.addEntity("Product");
+		
+		note.addLongProperty("pid").primaryKey();
+		note.addIntProperty("number");
+		
+		new DaoGenerator().generateAll(schema, "./src-gen");
 	}
 
 //	private Long aid;
