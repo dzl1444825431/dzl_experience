@@ -73,6 +73,10 @@ public class ExampleDaoGenerator {
 		
 		note.addLongProperty("pid").primaryKey();
 		note.addIntProperty("number");
+//		note.addStringProperty("goods_name");
+//		note.addStringProperty("pic");
+//		note.addDoubleProperty("price");
+//		note.addDoubleProperty("old_price");
 		
 		new DaoGenerator().generateAll(schema, "./src-gen");
 	}

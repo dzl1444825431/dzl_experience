@@ -1,0 +1,146 @@
+
+CLASSPATH		.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;
+JAVA_HOME		C:\Java\jdk1.7
+ANDROID_HOME	C:\Java\sdk
+PATH			%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;%ANDROID_HOME%\build-tools\22.0.1;
+adb				%ANDROID_HOME%\platform-tools;
+
+50	.abcdefghijklmnopqrstuvwxyz		<=:abcdefghijklmnopqrstuvwxyz@.
+aa		 +  " ${v} = " + ${v}
+exActivity	
+extends BaseActivity {
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.activity_${L});
+		
+		initView();
+
+	}
+
+	private void initView() {
+		
+	}
+	
+	@Override
+	public void onClick(View v) {
+		super.onClick(v);
+	} 
+
+exAdapter
+extends BaseAdapterDzl<${T}>{
+
+		private int height;
+
+		public ${enclosing_type}(Activity activity, List<${T}> data) {
+			super(activity, data);
+			
+height = (int) activity.getResources().getDimension(R.dimen._1px);
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			Holder holder;
+			if (convertView == null) {
+				convertView = mInflater.inflate(R.layout.${item_layout}, null, false);
+				LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, height);
+				convertView.setLayoutParams(params);
+				holder = new Holder();
+				
+				convertView.setTag(holder);
+			}else {
+				
+				holder = (Holder) convertView.getTag();
+			}
+			
+			return convertView;
+		}
+		
+	
+	
+	class Holder {
+		
+	}
+exEntity
+extends BaseEntity {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+exRecycleAdapter
+extends BaseRecyclerViewAdapter {
+	
+	private int height;
+	
+	public ${enclosing_type}(Activity activity, List<BaseEntity> datats) {
+		super(activity, datats);
+		height = (int) activity.getResources().getDimension(R.dimen._150px);
+	}
+	
+	@Override
+	public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+		
+		View view = mInflater.inflate(R.layout.ite${m}, null);
+		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, height);
+		view.setLayoutParams(params);
+		
+		Holder viewHolder = new Holder(view);
+		
+		return viewHolder;
+	}
+	
+	@Override
+	public void onBindViewHolder(final BaseViewHolder viewHolder, final int i) {
+		
+	}
+	
+	class Holder extends BaseViewHolder {
+		
+		public Holder(View itemView) {
+			super(itemView);
+		}
+		
+	}
+foreach
+for (${iterable_type} ${iterable_element} : ${iterable}) {
+	${cursor}
+}
+forIt
+for (Iterator<${iterable_type}> it = ${iterable}.iterator(); it.hasNext();) {
+				${iterable_type} t = it.next();
+			}
+forlength
+for (int ${index} = 0; ${index} < ${array}.length; ${index}++) {
+	${line_selection}${cursor}
+}
+gson
+List<${E}> list = GSON_.fromJson(dataArray.toString(), new TypeToken<ArrayList<${E}>>(){}.getType());
+handler
+@SuppressLint("HandlerLeak")
+Handler ${handler} = new Handler(){
+		public void handleMessage(android.os.Message msg) {
+			switch (msg.what) {
+			default:
+				break;
+			}
+		};
+	};
+inte
+Intent intent = new Intent(this, ${A}.class);
+startActivity(intent);
+starta
+startActivity(new Intent(${activity}, ${A}.class));
+sysr
+System.out.println("resp1onse : ${v} = " + ${v});
+systrace
+System.out.println("resp1onse : ${enclosing_type}.${enclosing_method}()");
+systt
+System.out.println("resp1onse : ${enclosing_type}.${enclosing_method}(${enclosing_method_arguments}${exception_variable_name})");
+Toa
+Toast.makeText(this, ${T}, Toast.LENGTH_SHORT).show();
+toa1
+ToastUtil.shortShow(this, ${T});

@@ -12,7 +12,7 @@ public class 生成findViewById {
 		
 		//xml 文件路径
 		String filePath = "D:\\work\\haoyangde\\haoyangde\\res\\layout\\"
-				+ "activity_pwd_forget.xml";
+				+ "item_order_picture.xml";
 		int[] a = new int[1];
 		String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.length());
 		if (fileName.startsWith("act")) {
