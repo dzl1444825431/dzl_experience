@@ -71,8 +71,8 @@ public class ExampleDaoGenerator {
 		
 		Entity note = schema.addEntity("Product");
 		
-		note.addLongProperty("pid").primaryKey();
-		note.addIntProperty("number");
+		note.addLongProperty("product_id").primaryKey();
+		note.addIntProperty("product_number");
 //		note.addStringProperty("goods_name");
 //		note.addStringProperty("pic");
 //		note.addDoubleProperty("price");

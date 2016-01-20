@@ -14,6 +14,8 @@ public class Json所有键值 {
 //		String str = "{\"id\":1636266,\"store_id\":2614,\"goods_name\":\"\u5609\u5473\u6751\u5fc3\u91cc\u6a44\u6984\",\"spec\":\"1\u5305\uff08150\u514b\uff09\",\"pic\":\"http:\\/\\/7xkd2g.com2.z0.glb.qiniucdn.com\\/FkpVaSIL2Q_6ksQnxkUqdC-D-48I\",\"goods_id\":0,\"stock\":3,\"price\":\"3.50\",\"state\":2,\"old_price\":\"3.50\",\"is_discount\":0,\"limit_num\":0,\"category\":{\"id\":13,\"name\":\"\u65b9\u4fbf\u901f\u98df\",\"pid\":\"1\",\"pname\":\"\u98df\u54c1\u96f6\u98df\"}}";
 		String str = "{\"id\":5360,\"name\":\"\u5609\u548c\u57ce\u6e29\u838e\u5357\u90e1\",\"city_id\":\"2106\",\"city_name\":\"\u5357\u5b81\u5e02\",\"area_id\":\"2108\",\"area_name\":\"\u5174\u5b81\u533a\",\"coupon_num\":\"1000\",\"coupon_taken_num\":\"7\",\"location_desc\":\"\u5357\u5b81\u5e02\u5174\u5b81\u533a\"}";
 		
+		str = "{\"address_id\":\"27\",\"buyer_id\":\"1250\",\"true_name\":\"\u4eaeandroid\",\"area_id\":\"45074\",\"area_info\":\"\u5357\u5b81\u5e02\u897f\u4e61\u5858\u533a\u5149\u8f89\u5c0f\u533a\",\"address\":\"\u5149\u8f89\u5927\u697c668\",\"tel_phone\":null,\"mob_phone\":\"15994348631\",\"is_default\":\"0\"}";
+		
 		sysoKeys(str);
 		
 	}
