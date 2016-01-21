@@ -210,6 +210,9 @@
         <activity android:name="com.dzl.test.listview.MultipleItemsListActivity"/>
         <activity android:name="com.dzl.test.dialog.IndividualityDialogActivity"/>
         <activity android:name="com.dzl.test.download.DownLoadActivity"/>
+        <activity android:name="com.dzl.test.recyclerview.RecyclerViewActivity"/>
+        <activity android:name="com.dzl.test.recyclerview.RecyclerViewGitActivity"/>
+        <activity android:name="com.dzl.test.recyclerview.RecyclerViewCustomActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />
