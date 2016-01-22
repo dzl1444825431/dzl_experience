@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 //import android.support.v7.app.AppCompatActivity;
-import android.support.v7.util.SortedList;
+//import android.support.v7.util.SortedList;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -91,7 +91,7 @@ public class EndlessLinearLayoutActivity extends BaseActivity {
 
         RecyclerViewUtils.setHeaderView(mRecyclerView, new SampleHeader(this));
 
-        mRecyclerView.addOnScrollListener(mOnScrollListener);
+        mRecyclerView.setOnScrollListener(mOnScrollListener);
     }
 
     private void notifyDataSetChanged() {
@@ -211,75 +211,75 @@ public class EndlessLinearLayoutActivity extends BaseActivity {
     private class DataAdapter extends RecyclerView.Adapter {
 
         private LayoutInflater mLayoutInflater;
-        private SortedList<ItemModel> mSortedList;
+//        private SortedList<ItemModel> mSortedList;
 
         public DataAdapter(Context context) {
             mLayoutInflater = LayoutInflater.from(context);
-            mSortedList = new SortedList<>(ItemModel.class, new SortedList.Callback<ItemModel>() {
-
-                /**
-                 * 返回一个负整数（第一个参数小于第二个）、零（相等）或正整数（第一个参数大于第二个）
-                 */
-                @Override
-                public int compare(ItemModel o1, ItemModel o2) {
-
-                    if (o1.id < o2.id) {
-                        return -1;
-                    } else if (o1.id > o2.id) {
-                        return 1;
-                    }
-
-                    return 0;
-                }
-
-                @Override
-                public boolean areContentsTheSame(ItemModel oldItem, ItemModel newItem) {
-                    return oldItem.title.equals(newItem.title);
-                }
-
-                @Override
-                public boolean areItemsTheSame(ItemModel item1, ItemModel item2) {
-                    return item1.id == item2.id;
-                }
-
-                @Override
-                public void onInserted(int position, int count) {
-                    notifyItemRangeInserted(position, count);
-                }
-
-                @Override
-                public void onRemoved(int position, int count) {
-                    notifyItemRangeRemoved(position, count);
-                }
-
-                @Override
-                public void onMoved(int fromPosition, int toPosition) {
-                    notifyItemMoved(fromPosition, toPosition);
-                }
-
-                @Override
-                public void onChanged(int position, int count) {
-                    notifyItemRangeChanged(position, count);
-                }
-            });
+//            mSortedList = new SortedList<>(ItemModel.class, new SortedList.Callback<ItemModel>() {
+//
+//                /**
+//                 * 返回一个负整数（第一个参数小于第二个）、零（相等）或正整数（第一个参数大于第二个）
+//                 */
+//                @Override
+//                public int compare(ItemModel o1, ItemModel o2) {
+//
+//                    if (o1.id < o2.id) {
+//                        return -1;
+//                    } else if (o1.id > o2.id) {
+//                        return 1;
+//                    }
+//
+//                    return 0;
+//                }
+//
+//                @Override
+//                public boolean areContentsTheSame(ItemModel oldItem, ItemModel newItem) {
+//                    return oldItem.title.equals(newItem.title);
+//                }
+//
+//                @Override
+//                public boolean areItemsTheSame(ItemModel item1, ItemModel item2) {
+//                    return item1.id == item2.id;
+//                }
+//
+//                @Override
+//                public void onInserted(int position, int count) {
+//                    notifyItemRangeInserted(position, count);
+//                }
+//
+//                @Override
+//                public void onRemoved(int position, int count) {
+//                    notifyItemRangeRemoved(position, count);
+//                }
+//
+//                @Override
+//                public void onMoved(int fromPosition, int toPosition) {
+//                    notifyItemMoved(fromPosition, toPosition);
+//                }
+//
+//                @Override
+//                public void onChanged(int position, int count) {
+//                    notifyItemRangeChanged(position, count);
+//                }
+//            });
         }
 
         public void addItems(ArrayList<ItemModel> list) {
-            mSortedList.beginBatchedUpdates();
-
-            for(ItemModel itemModel : list) {
-                mSortedList.add(itemModel);
-            }
-
-            mSortedList.endBatchedUpdates();
+//            mSortedList.beginBatchedUpdates();
+//
+//            for(ItemModel itemModel : list) {
+//                mSortedList.add(itemModel);
+//            }
+//
+//            mSortedList.endBatchedUpdates();
         }
 
         public void deleteItems(ArrayList<ItemModel> items) {
-            mSortedList.beginBatchedUpdates();
-            for (ItemModel item : items) {
-                mSortedList.remove(item);
-            }
-            mSortedList.endBatchedUpdates();
+//            mSortedList.beginBatchedUpdates();
+//            for (ItemModel item : items) {
+//                mSortedList.remove(item);
+//            }
+//            mSortedList.endBatchedUpdates();
         }
 
         @Override
@@ -290,16 +290,16 @@ public class EndlessLinearLayoutActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-            ItemModel item = mSortedList.get(position);
-
-            ViewHolder viewHolder = (ViewHolder) holder;
-            viewHolder.textView.setText(item.title);
+//            ItemModel item = mSortedList.get(position);
+//
+//            ViewHolder viewHolder = (ViewHolder) holder;
+//            viewHolder.textView.setText(item.title);
         }
 
-        @Override
-        public int getItemCount() {
-            return mSortedList.size();
-        }
+//        @Override
+//        public int getItemCount() {
+//            return mSortedList.size();
+//        }
 
         private class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -309,14 +309,20 @@ public class EndlessLinearLayoutActivity extends BaseActivity {
                 super(itemView);
                 textView = (TextView) itemView.findViewById(R.id.info_text);
 
-                textView.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ItemModel item = mSortedList.get(RecyclerViewUtils.getAdapterPosition(mRecyclerView, ViewHolder.this));
-                        Toast.makeText(EndlessLinearLayoutActivity.this, item.title, Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                textView.setOnClickListener( new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        ItemModel item = mSortedList.get(RecyclerViewUtils.getAdapterPosition(mRecyclerView, ViewHolder.this));
+//                        Toast.makeText(EndlessLinearLayoutActivity.this, item.title, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
             }
         }
+
+		@Override
+		public int getItemCount() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
     }
 }

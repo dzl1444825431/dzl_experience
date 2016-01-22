@@ -74,7 +74,7 @@ public class RecyclerViewGitActivity extends BaseActivity implements OnRefreshLi
 		recycler_view.setHasFixedSize(true);
 		recycler_view.setLayoutManager(layoutManager);
 		
-		recycler_view.addOnScrollListener(new EndlessRecyclerOnScrollListener(){
+		recycler_view.setOnScrollListener(new EndlessRecyclerOnScrollListener(){
 			@Override
 			public void onLoadNextPage(View view) {
 				onLoadMore(view);

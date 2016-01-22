@@ -78,7 +78,7 @@ public class EndlessGridLayoutActivity extends BaseActivity {
 
         RecyclerViewUtils.setHeaderView(mRecyclerView, new SampleHeader(this));
 
-        mRecyclerView.addOnScrollListener(mOnScrollListener);
+        mRecyclerView.setOnScrollListener(mOnScrollListener);
     }
 
     private void notifyDataSetChanged() {
@@ -236,8 +236,8 @@ public class EndlessGridLayoutActivity extends BaseActivity {
                 textView.setOnClickListener( new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(mRecyclerView, ViewHolder.this));
-                        Toast.makeText(EndlessGridLayoutActivity.this, text, Toast.LENGTH_SHORT).show();
+//                        String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(mRecyclerView, ViewHolder.this));
+//                        Toast.makeText(EndlessGridLayoutActivity.this, text, Toast.LENGTH_SHORT).show();
                     }
                 });
             }

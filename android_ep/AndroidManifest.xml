@@ -213,6 +213,7 @@
         <activity android:name="com.dzl.test.recyclerview.RecyclerViewActivity"/>
         <activity android:name="com.dzl.test.recyclerview.RecyclerViewGitActivity"/>
         <activity android:name="com.dzl.test.recyclerview.RecyclerViewCustomActivity"/>
+        <activity android:name="com.dzl.test.viewPager.v0122.ViewPagerActivity"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />

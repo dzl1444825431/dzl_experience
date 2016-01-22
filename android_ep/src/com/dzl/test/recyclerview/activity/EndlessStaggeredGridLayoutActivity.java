@@ -79,7 +79,7 @@ public class EndlessStaggeredGridLayoutActivity extends BaseActivity {
 
         RecyclerViewUtils.setHeaderView(mRecyclerView, new SampleHeader(this));
 
-        mRecyclerView.addOnScrollListener(mOnScrollListener);
+        mRecyclerView.setOnScrollListener(mOnScrollListener);
     }
 
     private void addItems(ArrayList<String> list) {
@@ -243,13 +243,13 @@ public class EndlessStaggeredGridLayoutActivity extends BaseActivity {
 //                cardView = (CardView) itemView.findViewById(R.id.card_view);
                 textView = (TextView) itemView.findViewById(R.id.info_text);
 
-                textView.setOnClickListener( new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(mRecyclerView, ViewHolder.this));
-                        Toast.makeText(EndlessStaggeredGridLayoutActivity.this, text, Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                textView.setOnClickListener( new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        String text = mDataList.get(RecyclerViewUtils.getAdapterPosition(mRecyclerView, ViewHolder.this));
+//                        Toast.makeText(EndlessStaggeredGridLayoutActivity.this, text, Toast.LENGTH_SHORT).show();
+//                    }
+//                });
             }
         }
     }

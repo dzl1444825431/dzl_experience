@@ -93,18 +93,18 @@ public class RecyclerViewUtils {
      * @param holder
      * @return
      */
-    public static int getLayoutPosition(RecyclerView recyclerView, RecyclerView.ViewHolder holder) {
-        RecyclerView.Adapter outerAdapter = recyclerView.getAdapter();
-        if (outerAdapter != null && outerAdapter instanceof HeaderAndFooterRecyclerViewAdapter) {
-
-            int headerViewCounter = ((HeaderAndFooterRecyclerViewAdapter) outerAdapter).getHeaderViewsCount();
-            if (headerViewCounter > 0) {
-                return holder.getLayoutPosition() - headerViewCounter;
-            }
-        }
-        
-        return holder.getLayoutPosition();
-    }
+//    public static int getLayoutPosition(RecyclerView recyclerView, RecyclerView.ViewHolder holder) {
+//        RecyclerView.Adapter outerAdapter = recyclerView.getAdapter();
+//        if (outerAdapter != null && outerAdapter instanceof HeaderAndFooterRecyclerViewAdapter) {
+//
+//            int headerViewCounter = ((HeaderAndFooterRecyclerViewAdapter) outerAdapter).getHeaderViewsCount();
+//            if (headerViewCounter > 0) {
+//                return holder.getLayoutPosition() - headerViewCounter;
+//            }
+//        }
+//        
+//        return holder.getLayoutPosition();
+//    }
 
     /**
      * 请使用本方法替代RecyclerView.ViewHolder的getAdapterPosition()方法
@@ -113,16 +113,16 @@ public class RecyclerViewUtils {
      * @param holder
      * @return
      */
-    public static int getAdapterPosition(RecyclerView recyclerView, RecyclerView.ViewHolder holder) {
-        RecyclerView.Adapter outerAdapter = recyclerView.getAdapter();
-        if (outerAdapter != null && outerAdapter instanceof HeaderAndFooterRecyclerViewAdapter) {
-
-            int headerViewCounter = ((HeaderAndFooterRecyclerViewAdapter) outerAdapter).getHeaderViewsCount();
-            if (headerViewCounter > 0) {
-                return holder.getAdapterPosition() - headerViewCounter;
-            }
-        }
-
-        return holder.getAdapterPosition();
-    }
+//    public static int getAdapterPosition(RecyclerView recyclerView, RecyclerView.ViewHolder holder) {
+//        RecyclerView.Adapter outerAdapter = recyclerView.getAdapter();
+//        if (outerAdapter != null && outerAdapter instanceof HeaderAndFooterRecyclerViewAdapter) {
+//
+//            int headerViewCounter = ((HeaderAndFooterRecyclerViewAdapter) outerAdapter).getHeaderViewsCount();
+//            if (headerViewCounter > 0) {
+//                return holder.getAdapterPosition() - headerViewCounter;
+//            }
+//        }
+//
+//        return holder.getAdapterPosition();
+//    }
 }
