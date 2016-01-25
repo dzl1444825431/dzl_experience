@@ -20,5 +20,6 @@
 	<classpathentry kind="lib" path="lib/json-lib-2.1-jdk15.jar"/>
 	<classpathentry kind="lib" path="lib/org.json-20120521.jar"/>
 	<classpathentry kind="lib" path="lib/gson-1.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/fastjson-1.2.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
