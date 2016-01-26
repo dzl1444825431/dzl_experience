@@ -215,6 +215,8 @@
         <activity android:name="com.dzl.test.recyclerview.RecyclerViewCustomActivity"/>
         <activity android:name="com.dzl.test.viewPager.v0122.ViewPagerActivity"/>
         <activity android:name="com.dzl.test.number.NumberPickerActivity"/>
+        <activity android:name="com.dzl.test.base.BaseActionBarActivity"
+            android:theme="@style/actionbar_compat"/>
         
         
         <service android:name="com.dzl.test.CheckEmService" />

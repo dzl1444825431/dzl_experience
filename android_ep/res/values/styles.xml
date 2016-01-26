@@ -17,6 +17,20 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
+     <style name="actionbar_base" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- toolbar（actionbar）颜色 -->
+        <item name="colorPrimary">#4876FF</item>
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">#3A5FCD</item>
+        <!-- 窗口的背景颜色 -->
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+    
+    <style name="actionbar_compat" parent="@style/actionbar_base">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    
     
     <!-- 全屏进度条加载默认样式 -->
     <style name="LoadingDialog" parent="@android:style/Theme.Dialog">
