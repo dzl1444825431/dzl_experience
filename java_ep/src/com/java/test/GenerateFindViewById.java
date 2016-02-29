@@ -241,8 +241,9 @@ public class GenerateFindViewById {
 	/**
 	 * 获取xml各结点标签元素名
 	 * @param filePath
+	 * @return 
 	 */
-	static void getTag(String filePath){
+	static Set<String> getTag(String filePath){
 		
 		File sourceFile = new File(filePath);
 		FileReader fr = null;
@@ -262,7 +263,7 @@ public class GenerateFindViewById {
 				matcher = pattern.matcher(line);
 				while(matcher.find()){
 //					System.out.println("resp1onse : v = " + matcher.group(0));
-					tags.add(matcher.group(0));
+					tags.add(matcher.group(0).replace("<", ""));
 					break;
 				}
 				
@@ -278,8 +279,9 @@ public class GenerateFindViewById {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("\nresp1onse : filePath = " + filePath);
-		System.out.println("resp1onse : tags = " + tags);
+		System.out.println("resp1onse : filePath = " + filePath + ", tags = " + tags);
+		
+		return tags;
 	}
 	
 	public static void main(String[] args) {

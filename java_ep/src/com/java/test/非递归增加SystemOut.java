@@ -1,11 +1,14 @@
 package com.java.test;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 public class 非递归增加SystemOut {
 
 	private static String suffix = ".java";
+	private static Set<String> tags = new HashSet<String>();
 	public static void main(String[] args) {
 		long a = System.currentTimeMillis();
 		//scanDirNoRecursion("D:\\work\\android\\sources\\libs\\actionbarsherlock\\src");
@@ -24,9 +27,10 @@ public class 非递归增加SystemOut {
 		
 //		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\xiaoerduo\\src\\com\\ireadercity");
 		suffix = ".xml";
-		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\yunserver\\ecmobile_dzl\\res\\layout");
+		scanDirNoRecursion("D:\\baiduYun\\dzl_github\\apk\\shucainongyewang\\res\\layout");
 		System.out.println("resp1onse1: " + (System.currentTimeMillis() - a));
 		System.out.println(Llog.map);
+		System.out.println("resp1onse total : tags = " + tags);
 	}
 
 	private static void operateMethod(File file) {
@@ -37,8 +41,8 @@ public class 非递归增加SystemOut {
 //		Llog.getImportClasses(file.getAbsolutePath());//获取引用的API
 //		Llog.getChineseString(file.getAbsolutePath());//获取所有中文字符
 		
-		GenerateFindViewById.getTag(file.getAbsolutePath());//获取xml各结点标签元素名
 		
+		tags.addAll(GenerateFindViewById.getTag(file.getAbsolutePath()));//获取xml各结点标签元素名
 		
 //		com.android.生成匹配R与Id.writeFileIds(rFile, file.getAbsolutePath());//获取所有中文字符
 	}
