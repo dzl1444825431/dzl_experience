@@ -1,5 +1,6 @@
 package com.dzl.groovy
 
+
 /**
  * step	 1.读取和设置属性  2.设置布局参数  3.添加到父view中
  * @author dzl 2016年3月3日
@@ -7,13 +8,14 @@ package com.dzl.groovy
  */
 class XmlConvertJavaCode {
 
-	def index = 1
 	def xml_file_path
+	def view_index
 	
-	def convert = {xmlFilePath,level, parentNodeName, parentNodeValiable->
+	def convert = {xmlFilePath, parentNodeName = 'ViewGroup', parentNodeValiable = '', level = 0, index = 0, nodeVariableName = ''->
 		xml_file_path = xmlFilePath
+		view_index = index
 		def xml = new XmlParser().parse(xmlFilePath)
-		recursion(xml, 0, "ViewGroup", "")
+		recursion(xml, parentNodeName, parentNodeValiable, level, nodeVariableName)
 	}
 
 	def gravityStrAppend = {str ->
@@ -95,21 +97,26 @@ class XmlConvertJavaCode {
 		'layout_centerHorizontal':'CENTER_HORIZONTAL',
 		'layout_centerVertical':'CENTER_VERTICAL',
 	]
-	def recursion = {node, level, parentNodeName, parentVariableName ->
+	def recursion = {node, parentNodeName, parentVariableName, level, nodeVaribleNameOld = '' ->
 
 		if (!node) {
 			return
 		}
-		
-		
 
 		println ""
 
 		def nodeName = node.name()
 		
 		level++
-		index++
-		def nodeVariableName = nodeName.toLowerCase() + "_${level}_${index}"
+		view_index++
+		
+		def nodeVariableName 
+		
+		if (nodeVaribleNameOld) {
+			nodeVariableName = nodeName.toLowerCase() + '_' + nodeVaribleNameOld
+		}else{
+			nodeVariableName= nodeName.toLowerCase() + "_${level}_${view_index}"
+		}
 		
 		def attrs_layout = [:]
 		def attrs_self = [:]
@@ -130,14 +137,15 @@ class XmlConvertJavaCode {
 				}else if (val.startsWith("@color")) {
 					val = "res.getColor(R.color." + val.substring(ind) + ")"
 				}else if (val.startsWith("@dimen")) {
-					val = "res.getDimension(R.dimen." + val.substring(ind) + ")"
+					val = "(int)res.getDimension(R.dimen." + val.substring(ind) + ")"
 				}else if (val.startsWith("@drawable")) {
 					val = "res.getDrawable(R.drawable." + val.substring(ind) + ")"
 				}else if (val.startsWith("@layout")) {
-//					val = "res.getLayout(R.layout." + val.substring(ind) + ")"
 					val = val.substring(ind)
 				}else if (val.startsWith("@string")) {
 					val = "res.getString(R.string." + val.substring(ind) + ")"
+				}else if (val.startsWith("@null")) {
+					val = "null"
 				}else{
 					val = "R.id." + val.substring(ind)
 				}
@@ -185,7 +193,7 @@ class XmlConvertJavaCode {
 		}
 		
 		println "${nodeName} ${nodeVariableName} = new ${nodeName}(context);"
-		def paramName = "params_${level}_${index}"
+		def paramName = "params_${level}_${view_index}"
 		
 		println "${parentNodeName}.LayoutParams ${paramName} = new ${parentNodeName}.LayoutParams(${width}, ${height});"
 
@@ -202,7 +210,7 @@ class XmlConvertJavaCode {
 
 		}
 
-		def attrs_iterator = attrs_layout.iterator()
+		Iterator attrs_iterator = attrs_layout.iterator()
 		while (attrs_iterator.hasNext()) {
 			def it = attrs_iterator.next()
 
@@ -213,7 +221,7 @@ class XmlConvertJavaCode {
 					if (val == "match_parent" || val == "wrap_content") {
 						val = val.toUpperCase()
 					}
-					println "${paramName}.${value} = (int)${val};"
+					println "${paramName}.${value} = ${val};"
 					return
 				}
 
@@ -234,8 +242,9 @@ class XmlConvertJavaCode {
 						def val = it.value
 
 						if (it.key == 'layout_gravity') {
-							//						val = 'Gravity.' + val.toString().toUpperCase().replaceAll('\\|','|Gravity.')
 							val = gravityStrAppend(val)
+						}else if(it.key == 'weight'){
+							val = "(float)${val}"
 						}
 						println "${paramName}.${value} = ${val};	//LinearLayout"
 						return
@@ -255,7 +264,6 @@ class XmlConvertJavaCode {
 						def val = it.value
 
 						if (it.key == 'layout_gravity') {
-							//						val = 'Gravity.' + val.toString().toUpperCase().replaceAll('\\|','|Gravity.')
 							val = gravityStrAppend(val)
 						}
 						println "${paramName}.${value} = ${val};	//FrameLayout"
@@ -279,7 +287,7 @@ class XmlConvertJavaCode {
 						}else{
 							val = (val == 'true' ? 'RelativeLayout.TRUE' : 0)
 						}
-						println "${paramName}.addRule(RelativeLayout.${value}, ${val});	//RelativeLayout  addRule"
+						println "${paramName}.addRule(RelativeLayout.${value}, ${val});	//RelativeLayout"
 						return
 					}
 
@@ -300,10 +308,10 @@ class XmlConvertJavaCode {
 
 			if (entry.key == 'background'){
 				iterator.remove()
-				if (entry.value.contains('R.drawable')) {
-					println "${nodeVariableName}.setBackground(${entry.value});"
-				}else{
+				if (entry.value.toString().startsWith('0x') || entry.value.toString().startsWith('res.getColor')) {
 					println "${nodeVariableName}.setBackgroundColor(${entry.value});"
+				}else{
+					println "setBackground(${nodeVariableName}, ${entry.value});"
 				}
 			}else if(entry.key.startsWith('padding')){
 				iterator.remove()
@@ -333,11 +341,14 @@ class XmlConvertJavaCode {
 
 						def val = attrubite.value
 						if (it.key == 'gravity') {
-							//						val = 'Gravity.' + attrubite.value.toString().toUpperCase().replaceAll('\\|','|Gravity.')
 							val = gravityStrAppend(attrubite.value)
 						}else if(it.key == 'text' || it.key == 'hint') {
 							if (!val.startsWith('res')) {
 								val = "\"${val}\""
+							}
+						}else if(it.key == 'textSize') {
+							if(val.contains('res.getDimension')){
+								val = "px2dip(${val})"
 							}
 						}
 
@@ -379,7 +390,6 @@ class XmlConvertJavaCode {
 
 						def val = attrubite.value
 						if (it.key == 'gravity') {
-							//						val = 'Gravity.' + attrubite.value.toString().toUpperCase().replaceAll('\\|','|Gravity.')
 							val = gravityStrAppend(attrubite.value)
 						}else if (it.key == 'orientation') {
 							val = 'LinearLayout.' + val.toUpperCase()
@@ -397,7 +407,6 @@ class XmlConvertJavaCode {
 
 						def val = attrubite.value
 						if (it.key == 'gravity') {
-							//						val = 'Gravity.' + attrubite.value.toString().toUpperCase().replaceAll('\\|','|Gravity.')
 							val = gravityStrAppend(attrubite.value)
 						}
 
@@ -432,20 +441,24 @@ class XmlConvertJavaCode {
 		}
 
 		if (padding) {
-			println "${nodeVariableName}.setPadding((int)${paddingLeft}, (int)${paddingTop}, (int)${paddingRight}, (int)${paddingBottom});"
+			println "${nodeVariableName}.setPadding(${paddingLeft}, ${paddingTop}, ${paddingRight}, ${paddingBottom});"
 		}
 
 
-		println ((parentVariableName ? "${parentVariableName}." : "") + "addView(${nodeVariableName});")
 
 		if (nodeName == 'include') {
 			def layout_file_path = attrs_self.get('layout')
-			println layout_file_path.lastIndexOf('\\')
-//			convert()
+			
+			layout_file_path = xml_file_path.substring(0, xml_file_path.lastIndexOf('\\') + 1) + layout_file_path + '.xml'
+			println "//include start ==================="
+			convert(layout_file_path,parentNodeName, parentVariableName, level - 1, view_index, nodeVariableName)
+			println '//include end ==================='
+		}else {
+			println ((parentVariableName ? "${parentVariableName}." : "") + "addView(${nodeVariableName});")
 		}
 		
 		node.children().each { child ->
-			recursion(child, level, nodeName, nodeVariableName)
+			recursion(child, nodeName, nodeVariableName, level)
 		}
 		
 
