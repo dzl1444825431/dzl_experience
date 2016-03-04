@@ -450,9 +450,9 @@ class XmlConvertJavaCode {
 			def layout_file_path = attrs_self.get('layout')
 			
 			layout_file_path = xml_file_path.substring(0, xml_file_path.lastIndexOf('\\') + 1) + layout_file_path + '.xml'
-			println "//include start ==================="
+			println "//include start ===================${nodeVariableName}"
 			convert(layout_file_path,parentNodeName, parentVariableName, level - 1, view_index, nodeVariableName)
-			println '//include end ==================='
+			println "//include end =====================${nodeVariableName}"
 		}else {
 			println ((parentVariableName ? "${parentVariableName}." : "") + "addView(${nodeVariableName});")
 		}

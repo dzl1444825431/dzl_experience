@@ -4,6 +4,8 @@ package com.dzl.groovy
 def xmlFilePath = "D:\\baiduYun\\dzl_github\\dzl_experience\\groovy_ep\\src\\com\\dzl\\groovy\\item_footer.xml"
 
 xmlFilePath = 'D:\\work\\workspace_eclipse\\dzl_xml_android\\res\\layout\\frag_myself.xml'
+xmlFilePath = 'D:\\baiduYun\\dzl_github\\app1\\yiqiaoquancheng\\res\\layout\\item_footer.xml'
+xmlFilePath = 'D:\\baiduYun\\dzl_github\\app1\\yiqiaoquancheng\\res\\layout\\layout_loading.xml'
 
 
 def parser = new XmlConvertJavaCode()
