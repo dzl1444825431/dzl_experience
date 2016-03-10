@@ -44,7 +44,10 @@
         <item name="android:windowNoTitle">true</item>
     </style>
     
-    
+    <style name="loading_msg_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
     
     <style name="Widget.SeekBar.Normal" parent="@android:style/Widget.SeekBar">
         <item name="android:maxHeight">8.0dip</item>
