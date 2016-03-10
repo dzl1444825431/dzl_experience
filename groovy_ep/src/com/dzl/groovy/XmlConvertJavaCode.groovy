@@ -164,6 +164,8 @@ class XmlConvertJavaCode {
 
 			}else if (val.endsWith('dp')){
 				val = "dip2px(${val.replace('dp','')})"
+			}else if (val.endsWith('dip')){
+				val = "dip2px(${val.replace('dip','')})"
 			}else if (val.endsWith('sp')){
 				val = "sp2px(${val.replace('sp','')})"
 			}else if (val.endsWith('px')){
