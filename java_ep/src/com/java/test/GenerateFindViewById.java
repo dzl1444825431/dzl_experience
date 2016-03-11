@@ -125,6 +125,19 @@ public class GenerateFindViewById {
 		}
 		
 		System.out.println("");
+		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
+			Entry<String, String> entry = it.next();
+			System.out.println("" + entry.getKey() + " = (" + entry.getValue() + ") itemView.findViewById(R.id." + entry.getKey() + ");");
+		}
+		System.out.println("");
+		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
+			Entry<String, String> entry = it.next();
+			if ("TextView".equals(entry.getValue())) {
+				System.out.println("setText(" + entry.getKey() + ", \"\");");
+			}
+		}
+		
+		System.out.println("");
 		System.out.println("convertView.setTag(holder);");
 		System.out.println("} else {");
 		System.out.println("");

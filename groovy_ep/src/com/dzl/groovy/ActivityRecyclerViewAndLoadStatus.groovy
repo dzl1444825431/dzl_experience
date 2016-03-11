@@ -1,5 +1,8 @@
 package com.dzl.groovy
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 """
 private RecyclerViewWrap rcl_seller;
@@ -7,8 +10,7 @@ private SwipeRefreshLayout swipe_layout;
 private RelativeLayout view_load;
 
 @SuppressWarnings("rawtypes")
-private Adapter adapter_seller_wrap;
-
+private Adapter adapter_wrap;
 private List<Seller> datas;
 
 private View footer_view;
@@ -18,12 +20,6 @@ private int footer_height = 0;			//正常高度  _320px
 private LinearLayoutManager layout_vertical;
 private int lastVisibleItem;
 private int page = 0;
-
-private View layout_load_empty;
-private View layout_load_loading;
-private View layout_loadmore_end;
-private TextView layout_load_end;
-private TextView layout_load_error;
 
 //onCreate() initView()
 footer_height = (int) getResources().getDimension(R.dimen._320px);
@@ -48,24 +44,27 @@ adapter_seller.setOnItemClickListener(new OnItemClickListener() {
 });
 		
 rcl_seller.setAdapter(adapter_seller);
-adapter_seller_wrap = rcl_seller.getAdapter();
+adapter_wrap = rcl_seller.getAdapter();
 
 swipe_layout.setOnRefreshListener(this);
 rcl_seller.setOnScrollListener(new OnScrollListener() {
 	
-	@Override
-	public void onScrolled(int dx, int dy) {
-		
-	}
 	
 	@Override
 	public void onScrollStateChanged(int newState) {
-		lastVisibleItem = layout_vertical.findLastVisibleItemPosition();
-        if (!isLastPage && newState == RecyclerView.SCROLL_STATE_IDLE
-                && datas.size() > 0 && lastVisibleItem >= datas.size()) {
-            sellerPresenter.reqData(SELLER_LIST, Constants.LOAD_MORE);
-        }
-        swipe_layout.setEnabled(datas.size() > 0 ? layout_vertical.findFirstCompletelyVisibleItemPosition() == 0 : false);
+		
+		if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+						
+			lastVisibleItem = layout_vertical.findLastVisibleItemPosition();
+			
+			int size = datas.size();
+			
+			if (!isLastPage && size > 0 && lastVisibleItem >= size) {
+				sellerPresenter.reqData(URL_TYPE_LIST, Constants.LOAD_MORE);
+			}
+			swipe_layout.setEnabled(size > 0 && layout_vertical.findFirstCompletelyVisibleItemPosition() == 0);
+		}
+		super.onScrollStateChanged(recyclerView, newState);
 
 	}
 });
@@ -81,8 +80,17 @@ public void onErrer(VolleyError error, int url_type, int load_type) {
 
 @Override
 public void showLoadingUI(int url_type, int load_type) {
-	if (url_type == SELLER_LIST && load_type == Constants.LOAD_AUTO) {
-		setViewVisible(view_load, V);
+	if (url_type == URL_TYPE_LIST) {
+			
+		if (load_type == Constants.LOAD_AUTO) {
+			setViewVisible(view_load, V);
+			
+		}else if (load_type == Constants.LOAD_TOP) {
+			swipe_layout.setRefreshing(true);
+			
+		}else if (load_type == Constants.LOAD_MORE) {
+			addFooterView(FooterStatusView.LOAD_MORE, MATCH_PARENT, footer_height, null);
+		}
 	}
 }
 
@@ -134,7 +142,7 @@ public void onSuccessSeller(List<Seller> sellers, int url_type, int load_type) {
     	
     }
 	
-	adapter_seller_wrap.notifyDataSetChanged();
+	adapter_wrap.notifyDataSetChanged();
 }
 
 
@@ -144,87 +152,53 @@ public void onSuccessSeller(List<Seller> sellers, int url_type, int load_type) {
             heigth = rcl_seller.getMeasuredHeight();
         }
 
-        if (footer_view == null) {
-            footer_view = View.inflate(this, R.layout.item_footer, null);
-            footer_params_width = width;
-            footer_params_height = heigth;
+        if (footer_status_view == null) {
+			footer_status_view = new FooterStatusView(activity);
+			footer_status_view.init();
+			footer_status_view.getImageView_empty().setBackgroundResource(R.drawable.default_image);
+			
+			footer_params_width = width;
+			footer_params_height = heigth;
 
-            layout_load_empty = footer_view.findViewById(R.id.layout_load_empty);
-            layout_load_loading = footer_view.findViewById(R.id.layout_load_loading);
-            layout_loadmore_end = footer_view.findViewById(R.id.layout_loadmore_end);
-            layout_load_end = (TextView) footer_view.findViewById(R.id.layout_load_end);
-            layout_load_error = (TextView) footer_view.findViewById(R.id.layout_load_error);
+			RecyclerView.LayoutParams params = new RecyclerView.LayoutParams(width, heigth);
+			footer_status_view.setLayoutParams(params);
+			rcl_home_goods.addFooterView(footer_status_view);
 
-            RecyclerView.LayoutParams params = new RecyclerView.LayoutParams(width, heigth);
-            footer_view.setLayoutParams(params);
-            rcl_seller.addFooterView(footer_view);
+			footer_status_view.setOnEmptyViewClickListener(new OnEmptyViewClickListener() {
 
-            layout_load_empty.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    sellerPresenter.reqData(SELLER_LIST, Constants.LOAD_AUTO);
-                }
-            });
-            
-            layout_load_end.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                	if (datas.isEmpty()) {
-                		sellerPresenter.reqData(SELLER_LIST, Constants.LOAD_AUTO);
-					}else if (!isLastPage) {
-						sellerPresenter.reqData(SELLER_LIST, Constants.LOAD_MORE);
+				@Override
+				public void onEmptyClick(View v) {
+					sellerPresenter.reqData(URL_TYPE_LIST, Constants.LOAD_AUTO);
+				}
+			});
+			
+			footer_status_view.setOnEndViewClickListener(new OnEndViewClickListener() {
+
+				@Override
+				public void onEndClick(View v) {
+
+					if (datas.isEmpty()) {
+						sellerPresenter.reqData(URL_TYPE_LIST, Constants.LOAD_AUTO);
+					} else if (!isLastPage) {
+						sellerPresenter.reqData(URL_TYPE_LIST, Constants.LOAD_MORE);
 					}
-                }
-            });
+				}
+			});
 
+		}
 
-        }
+		if (width != footer_params_width || heigth != footer_params_height) {
 
-        if (width != footer_params_width || heigth != footer_params_height) {
+			footer_params_width = width;
+			footer_params_height = heigth;
 
-            footer_params_width = width;
-            footer_params_height = heigth;
+			ViewGroup.LayoutParams params = footer_status_view.getLayoutParams();
+			params.width = width;
+			params.height = heigth;
 
-            ViewGroup.LayoutParams params = footer_view.getLayoutParams();
-            params.width = width;
-            params.height = heigth;
+		}
 
-        }
-
-        switch (type) {
-            case LOAD_EMPTY:
-                setViewVisible(layout_load_empty, V);
-                setViewVisible(layout_load_loading, G);
-                setViewVisible(layout_loadmore_end, G);
-                setViewVisible(layout_load_end, G);
-                setViewVisible(layout_load_error, G);
-                break;
-            case LOAD_MORE:
-
-                setViewVisible(layout_load_empty, G);
-                setViewVisible(layout_load_loading, G);
-                setViewVisible(layout_loadmore_end, V);
-                setViewVisible(layout_load_end, G);
-                setViewVisible(layout_load_error, G);
-
-                break;
-            case LOAD_END:
-                setViewVisible(layout_load_empty, G);
-                setViewVisible(layout_load_loading, G);
-                setViewVisible(layout_loadmore_end, G);
-                setViewVisible(layout_load_end, V);
-                setViewVisible(layout_load_error, G);
-                setText(layout_load_end, end_error_msg);
-                break;
-            case LOAD_ERROR:
-                setViewVisible(layout_load_empty, G);
-                setViewVisible(layout_load_loading, G);
-                setViewVisible(layout_loadmore_end, G);
-                setViewVisible(layout_load_end, G);
-                setViewVisible(layout_load_error, V);
-                setText(layout_load_error, end_error_msg);
-                break;
-        }
+		footer_status_view.setViewStatusChange(type, end_error_msg);
     }
 
 @Override
@@ -232,5 +206,18 @@ public void onRefresh() {
 	sellerPresenter.reqData(SELLER_LIST, Constants.LOAD_TOP);
 }
 
+@Override
+public Map<String, String> getParams(int url_type, int load_type) {
+		
+	Map<String, String> params = new HashMap<String, String>();
+	if (url_type == URL_TYPE_LIST) {
+		
+		params.put("page", load_type == Constants.LOAD_AUTO || load_type == Constants.LOAD_TOP ? "1" : "" + (page + 1));
+		params.put("size", Constants.PAGE_SIZE + "");
+		
+	}
+	
+	return params;
+}
 
 """
