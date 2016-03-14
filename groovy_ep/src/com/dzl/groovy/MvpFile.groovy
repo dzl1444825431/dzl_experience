@@ -50,6 +50,7 @@ class MvpFile {
 		/**2. Print recycleView swipeLayout load logic逻辑*/
 		println new File(mvp_logic_path).getText()
 
+		def date = new Date().format('yyyy年mm月dd日')
 
 		def model = """
 package ${javaPackage}.model;
@@ -57,7 +58,7 @@ package ${javaPackage}.model;
 import ${javaPackage}.BaseEntity;
 
 /**
-		 * @author dzl 2016年01月09日
+		 * @author dzl ${date}
 		 */
 public class ${target} extends BaseEntity {
 
@@ -71,7 +72,10 @@ public class ${target} extends BaseEntity {
 
 """
 		mvp_view_target = packagePath + "\\model\\" + target + ".java"
-		new File(mvp_view_target).write(model)
+		def file = new File(mvp_view_target)
+		if (!file.exists()) {
+			file.write(model)
+		}
 	}
 
 
