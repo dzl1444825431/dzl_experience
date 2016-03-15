@@ -1,9 +1,5 @@
 package com.dzl.groovy
 
-import java.util.HashMap;
-import java.util.Map;
-
-
 """
 private RecyclerViewWrap rcl_seller;
 private SwipeRefreshLayout swipe_layout;
@@ -13,13 +9,14 @@ private RelativeLayout view_load;
 private Adapter adapter_wrap;
 private List<Seller> datas;
 
-private View footer_view;
-private int footer_params_width = 0;	//底部宽度
-private int footer_params_height = 0;	//底部高度
-private int footer_height = 0;			//正常高度  _320px
-private LinearLayoutManager layout_vertical;
-private int lastVisibleItem;
+private boolean isLastPage = false;
 private int page = 0;
+
+private FooterStatusView footer_status_view;
+private int footer_params_width = 0; 	// 底部宽度
+private int footer_params_height = 0; 	// 底部高度
+private int footer_height = 0; 			// 正常高度 _320px
+private int lastVisibleItem;
 
 //onCreate() initView()
 footer_height = (int) getResources().getDimension(R.dimen._320px);
@@ -69,11 +66,25 @@ rcl_seller.setOnScrollListener(new OnScrollListener() {
 	}
 });
 
+@Override
+public Map<String, String> getParams(int url_type, int load_type) {
+		
+	Map<String, String> params = new HashMap<String, String>();
+	if (url_type == URL_TYPE_LIST) {
+		
+		params.put("page", load_type == Constants.LOAD_AUTO || load_type == Constants.LOAD_TOP ? "1" : "" + (page + 1));
+		params.put("size", Constants.PAGE_SIZE + "");
+		
+	}
+	
+	return params;
+}
 
 @Override
 public void onErrer(VolleyError error, int url_type, int load_type) {
 	if (url_type == SELLER_LIST) {
-		addFooterView(LOAD_ERROR,MATCH_PARENT, datas.isEmpty() ? MATCH_PARENT : footer_height, VolleyErrorHelper.getErrorMessage(error));
+		addFooterView(FooterStatusView.LOAD_ERROR, MATCH_PARENT, datas.isEmpty() ? MATCH_PARENT : footer_height,
+				VolleyErrorHelper.getErrorMessage(error));
 	}
 }
 
@@ -131,14 +142,14 @@ public void onSuccessSeller(List<Seller> sellers, int url_type, int load_type) {
     	isLastPage = false;
     	swipe_layout.setEnabled(false);
     	
-    	addFooterView(LOAD_EMPTY,MATCH_PARENT, MATCH_PARENT, "~~~~ 什么都没有喔 ~~~~");
+    	addFooterView(FooterStatusView.LOAD_EMPTY,MATCH_PARENT, MATCH_PARENT, "~~~~ 什么都没有喔 ~~~~");
     	
     } else {
     	
     	swipe_layout.setEnabled(true);
     	isLastPage = size < Constants.PAGE_SIZE;
     	
-    	addFooterView(LOAD_END,MATCH_PARENT, footer_height , "~~~~ 到底儿 ~~~~");
+    	addFooterView(FooterStatusView.LOAD_END,MATCH_PARENT, footer_height , "~~~~ 到底儿 ~~~~");
     	
     }
 	
@@ -146,21 +157,20 @@ public void onSuccessSeller(List<Seller> sellers, int url_type, int load_type) {
 }
 
 
- private void addFooterView(int type, int width, int heigth, String end_error_msg) {
+ private void addFooterView(int type, int width, int height, String end_error_msg) {
 
-        if (heigth == MATCH_PARENT){
-            heigth = rcl_seller.getMeasuredHeight();
+        if (height == MATCH_PARENT){
+            height = rcl_seller.getMeasuredHeight();
         }
 
         if (footer_status_view == null) {
 			footer_status_view = new FooterStatusView(activity);
 			footer_status_view.init();
-			footer_status_view.getImageView_empty().setBackgroundResource(R.drawable.default_image);
 			
 			footer_params_width = width;
-			footer_params_height = heigth;
+			footer_params_height = height;
 
-			RecyclerView.LayoutParams params = new RecyclerView.LayoutParams(width, heigth);
+			RecyclerView.LayoutParams params = new RecyclerView.LayoutParams(width, height);
 			footer_status_view.setLayoutParams(params);
 			rcl_home_goods.addFooterView(footer_status_view);
 
@@ -185,16 +195,55 @@ public void onSuccessSeller(List<Seller> sellers, int url_type, int load_type) {
 				}
 			});
 
+			TextView textView_end = footer_status_view.getTextView_end();
+			int color_select = getResources().getColor(R.color.tx_select);
+			if (textView_end != null) {
+				textView_end.setTextColor(color_select);
+			}
+			
+			TextView textView_error = footer_status_view.getTextView_error();
+			if (textView_error != null) {
+				textView_error.setTextColor(color_select);
+			}
+			
+			TextView textView_empty = footer_status_view.getTextView_empty();
+			if (textView_empty != null) {
+				textView_empty.setTextColor(color_select);
+			}
+			
+			ImageView imageView_empty = footer_status_view.getImageView_empty();
+			if (imageView_empty != null) {
+				imageView_empty.setImageResource(R.drawable.ic_launcher_empty);
+				int max = 0;
+				int measuredWidth = rcl_product.getMeasuredWidth();
+				if (measuredWidth > 0 && height > 0) {
+					max = (measuredWidth > height ? height : measuredWidth) / 2;
+				}else {
+					
+					if (height > 0) {
+						max = height / 2;
+					}else if (measuredWidth > 0) {
+						max = measuredWidth / 2;
+					}
+				}
+				
+				if (max > 0) {
+					LayoutParams lp = imageView_empty.getLayoutParams();
+					lp.width = max;
+					lp.height = max;
+				}
+			}
+
 		}
 
-		if (width != footer_params_width || heigth != footer_params_height) {
+		if (width != footer_params_width || height != footer_params_height) {
 
 			footer_params_width = width;
-			footer_params_height = heigth;
+			footer_params_height = height;
 
 			ViewGroup.LayoutParams params = footer_status_view.getLayoutParams();
 			params.width = width;
-			params.height = heigth;
+			params.height = height;
 
 		}
 
@@ -206,18 +255,6 @@ public void onRefresh() {
 	sellerPresenter.reqData(SELLER_LIST, Constants.LOAD_TOP);
 }
 
-@Override
-public Map<String, String> getParams(int url_type, int load_type) {
-		
-	Map<String, String> params = new HashMap<String, String>();
-	if (url_type == URL_TYPE_LIST) {
-		
-		params.put("page", load_type == Constants.LOAD_AUTO || load_type == Constants.LOAD_TOP ? "1" : "" + (page + 1));
-		params.put("size", Constants.PAGE_SIZE + "");
-		
-	}
-	
-	return params;
-}
+
 
 """

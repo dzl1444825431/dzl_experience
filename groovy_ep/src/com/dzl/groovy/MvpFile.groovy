@@ -13,7 +13,7 @@ package com.dzl.groovy
 class MvpFile {
 	
 	
-	public MvpFile(Object packagePath, Object src, Object target, Object mvp_logic_path) {
+	public MvpFile(String packagePath, String src, String target, String mvp_logic_path) {
 		super();
 		this.packagePath = packagePath;
 		this.src = src;
@@ -32,7 +32,7 @@ class MvpFile {
 
 	def conver(){
 		//android 工程包名
-		def javaPackage = packagePath.substring(packagePath.lastIndexOf("\\", packagePath.lastIndexOf("\\", packagePath.lastIndexOf("\\") - 1) - 1) + 1).replaceAll("\\\\",".")
+		
 		def mvp_view_src
 		def mvp_view_target
 
@@ -45,11 +45,15 @@ class MvpFile {
 		mvp_view_src = packagePath + "\\presenter\\" + src + "Presenter.java"
 		mvp_view_target = packagePath + "\\presenter\\" + target + "Presenter.java"
 		new File(mvp_view_target).write(new File(mvp_view_src).getText().replaceAll(src, target))
+	}
 
-
+	def logFileLogic() {
 		/**2. Print recycleView swipeLayout load logic逻辑*/
 		println new File(mvp_logic_path).getText()
+	}
 
+	def generateMode() {
+		def javaPackage = packagePath.substring(packagePath.lastIndexOf("\\", packagePath.lastIndexOf("\\", packagePath.lastIndexOf("\\") - 1) - 1) + 1).replaceAll("\\\\",".")
 		def date = new Date().format('yyyy年mm月dd日')
 
 		def model = """
@@ -71,7 +75,7 @@ public class ${target} extends BaseEntity {
 
 
 """
-		mvp_view_target = packagePath + "\\model\\" + target + ".java"
+		def mvp_view_target = packagePath + "\\model\\" + target + ".java"
 		def file = new File(mvp_view_target)
 		if (!file.exists()) {
 			file.write(model)
