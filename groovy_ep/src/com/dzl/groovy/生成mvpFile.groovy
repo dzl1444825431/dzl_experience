@@ -14,8 +14,9 @@ package com.dzl.groovy
 //android 工程路径
 def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
 
-def src = "StoreCategory"
-def target = "StoreProduct"
+def src = "ProductHome"
+def target = "Search"
+def generate_mode = false
 
 //逻辑代码路径
 def mvp_logic_path = "D:\\baiduYun\\dzl_github\\dzl_experience\\groovy_ep\\src\\com\\dzl\\groovy\\ActivityRecyclerViewAndLoadStatus.groovy"
@@ -23,4 +24,6 @@ def mvp_logic_path = "D:\\baiduYun\\dzl_github\\dzl_experience\\groovy_ep\\src\\
 def mvp = new MvpFile(packagePath, src, target, mvp_logic_path)
 mvp.conver()
 mvp.logFileLogic()
-//mvp.generateMode()
+if (generate_mode) {
+	mvp.generateMode()
+}

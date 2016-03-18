@@ -17,7 +17,9 @@ class MvpFile {
 		super();
 		this.packagePath = packagePath;
 		this.src = src;
+		this.src_lower = src[0].toLowerCase() + (src.size() > 0 ? src.substring(1) : '')
 		this.target = target;
+		this.target_lower = target[0].toLowerCase() + (target.size() > 0 ? target.substring(1) : '')
 		this.mvp_logic_path = mvp_logic_path;
 	}
 
@@ -26,6 +28,9 @@ class MvpFile {
 
 	def src
 	def target
+	
+	def src_lower
+	def target_lower
 
 	//逻辑代码路径
 	def mvp_logic_path
@@ -39,12 +44,12 @@ class MvpFile {
 		/**1. android mvp File Copy mvp中的view presenter*/
 		mvp_view_src = packagePath + "\\presenter\\view\\I" + src + "View.java"
 		mvp_view_target = packagePath + "\\presenter\\view\\I" + target + "View.java"
-		new File(mvp_view_target).write(new File(mvp_view_src).getText().replaceAll(src, target))
+		new File(mvp_view_target).write(new File(mvp_view_src).getText().replaceAll(src, target).replaceAll(src_lower, target_lower))
 
 
 		mvp_view_src = packagePath + "\\presenter\\" + src + "Presenter.java"
 		mvp_view_target = packagePath + "\\presenter\\" + target + "Presenter.java"
-		new File(mvp_view_target).write(new File(mvp_view_src).getText().replaceAll(src, target))
+		new File(mvp_view_target).write(new File(mvp_view_src).getText().replaceAll(src, target).replaceAll(src_lower, target_lower))
 	}
 
 	def logFileLogic() {
