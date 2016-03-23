@@ -33,16 +33,3 @@ http.request( 'http://www.baidu.com', GET, TEXT ) {    req ->
 	}
 	delegate.response.'404' = {   println 'Not found'   }
 }
-
-//def http = new HTTPBuilder('http://www.baidu.com')
-//http.request(GET, TEXT) {
-////	uri.path="/search"
-////	uri.query = [q:'groovy']
-//
-//	response.success ={resp,reader->
-//		println resp.statusLine.statusCode
-//		println resp.headers.'content-length'
-//		System.out << reader
-//	}
-//	response.failure={resp-> println resp.status }
-//}

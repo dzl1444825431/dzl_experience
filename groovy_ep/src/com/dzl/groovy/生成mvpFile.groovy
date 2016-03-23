@@ -14,8 +14,8 @@ package com.dzl.groovy
 //android 工程路径
 def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
 
-def src = "ProductHome"
-def target = "Search"
+def src = "Comment"
+def target = "ShopCartClear"
 def generate_mode = false
 
 //逻辑代码路径
