@@ -12,39 +12,38 @@ import java.io.OutputStream;
 public class Bat批量复制文件 {
 	
 	static String[] title = {
-//			"AboutActivity",
-//			"AddressActivity",
-//			"CallCenterActivity",
-//			"CommentActivity",
-//			"ForgetPasswordActivity",
-//			"GuideActivity",
-//			"LocationActivity",
-//			"LocationManulActivity",
-//			"LoginActivity",
-//			"OrdersActivity",
-//			"OrdersConfirmActivity",
-//			"OrdersWaitActivity",
-//			"PayActivity",
-//			"ProductNewActivity",
-//			"ProductSpecialActivity",
-//			"RegisterActivity",
-//			"SearchActivity",
-//			"SettingActivity",
-//			"StartActivity",
-//			"StoreActivity",
-//			"UpdatePasswordActivity",
-//			"UserActivity",
-		"dialog_product_detail.xml",
-		"dialog_photo.xml",
-		"dialog_username.xml",
-		"dialog_sex.xml",
-		"dialog_city.xml",
+			"AboutActivity",
+			"AddressActivity",
+			"CallCenterActivity",
+			"CommentActivity",
+			"ForgetPasswordActivity",
+			"GuideActivity",
+			"LocationActivity",
+			"LocationManulActivity",
+			"LoginActivity",
+			"OrdersActivity",
+			"OrdersConfirmActivity",
+			"OrdersWaitActivity",
+			"RegisterActivity",
+			"SearchActivity",
+			"SettingActivity",
+			"StartActivity",
+			"StoreActivity",
+			"UpdatePasswordActivity",
+			"UserActivity",
+//		"dialog_product_detail.xml",
+//		"dialog_photo.xml",
+//		"dialog_username.xml",
+//		"dialog_sex.xml",
+//		"dialog_city.xml",
 	};
 	
-	static String srcPath = "D:\\work\\haoyangde\\haoyangde\\res\\layout\\item_guide.xml";
-	static String descPath = srcPath.substring(0, srcPath.lastIndexOf("\\"));
 	
 	public static void main(String[] args) {
+		
+		String srcPath = "D:\\as\\yizegou\\app\\src\\main\\java\\com\\motor\\yizegou\\activity\\"
+				+ "MainActivity.java";
+		String descPath = srcPath.substring(0, srcPath.lastIndexOf("\\"));
 		
 //		outActivity();
 		

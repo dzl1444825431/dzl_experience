@@ -71,7 +71,7 @@ rcl_product.setOnScrollListener(new OnScrollListener() {
 });
 
 @Override
-public Map<String, String> getParams(int url_type, int load_type) {
+public Map<String, String> getParams(int url_type, int load_type, Bundle bundle) {
 		
 	Map<String, String> params = new HashMap<String, String>();
 	if (url_type == URL_TYPE_LIST) {

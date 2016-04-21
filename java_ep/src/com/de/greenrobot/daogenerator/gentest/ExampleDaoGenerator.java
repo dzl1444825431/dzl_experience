@@ -33,12 +33,13 @@ import de.greenrobot.daogenerator.ToMany;
 public class ExampleDaoGenerator {
 
 	public static void main(String[] args) throws Exception {
-//		generator1();
-//		generator2();
-		generator3();
+		// generator1();
+		// generator2();
+		// generator3();
+		generator4();
 	}
 
-	private static void generator1() throws Exception, IOException {
+	static void generator1() throws Exception, IOException {
 		Schema schema = new Schema(1005, "com.dzl.zyyidianyun.entity");
 
 		addNote(schema);
@@ -47,11 +48,11 @@ public class ExampleDaoGenerator {
 		new DaoGenerator().generateAll(schema, "../yidianyun_dzl/src-gen");
 	}
 
-	private static void generator2() throws Exception, IOException {
+	static void generator2() throws Exception, IOException {
 		Schema schema = new Schema(1005, "com.dzl.zyyidianyun.entity");
 
 		Entity note = schema.addEntity("BaseEntity");
-		
+
 		note.addLongProperty("aid").primaryKey();
 		note.addStringProperty("title");
 		note.addStringProperty("logo_url");
@@ -66,33 +67,89 @@ public class ExampleDaoGenerator {
 
 		new DaoGenerator().generateAll(schema, "../yidianyun_dzl/src-gen");
 	}
-	private static void generator3() throws Exception, IOException {
+
+	static void generator3() throws Exception, IOException {
 		Schema schema = new Schema(1001, "com.zhs.haoyangde.entity");
-		
-		Entity note = schema.addEntity("Product");
-		
-		note.addLongProperty("product_id").primaryKey();
-		note.addIntProperty("product_number");
-//		note.addStringProperty("goods_name");
-//		note.addStringProperty("pic");
-//		note.addDoubleProperty("price");
-//		note.addDoubleProperty("old_price");
-		
+
+		Entity note = schema.addEntity("Area");
+		// private String contact_province;
+		// private String contact_city;
+		// private String contact_district;
+		// private String distance;
+		//
+		// private String area_id;
+		// private String store_id;
+		//
+		// private String store_name;
+		// private String area_name;
+		//
+		// private String state;
+		note.addIntProperty("area_id_db").primaryKey();
+		note.addIntProperty("area_id");
+		note.addStringProperty("area_name");
+		note.addIntProperty("area_parent_id");
+
+		// note.addStringProperty("goods_name");
+		// note.addStringProperty("pic");
+		// note.addDoubleProperty("price");
+		// note.addDoubleProperty("old_price");
+
 		new DaoGenerator().generateAll(schema, "./src-gen");
 	}
 
-//	private Long aid;
-//	private String title;
-//	private String logo_url;
-//	private String jump_url;
-//	private String desc;
-//	private int category_id;
-//	private boolean favorite;
-//	private boolean is_scan;
-//	private String category_name;
-//	private boolean is_collect_yun;
-//	private Integer fid;
-	
+	private static void generator4() throws Exception, IOException {
+		Schema schema = new Schema(1001, "com.zhs.haoyangde.entity");
+
+		Entity note = schema.addEntity("Location");
+//		private String contact_province;
+//		private String contact_city;
+//		private String contact_district;
+//		private String distance;
+//
+//		private Integer area_id;
+//		private Integer store_id;
+//
+//		private String store_name;
+//		private String area_name;
+//
+//		private String state;
+//		private Integer area_id_db;
+		// "store_id": "13",
+		// "area_id": "5025",
+		// "area_name": "高新小区2",
+		// "store_name": "好样的旗舰店",
+		// "state": "2",
+		// "contact_province": "广西",
+		// "contact_city": "宿迁市",
+		// "contact_district": "宿豫区",
+		// "distance": "38"
+		note.addIntProperty("area_id_db").primaryKey();
+		note.addIntProperty("area_id");
+		note.addIntProperty("store_id");
+
+		note.addStringProperty("contact_province");
+		note.addStringProperty("contact_city");
+		note.addStringProperty("contact_district");
+		note.addStringProperty("distance");
+		note.addStringProperty("area_name");
+		note.addStringProperty("store_name");
+		note.addIntProperty("state");
+
+		new DaoGenerator().generateAll(schema, "./src-gen");
+	}
+
+	// private Long aid;
+	// private String title;
+	// private String logo_url;
+	// private String jump_url;
+	// private String desc;
+	// private int category_id;
+	// private boolean favorite;
+	// private boolean is_scan;
+	// private String category_name;
+	// private boolean is_collect_yun;
+	// private Integer fid;
+
 	// private long id;
 	//
 	// private String name;
@@ -131,8 +188,7 @@ public class ExampleDaoGenerator {
 		order.setTableName("ORDERS"); // "ORDER" is a reserved keyword
 		order.addIdProperty();
 		Property orderDate = order.addDateProperty("date").getProperty();
-		Property customerId = order.addLongProperty("customerId").notNull()
-				.getProperty();
+		Property customerId = order.addLongProperty("customerId").notNull().getProperty();
 		order.addToOne(customer, customerId);
 
 		ToMany customerToOrders = customer.addToMany(order, customerId);

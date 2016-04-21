@@ -1,0 +1,148 @@
+package com.java.test;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.motor.yizegou.R;
+import com.motor.yizegou.base.BaseActivity;
+import com.motor.yizegou.base.BaseAdapter_v7;
+import com.motor.yizegou.util.v7.RecyclerViewWrap;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by dzl on 2016/4/20.
+ */
+public class a extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
+
+    private static final int URL_TYPE_LIST = 1;
+
+    private RecyclerViewWrap rcl_wrap;
+    private SwipeRefreshLayout swipe_layout;
+    private ArrayList<AAAA> data;
+
+    private RecyclerView.Adapter adapter_wrap;
+    private LinearLayoutManager layoutManager;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        setContentView(R.layout.activity_main);
+
+        initView();
+
+    }
+
+    private void initView() {
+        rcl_wrap = (RecyclerViewWrap) findViewById(R.id.rcl_wrap);
+        swipe_layout = (SwipeRefreshLayout) findViewById(R.id.swipe_layout);
+
+        swipe_layout.setEnabled(false);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rcl_wrap.setLayoutManager(layoutManager);
+
+        setToolbar();
+
+        data = new ArrayList<>();
+        rcl_wrap.setAdapter(new AdapterT(this, data));
+        adapter_wrap = rcl_wrap.getAdapter();
+
+        swipe_layout.setOnRefreshListener(this);
+        rcl_wrap.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+
+                    last_visible_item = layoutManager.findLastVisibleItemPosition();
+
+                    int size = data.size();
+
+                    if (size > 0 && last_visible_item >= size) {
+//                        productSpecialPresenter.reqData(URL_TYPE_LIST, Constants.LOAD_MORE, null);
+                    }
+                    swipe_layout.setEnabled(size > 0 && layoutManager.findFirstCompletelyVisibleItemPosition() == 0);
+                }
+
+                super.onScrollStateChanged(recyclerView, newState);
+
+            }
+        });
+
+
+
+    }
+
+    @Override
+    protected CharSequence getName() {
+        return "首页";
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+
+    public class AdapterT extends BaseAdapter_v7<AAAA> {
+
+        public AdapterT(Activity activity, List<AAAA> data) {
+            super(activity, data);
+        }
+
+        @Override
+        public BaseViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+            return new Holder(inflate(R.layout.item_item, viewGroup));
+        }
+
+        class Holder extends BaseViewHolder{
+
+            public Holder(View itemView) {
+                super(itemView);
+            }
+
+            @Override
+            public void bindData(AAAA aaaa, int position) {
+
+            }
+        }
+
+    }
+
+    public class AAAA{
+
+    }
+    
+    
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/actionbar_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_96px"
+        android:background="?attr/colorPrimary"
+        android:gravity="center" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/actionbar_toolbar"
+        android:background="@color/white">
+
+        <com.motor.yizegou.util.v7.RecyclerViewWrap
+
+            android:id="@+id/rcl_wrap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+}
