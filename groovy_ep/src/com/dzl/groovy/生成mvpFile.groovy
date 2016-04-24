@@ -12,10 +12,11 @@ package com.dzl.groovy
  */
 
 //android 工程路径
-def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
+//def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
+def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizegou\\app\\src\\main\\java\\com\\motor\\yizegou"
 
-def src = "ProductSpecial"
-def target = "OrdersStateNumber"
+def src = "Friend"
+def target = "FavoriteShop"
 def generate_mode = false
 
 //逻辑代码路径
