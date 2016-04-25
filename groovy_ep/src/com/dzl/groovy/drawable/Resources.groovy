@@ -13,8 +13,7 @@ class Resources {
 	 */
 	def generateDrawableCorners(path, solid, corners = 5){
 
-		def text = """
-				<?xml version="1.0" encoding="utf-8"?>
+		def text = """<?xml version="1.0" encoding="utf-8"?>
 				<shape xmlns:android="http://schemas.android.com/apk/res/android" >
 				<corners android:radius="@dimen/_${corners}px"/>
 				<solid android:color="@color/${solid}"/>
@@ -30,9 +29,7 @@ class Resources {
 	 */
 	def generateDrawableImage(path, select, normal){
 
-		def text = """
-				
-				<?xml version="1.0" encoding="utf-8"?>
+		def text = """<?xml version="1.0" encoding="utf-8"?>
 				<selector xmlns:android="http://schemas.android.com/apk/res/android" >
 				
 				<item android:state_selected="true" android:drawable="@drawable/${select}" />
@@ -48,10 +45,36 @@ class Resources {
 	 * TextView
 	 * android:textColor="@drawable/bg_tab_frag_home_tx"
 	 */
-	def generateDrawableColor(path, select, normal){
+	def generateDrawableColorUsShape(path, solid_pressed, solid_normal, corners = 5){
 
-		def text = """
-				<?xml version="1.0" encoding="utf-8"?>
+		def text = """<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="@dimen/_${corners}px" />
+            <solid android:color="${solid_pressed}" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners android:radius="@dimen/_${corners}px" />
+            <solid android:color="${solid_normal}" />
+        </shape>
+    </item>
+
+</selector>
+				"""
+		writeFile(path, text)
+	}
+	
+	/**
+	 * TextView
+	 * android:textColor="@drawable/bg_tab_frag_home_tx"
+	 */
+	def generateDrawableColor(path, select, normal){
+		
+		def text = """<?xml version="1.0" encoding="utf-8"?>
 				<selector xmlns:android="http://schemas.android.com/apk/res/android" >
 				
 				<item android:state_selected="true" android:drawable="@color/${select}" />
@@ -60,7 +83,7 @@ class Resources {
 				
 				</selector>
 				"""
-		writeFile(path, text)
+				writeFile(path, text)
 	}
 
 	/**
@@ -69,8 +92,7 @@ class Resources {
 	 */
 	def generateDrawableColorShape(path, select, normal){
 
-		def text = """
-				<?xml version="1.0" encoding="utf-8"?>
+		def text = """<?xml version="1.0" encoding="utf-8"?>
 				<selector xmlns:android="http://schemas.android.com/apk/res/android" >
 				
 				<item android:state_selected="true" android:drawable="@drawable/${select}" />

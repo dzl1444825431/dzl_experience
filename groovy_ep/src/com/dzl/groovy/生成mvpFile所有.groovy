@@ -15,7 +15,7 @@ package com.dzl.groovy
 def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizegou\\app\\src\\main\\java\\com\\motor\\yizegou"
 
 def src = "FavoriteShop"
-def target = "Store"
+def target = "TestMvp"
 def relpaceFile = false
 def array = []
 
