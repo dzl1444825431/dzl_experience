@@ -12,18 +12,19 @@ package com.dzl.groovy
 
 //android 工程路径
 //def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
-def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizegou\\app\\src\\main\\java\\com\\motor\\yizegou"
+def packagePath = "D:\\baiduYun\\dzl_github\\jindouyun\\jindouyun\\app\\src\\main\\java\\com\\motor\\jindouyun"
 
-def src = "FavoriteShop"
-def target = "TestMvp"
+def src = "Comment"
+def target = "OrderCancle"
 def relpaceFile = false
 def array = []
 
-array[0] = "${packagePath}\\activity\\${src}Activity.java"
-array[1] = "${packagePath}\\adapter\\${src}Adapter.java"
-array[2] = "${packagePath}\\model\\${src}.java"
-array[3] = "${packagePath}\\presenter\\${src}Presenter.java"
-array[4] = "${packagePath}\\presenter\\view\\I${src}View.java"
+def i = 0
+//array[i++] = "${packagePath}\\activity\\${src}Activity.java"
+//array[i++] = "${packagePath}\\adapter\\${src}Adapter.java"
+//array[i++] = "${packagePath}\\model\\${src}.java"
+array[i++] = "${packagePath}\\presenter\\${src}Presenter.java"
+array[i++] = "${packagePath}\\presenter\\view\\I${src}View.java"
 
 array.each {
 	copyFile(it, src, target)

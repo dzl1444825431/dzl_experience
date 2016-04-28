@@ -13,10 +13,17 @@ class Resources {
 	 */
 	def generateDrawableCorners(path, solid, corners = 5){
 
+		def color
+		if(solid.toString().startsWith("#")){
+			color = solid
+		}else{
+			color = "@color/${solid}"
+		}
+		
 		def text = """<?xml version="1.0" encoding="utf-8"?>
 				<shape xmlns:android="http://schemas.android.com/apk/res/android" >
 				<corners android:radius="@dimen/_${corners}px"/>
-				<solid android:color="@color/${solid}"/>
+				<solid android:color="${color}"/>
 				</shape>
 				"""
 
