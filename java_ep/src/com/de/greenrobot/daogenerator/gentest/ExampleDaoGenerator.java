@@ -36,7 +36,8 @@ public class ExampleDaoGenerator {
 		// generator1();
 		// generator2();
 		// generator3();
-		generator4();
+//		generator4();
+		generator5();
 	}
 
 	static void generator1() throws Exception, IOException {
@@ -135,6 +136,17 @@ public class ExampleDaoGenerator {
 		note.addStringProperty("store_name");
 		note.addIntProperty("state");
 
+		new DaoGenerator().generateAll(schema, "./src-gen");
+	}
+	private static void generator5() throws Exception, IOException {
+		Schema schema = new Schema(1002, "com.zhs.haoyangde.entity");
+		
+		Entity note = schema.addEntity("Product");
+		note.addLongProperty("product_id").primaryKey().notNull();
+		note.addIntProperty("product_number").notNull();
+		note.addDoubleProperty("product_price_db").notNull();
+//		private Long product_id;		//缓存商品  id,购买数量
+//		private Integer product_number;
 		new DaoGenerator().generateAll(schema, "./src-gen");
 	}
 

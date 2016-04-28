@@ -6,35 +6,45 @@ package com.zhs.haoyangde.entity;
  */
 public class Product {
 
-    private Long product_id;
-    private Integer product_number;
+    private long product_id;
+    private int product_number;
+    private double product_price_db;
 
     public Product() {
     }
 
-    public Product(Long product_id) {
+    public Product(long product_id) {
         this.product_id = product_id;
     }
 
-    public Product(Long product_id, Integer product_number) {
+    public Product(long product_id, int product_number, double product_price_db) {
         this.product_id = product_id;
         this.product_number = product_number;
+        this.product_price_db = product_price_db;
     }
 
-    public Long getProduct_id() {
+    public long getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(Long product_id) {
+    public void setProduct_id(long product_id) {
         this.product_id = product_id;
     }
 
-    public Integer getProduct_number() {
+    public int getProduct_number() {
         return product_number;
     }
 
-    public void setProduct_number(Integer product_number) {
+    public void setProduct_number(int product_number) {
         this.product_number = product_number;
+    }
+
+    public double getProduct_price_db() {
+        return product_price_db;
+    }
+
+    public void setProduct_price_db(double product_price_db) {
+        this.product_price_db = product_price_db;
     }
 
 }

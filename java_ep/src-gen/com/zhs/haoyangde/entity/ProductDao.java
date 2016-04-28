@@ -23,8 +23,9 @@ public class ProductDao extends AbstractDao<Product, Long> {
      * Can be used for QueryBuilder and for referencing column names.
     */
     public static class Properties {
-        public final static Property Product_id = new Property(0, Long.class, "product_id", true, "PRODUCT_ID");
-        public final static Property Product_number = new Property(1, Integer.class, "product_number", false, "PRODUCT_NUMBER");
+        public final static Property Product_id = new Property(0, long.class, "product_id", true, "PRODUCT_ID");
+        public final static Property Product_number = new Property(1, int.class, "product_number", false, "PRODUCT_NUMBER");
+        public final static Property Product_price_db = new Property(2, double.class, "product_price_db", false, "PRODUCT_PRICE_DB");
     };
 
 
@@ -40,8 +41,9 @@ public class ProductDao extends AbstractDao<Product, Long> {
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'PRODUCT' (" + //
-                "'PRODUCT_ID' INTEGER PRIMARY KEY ," + // 0: product_id
-                "'PRODUCT_NUMBER' INTEGER);"); // 1: product_number
+                "'PRODUCT_ID' INTEGER PRIMARY KEY NOT NULL ," + // 0: product_id
+                "'PRODUCT_NUMBER' INTEGER NOT NULL ," + // 1: product_number
+                "'PRODUCT_PRICE_DB' REAL NOT NULL );"); // 2: product_price_db
     }
 
     /** Drops the underlying database table. */
@@ -54,30 +56,24 @@ public class ProductDao extends AbstractDao<Product, Long> {
     @Override
     protected void bindValues(SQLiteStatement stmt, Product entity) {
         stmt.clearBindings();
- 
-        Long product_id = entity.getProduct_id();
-        if (product_id != null) {
-            stmt.bindLong(1, product_id);
-        }
- 
-        Integer product_number = entity.getProduct_number();
-        if (product_number != null) {
-            stmt.bindLong(2, product_number);
-        }
+        stmt.bindLong(1, entity.getProduct_id());
+        stmt.bindLong(2, entity.getProduct_number());
+        stmt.bindDouble(3, entity.getProduct_price_db());
     }
 
     /** @inheritdoc */
     @Override
     public Long readKey(Cursor cursor, int offset) {
-        return cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0);
+        return cursor.getLong(offset + 0);
     }    
 
     /** @inheritdoc */
     @Override
     public Product readEntity(Cursor cursor, int offset) {
         Product entity = new Product( //
-            cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // product_id
-            cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1) // product_number
+            cursor.getLong(offset + 0), // product_id
+            cursor.getInt(offset + 1), // product_number
+            cursor.getDouble(offset + 2) // product_price_db
         );
         return entity;
     }
@@ -85,8 +81,9 @@ public class ProductDao extends AbstractDao<Product, Long> {
     /** @inheritdoc */
     @Override
     public void readEntity(Cursor cursor, Product entity, int offset) {
-        entity.setProduct_id(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setProduct_number(cursor.isNull(offset + 1) ? null : cursor.getInt(offset + 1));
+        entity.setProduct_id(cursor.getLong(offset + 0));
+        entity.setProduct_number(cursor.getInt(offset + 1));
+        entity.setProduct_price_db(cursor.getDouble(offset + 2));
      }
     
     /** @inheritdoc */
