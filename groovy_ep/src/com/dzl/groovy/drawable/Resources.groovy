@@ -3,8 +3,10 @@ package com.dzl.groovy.drawable
 class Resources {
 
 	def private writeFile(path, text){
-		new File(path).write(text)
-		println path
+		def file = new File(path)
+		def exists = file.exists()
+		file.write(text)
+		println ((exists ? "exists\t" : "no_exist\t") + path)
 	}
 
 	/**
