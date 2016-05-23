@@ -11,8 +11,8 @@ public class 生成findViewById {
 	public static void main(String[] args) {
 		
 		//xml 文件路径
-		String filePath = "D:\\baiduYun\\dzl_github\\jindouyun\\jindouyun\\app\\src\\main\\res\\layout\\"
-				+ "item_orders_detail.xml";
+		String filePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\res\\layout\\"
+				+ "layout_recyclerview.xml";
 		int[] a = new int[1];
 		String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.length());
 		if (fileName.startsWith("act")) {
