@@ -14,20 +14,20 @@ package com.dzl.groovy
 //def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
 def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\java\\com\\yizego\\areagou"
 
-def src = "FavoriteShop"
-def target = "SellerCategory"
-def relpaceFile = false
+def src = "Friend"
+def target = "OtherBuy"
+def relpaceFile = true
 def array = []
 
 def i = 0
-//array[i++] = "${packagePath}\\activity\\${src}Activity.java"
+array[i++] = "${packagePath}\\activity\\${src}Activity.java"
 array[i++] = "${packagePath}\\adapter\\${src}Adapter.java"
-array[i++] = "${packagePath}\\model\\${src}.java"
+//array[i++] = "${packagePath}\\model\\${src}.java"
 array[i++] = "${packagePath}\\presenter\\${src}Presenter.java"
 array[i++] = "${packagePath}\\presenter\\view\\I${src}View.java"
 
 array.each {
-	copyFile(it, src, target)
+	copyFile(it, src, target, relpaceFile)
 }
 
 private copyFile(pathname, src, target, relpace = false) {
@@ -44,12 +44,10 @@ private copyFile(pathname, src, target, relpace = false) {
 
 	def target_file = new File(mvp_view_target)
 
-	if (!target_file.exists() && !relpace) {
-		try {
-			target_file.write(file.getText().replaceAll(src, target).replaceAll(src_lower, target_lower))
-		} catch (Exception e) {
-			e.printStackTrace()
-		}
+	try {
+		target_file.write(file.getText().replaceAll(src, target).replaceAll(src_lower, target_lower))
+	} catch (Exception e) {
+		e.printStackTrace()
 	}
 	println mvp_view_target
 

@@ -14,9 +14,9 @@ package com.dzl.groovy
 def jfinal_project_path = "D:\\baiduYun\\dzl_github\\yi\\yi"
 
 def src = "Department"
-def target = "Role"
+def target = "Announcement"
 def src_title = "部门"
-def target_title = "角色"
+def target_title = "公告"
 def relpaceFile = false
 def array = []
 
@@ -24,7 +24,7 @@ def i = 0
 def src_lower = src[0].toLowerCase() + src[1..-1]
 
 array[i++] = "${jfinal_project_path}\\src\\com\\yi\\controller\\${src}Controller.java"
-//array[i++] = "${jfinal_project_path}\\src\\com\\yi\\model\\${src}.java"
+array[i++] = "${jfinal_project_path}\\src\\com\\yi\\model\\${src}.java"
 array[i++] = "${jfinal_project_path}\\WebContent\\${src_lower}\\${src_lower}.html"
 array[i++] = "${jfinal_project_path}\\WebContent\\${src_lower}\\edit.html"
 

@@ -3,6 +3,9 @@ package com.dzl.test.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.dzl.test.BaseActivity;
+import com.dzl.test.R;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,14 +14,16 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import com.dzl.test.BaseActivity;
-import com.dzl.test.R;
 
 public class ActivityActivity extends BaseActivity {
 
@@ -167,4 +172,60 @@ public class ActivityActivity extends BaseActivity {
 		return (int) TypedValue
 				.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, ctx.getResources().getDisplayMetrics());
 	}
+	
+	/**
+	 * 从底部显示view
+	 * 类型一键分享动画显示 动画隐藏
+	 */
+	protected void showView() {
+        final FrameLayout relativeLayout = new FrameLayout(this);
+        Window window = this.getWindow();
+//        window.setGravity(Gravity.BOTTOM);
+//        window.setWindowAnimations(R.style.view_bottom);
+        final ViewGroup decorView = (ViewGroup) window.getDecorView();
+        // 把图层添加到顶层窗口中
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        layoutParams.gravity = Gravity.BOTTOM;
+        relativeLayout.setLayoutParams(layoutParams);
+        relativeLayout.setBackgroundColor(0x99000000);
+
+        final TextView textView = new TextView(this);
+        FrameLayout.LayoutParams layoutParams1 = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 400);
+        textView.setLayoutParams(layoutParams1);
+        textView.setBackgroundColor(0xffffffff);
+        textView.setText("窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了窗口我来了");
+        layoutParams1.gravity=Gravity.BOTTOM;
+
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.view_enter);
+        textView.startAnimation(animation);
+
+        relativeLayout.addView(textView);
+        final Animation animation_exit = AnimationUtils.loadAnimation(ActivityActivity.this, R.anim.view_exit);
+        animation_exit.setDuration(600);
+        animation_exit.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                setViewVisible(relativeLayout,G);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                textView.startAnimation(animation_exit);
+
+            }
+        });
+        decorView.addView(relativeLayout);
+
+    }
 }

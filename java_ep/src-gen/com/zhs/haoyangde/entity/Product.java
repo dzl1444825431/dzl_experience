@@ -8,7 +8,7 @@ public class Product {
 
     private long product_id;
     private int product_number;
-    private double product_price_db;
+    private Double product_price_db;
 
     public Product() {
     }
@@ -17,7 +17,7 @@ public class Product {
         this.product_id = product_id;
     }
 
-    public Product(long product_id, int product_number, double product_price_db) {
+    public Product(long product_id, int product_number, Double product_price_db) {
         this.product_id = product_id;
         this.product_number = product_number;
         this.product_price_db = product_price_db;
@@ -39,11 +39,11 @@ public class Product {
         this.product_number = product_number;
     }
 
-    public double getProduct_price_db() {
+    public Double getProduct_price_db() {
         return product_price_db;
     }
 
-    public void setProduct_price_db(double product_price_db) {
+    public void setProduct_price_db(Double product_price_db) {
         this.product_price_db = product_price_db;
     }
 

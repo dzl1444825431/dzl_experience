@@ -9,13 +9,14 @@ import com.dzl.groovy.drawable.Resources
  */
 
 //android 工程路径
-//def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
-def packagePath = "D:\\work\\haoyangde\\haoyangde\\res\\drawable"
+def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
+packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\res\\drawable"
+//packagePath = "D:\\work\\haoyangde\\haoyangde\\res\\drawable"
 
-def path = packagePath + "\\" + "bg_button_cancel_order" + ".xml"
+def path = packagePath + "\\" + "bg_menu_detail_back" + ".xml"
 def select = ""
 def normal = ""
-def corners = "40"
+def corners = "96"
 def solid = "#ffffff"
 
 def resource = new Resources()
@@ -27,7 +28,7 @@ def resource = new Resources()
 
 //resource.generateDrawableCorners(path, solid, corners)
 
-def solid_pressed = "#6a6a6a"
-def solid_normal = "#929292"
+def solid_pressed = "#99ffffff"
+def solid_normal = "#16ffffff"
 resource.generateDrawableColorUsShape(path,solid_pressed, solid_normal, corners)
 

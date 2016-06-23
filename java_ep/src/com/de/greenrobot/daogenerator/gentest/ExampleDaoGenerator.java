@@ -144,7 +144,8 @@ public class ExampleDaoGenerator {
 		Entity note = schema.addEntity("Product");
 		note.addLongProperty("product_id").primaryKey().notNull();
 		note.addIntProperty("product_number").notNull();
-		note.addDoubleProperty("product_price_db").notNull();
+		note.addDoubleProperty("product_price_db");
+		
 //		private Long product_id;		//缓存商品  id,购买数量
 //		private Integer product_number;
 		new DaoGenerator().generateAll(schema, "./src-gen");

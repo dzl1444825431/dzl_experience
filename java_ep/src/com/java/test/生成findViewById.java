@@ -12,7 +12,11 @@ public class 生成findViewById {
 		
 		//xml 文件路径
 		String filePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\res\\layout\\"
-				+ "layout_recyclerview.xml";
+				+ "frag_shop_shop.xml";
+		
+//		filePath = "D:\\work\\haoyangde\\haoyangde\\res\\layout\\"
+//				+ "activity_product_detail.xml";
+		
 		int[] a = new int[1];
 		String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.length());
 		if (fileName.startsWith("act")) {

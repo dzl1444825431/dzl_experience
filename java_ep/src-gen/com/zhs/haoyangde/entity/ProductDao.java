@@ -25,7 +25,7 @@ public class ProductDao extends AbstractDao<Product, Long> {
     public static class Properties {
         public final static Property Product_id = new Property(0, long.class, "product_id", true, "PRODUCT_ID");
         public final static Property Product_number = new Property(1, int.class, "product_number", false, "PRODUCT_NUMBER");
-        public final static Property Product_price_db = new Property(2, double.class, "product_price_db", false, "PRODUCT_PRICE_DB");
+        public final static Property Product_price_db = new Property(2, Double.class, "product_price_db", false, "PRODUCT_PRICE_DB");
     };
 
 
@@ -43,7 +43,7 @@ public class ProductDao extends AbstractDao<Product, Long> {
         db.execSQL("CREATE TABLE " + constraint + "'PRODUCT' (" + //
                 "'PRODUCT_ID' INTEGER PRIMARY KEY NOT NULL ," + // 0: product_id
                 "'PRODUCT_NUMBER' INTEGER NOT NULL ," + // 1: product_number
-                "'PRODUCT_PRICE_DB' REAL NOT NULL );"); // 2: product_price_db
+                "'PRODUCT_PRICE_DB' REAL);"); // 2: product_price_db
     }
 
     /** Drops the underlying database table. */
@@ -58,7 +58,11 @@ public class ProductDao extends AbstractDao<Product, Long> {
         stmt.clearBindings();
         stmt.bindLong(1, entity.getProduct_id());
         stmt.bindLong(2, entity.getProduct_number());
-        stmt.bindDouble(3, entity.getProduct_price_db());
+ 
+        Double product_price_db = entity.getProduct_price_db();
+        if (product_price_db != null) {
+            stmt.bindDouble(3, product_price_db);
+        }
     }
 
     /** @inheritdoc */
@@ -73,7 +77,7 @@ public class ProductDao extends AbstractDao<Product, Long> {
         Product entity = new Product( //
             cursor.getLong(offset + 0), // product_id
             cursor.getInt(offset + 1), // product_number
-            cursor.getDouble(offset + 2) // product_price_db
+            cursor.isNull(offset + 2) ? null : cursor.getDouble(offset + 2) // product_price_db
         );
         return entity;
     }
@@ -83,7 +87,7 @@ public class ProductDao extends AbstractDao<Product, Long> {
     public void readEntity(Cursor cursor, Product entity, int offset) {
         entity.setProduct_id(cursor.getLong(offset + 0));
         entity.setProduct_number(cursor.getInt(offset + 1));
-        entity.setProduct_price_db(cursor.getDouble(offset + 2));
+        entity.setProduct_price_db(cursor.isNull(offset + 2) ? null : cursor.getDouble(offset + 2));
      }
     
     /** @inheritdoc */
