@@ -39,7 +39,7 @@ parent_file.listFiles().each {
 		
 		matcher.each {
 			String url = it.toString().substring(8, it.size() - 1)
-			String path = 'D:\\D\\' + folder + url.substring(url.lastIndexOf('?') + 1).replace('fsname=','').replace('&asr=8eff','')
+			String path = 'D:\\D\\0627\\' + folder + url.substring(url.lastIndexOf('?') + 1).replace('fsname=','').replace('&asr=8eff','')
 			println i + '\t' + url + '     \t' + path
 			i++
 			downloadFile(url, path, true)
@@ -117,7 +117,7 @@ def match1(String text, String folder) {
 	
 	matcher.each {
 		String url = it.toString().substring(8, it.size() - 1)
-		String path = 'D:\\D\\' + folder + url.substring(url.lastIndexOf('?') + 1).replace('fsname=','').replace('&asr=8eff','')
+		String path = 'D:\\D\\0627\\' + folder + url.substring(url.lastIndexOf('?') + 1).replace('fsname=','').replace('&asr=8eff','')
 		println i + '\t' + url + '     \t' + path
 		i++
 		downloadFile(url, path, true)

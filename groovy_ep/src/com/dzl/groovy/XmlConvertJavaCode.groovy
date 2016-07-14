@@ -177,11 +177,16 @@ class XmlConvertJavaCode {
 				if (attr == 'layout_width') {
 					if (val == "match_parent" || val == "wrap_content") {
 						val = val.toUpperCase()
+					}else {
+						val = "translate(density, ${val})"
 					}
+					
 					width = val
 				}else if (attr == 'layout_height') {
 					if (val == "match_parent" || val == "wrap_content") {
 						val = val.toUpperCase()
+					}else {
+						val = "translate(density, ${val})"
 					}
 					height = val
 				}else{
@@ -205,6 +210,9 @@ class XmlConvertJavaCode {
 		if (attrs_layout.containsKey('layout_margin')) {
 
 			def margin = attrs_layout.get('layout_margin');
+			if (margin.toString().contains('res.get')) {
+				margin = "translate(density, ${margin}"
+			}
 			attrs_layout.put('layout_marginLeft', margin)
 			attrs_layout.put('layout_marginTop', margin)
 			attrs_layout.put('layout_marginRight', margin)
@@ -222,6 +230,8 @@ class XmlConvertJavaCode {
 					def val = it.value
 					if (val == "match_parent" || val == "wrap_content") {
 						val = val.toUpperCase()
+					}else {
+						val = "translate(density, ${val})"
 					}
 					println "${paramName}.${value} = ${val};"
 					return
@@ -350,7 +360,7 @@ class XmlConvertJavaCode {
 							}
 						}else if(it.key == 'textSize') {
 							if(val.contains('res.getDimension')){
-								val = "px2dip(${val})"
+								val = "translateToTextSize(density, ${val})"
 							}
 						}
 
@@ -443,6 +453,20 @@ class XmlConvertJavaCode {
 		}
 
 		if (padding) {
+			
+			if (paddingLeft.toString().contains('res.get')) {
+				paddingLeft = "translate(density, ${paddingLeft}"
+			}
+			if (paddingTop.toString().contains('res.get')) {
+				paddingTop = "translate(density, ${paddingTop}"
+			}
+			if (paddingRight.toString().contains('res.get')) {
+				paddingRight = "translate(density, ${paddingRight}"
+			}
+			if (paddingBottom.toString().contains('res.get')) {
+				paddingBottom = "translate(density, ${paddingBottom}"
+			}
+			
 			println "${nodeVariableName}.setPadding(${paddingLeft}, ${paddingTop}, ${paddingRight}, ${paddingBottom});"
 		}
 

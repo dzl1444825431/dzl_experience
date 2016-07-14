@@ -13,14 +13,15 @@ package com.dzl.groovy
 //android 工程路径
 //def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
 def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\java\\com\\yizego\\areagou"
+packagePath = "D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\java\\com\\dzl\\nongye"
 
-def src = "Friend"
-def target = "OtherBuy"
+def src = "ProductHome"
+def target = "CategoryProduct"
 def relpaceFile = true
 def array = []
 
 def i = 0
-array[i++] = "${packagePath}\\activity\\${src}Activity.java"
+//array[i++] = "${packagePath}\\activity\\${src}Activity.java"
 array[i++] = "${packagePath}\\adapter\\${src}Adapter.java"
 //array[i++] = "${packagePath}\\model\\${src}.java"
 array[i++] = "${packagePath}\\presenter\\${src}Presenter.java"

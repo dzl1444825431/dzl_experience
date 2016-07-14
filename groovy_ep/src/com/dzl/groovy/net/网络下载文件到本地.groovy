@@ -19,6 +19,7 @@ import static groovyx.net.http.Method.*
 /** 下载到本地 */
 String text = '下载到本地'
 text = new File('D:\\D\\a.txt').text
+println 1
 
 
 def downloadFile(String url, String file_path, boolean reload){
@@ -77,7 +78,7 @@ println matcher.size()
 int i = 1
 matcher.each {
 	String url = it.toString().substring(8, it.size() - 1)
-	String path = 'D:\\D\\' + url.substring(url.lastIndexOf('?') + 1).replace('fsname=','').replace('&asr=8eff','')
+	String path = 'D:\\D\\0627\\' + url.substring(url.lastIndexOf('?') + 1).replace('fsname=','').replace('&asr=8eff','')
 	println i + '\t' + url + '     \t' + path
 	i++
 	downloadFile(url, path, true)
