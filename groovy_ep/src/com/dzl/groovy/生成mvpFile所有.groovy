@@ -13,10 +13,10 @@ package com.dzl.groovy
 //android 工程路径
 //def packagePath = "D:\\work\\haoyangde\\haoyangde\\src\\com\\zhs\\haoyangde"
 def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\java\\com\\yizego\\areagou"
-packagePath = "D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\java\\com\\dzl\\nongye"
+packagePath = "D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\java\\com\\dzl1\\nongye"
 
-def src = "ProductHome"
-def target = "CategoryProduct"
+def src = "ProductDetailImage"
+def target = "ProductDetail"
 def relpaceFile = true
 def array = []
 
