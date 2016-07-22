@@ -1,0 +1,290 @@
+色值
+
+76 163 234 	=	0xff4ca3ea	 #ff4ca3ea
+240 76 110 	=	0xfff04c6e	 #fff04c6e
+254 107 9 	=	0xfffe6b09	 #fffe6b09
+255 178 2 	=	0xffffb202	 #ffffb202
+156 156 156 =	0xff9c9c9c	 #ff9c9c9c
+
+微信色值
+点击217 0xd9d9d9
+背景235 0xebebeb
+红色255 62 62 0xff3e3e
+
+
+// 相对于给定ID控件  
+android:layout_above 将该控件的底部置于给定ID的控件之上;  
+android:layout_below 将该控件的底部置于给定ID的控件之下;  
+android:layout_toLeftOf 将该控件的右边缘与给定ID的控件左边缘对齐;  
+android:layout_toRightOf 将该控件的左边缘与给定ID的控件右边缘对齐;  
+  
+android:layout_alignBaseline 将该控件的baseline与给定ID的baseline对齐;  
+android:layout_alignTop 将该控件的顶部边缘与给定ID的顶部边缘对齐;  
+android:layout_alignBottom 将该控件的底部边缘与给定ID的底部边缘对齐;  
+android:layout_alignLeft 将该控件的左边缘与给定ID的左边缘对齐;  
+android:layout_alignRight 将该控件的右边缘与给定ID的右边缘对齐;  
+// 相对于父组件  
+android:layout_alignParentTop 如果为true,将该控件的顶部与其父控件的顶部对齐;  
+android:layout_alignParentBottom 如果为true,将该控件的底部与其父控件的底部对齐;  
+android:layout_alignParentLeft 如果为true,将该控件的左部与其父控件的左部对齐;  
+android:layout_alignParentRight 如果为true,将该控件的右部与其父控件的右部对齐;  
+// 居中  
+android:layout_centerHorizontal 如果为true,将该控件的置于水平居中;  
+android:layout_centerVertical 如果为true,将该控件的置于垂直居中;  
+android:layout_centerInParent 如果为true,将该控件的置于父控件的中央;  
+// 指定移动像素  
+android:layout_marginTop 上偏移的值;  
+android:layout_marginBottom 下偏移的值;  
+android:layout_marginLeft 　　左偏移的值;  
+android:layout_marginRight 　 右偏移的值;  
+
+
+
+
+1.
+	entities = new ArrayList<>();
+	String[] ps = {"http://a.hiphotos.baidu.com/image/pic/item/4b90f603738da97739bab10cb551f8198618e37b.jpg"
+			,"http://h.hiphotos.baidu.com/image/pic/item/dc54564e9258d109a4d1165ad558ccbf6c814d23.jpg"
+			,"http://b.hiphotos.baidu.com/image/pic/item/42166d224f4a20a43721cde195529822720ed0dd.jpg"
+			,"http://d.hiphotos.baidu.com/image/pic/item/9f2f070828381f305a5bdb76ad014c086f06f0ab.jpg"
+			,"http://a.hiphotos.baidu.com/image/pic/item/4034970a304e251f7d2f1a27a386c9177e3e5311.jpg"
+			,"http://c.hiphotos.baidu.com/image/pic/item/bd315c6034a85edf37a515174c540923dd5475dd.jpg"
+			,"http://a.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc4a9a15cfc3bdbb6fd52663377.jpg"
+			,"http://d.hiphotos.baidu.com/image/pic/item/b21bb051f819861825e82d8048ed2e738bd4e603.jpg"
+			,"http://b.hiphotos.baidu.com/image/pic/item/503d269759ee3d6d14b95cff46166d224f4ade83.jpg"
+			,"http://c.hiphotos.baidu.com/image/pic/item/fd039245d688d43f2dd584c7781ed21b0ef43b82.jpg"
+			,"http://g.hiphotos.baidu.com/image/pic/item/9c16fdfaaf51f3de4aef02d291eef01f3a297923.jpg"
+			,"http://a.hiphotos.baidu.com/image/pic/item/4e4a20a4462309f7886a8735770e0cf3d7cad68b.jpg"
+	};
+
+	Random random = new Random();
+	int i1 = random.nextInt(ps.length);
+
+	for (int i = i1;i< ps.length;i++){
+		AdImageEntity ad = new AdImageEntity();
+		ad.setItemImage(ps[i]);
+		entities.add(ad);
+	}
+
+	
+2.	列表
+
+	datas = new ArrayList<>();
+	adapter = new ShopcartAdapter(activity, datas);
+	initRecyclerView(main_layout, adapter);
+
+	recycler_view.setRefreshHeaderView(new HeaderRefreshView(activity));
+
+	presenter = new ShopcartPresenter(this, false);
+	presenter.reqData(URL_TYPE_LIST, AUTO);
+	
+	@Override
+    protected int getId_RecyclerViewWrap() {
+        return R.id.recycler_view;
+    }
+
+    @Override
+    protected int getId_View_load_global() {
+        return R.id.view_load_global;
+    }
+
+    @Override
+    protected BasePresenter getPresenter() {
+        return presenter;
+    }
+
+    @Override
+    protected int getUrlType() {
+        return URL_TYPE_LIST;
+    }
+
+    @Override
+    protected List<Product> getDatas() {
+        return datas;
+    }
+
+    @Override
+    protected RecyclerView.Adapter getAdapter() {
+        return adapter;
+    }
+
+    @Override
+    public String getUrl(int url_type, int load_type) {
+        return UrlUtil.USER_CARTLIST;
+    }
+
+    @Override
+    public Map<String, String> getParams(int url_type, int load_type, Bundle bundle) {
+        Map<String, String> params = new HashMap<>();
+        params.put("data","eUp3WVdkbFUybDZaU0k2SWpJd0lpd2lZM1Z5Y21WdWRGQmhaMlVpT2lJeElpd2lkWE5sY2tsa0lqb2lNVFEyTnpjMk56QXpPVGc0T0Rjek5qUTRPU0o5ZQ");
+        return params;
+    }
+	
+	@Override
+    public void onSuccessFavorite(List<Product> products, int url_type, int load_type) {
+        onSuccessDatas(products, url_type, load_type, "--- 什么都没有喔 ---", "--- END ---");
+    }
+
+
+3. 不打断用户操作view 
+	private OperateMessageView operateMessageView;
+	
+	@Override
+    public void showUI(int url_type, int load_type) {
+        super.showUI(url_type, load_type);
+        if (url_type == URL_TYPE_DELETE) {
+            setViewVisible(getView_operate_msg(), V);
+        }
+
+    }
+
+    @Override
+    public void hideUI(int url_type, int load_type) {
+        super.hideUI(url_type, load_type);
+        if (url_type == URL_TYPE_DELETE) {
+            setViewVisible(getView_operate_msg(), G);
+        }
+    }
+	
+	public View getView_operate_msg() {
+
+        if (operateStopMessageView == null) {
+            operateStopMessageView = new OperateStopMessageView(this);
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(M, M);
+            operateStopMessageView.setLayoutParams(params);
+            operateStopMessageView.setText("正在提交");
+            ((ViewGroup) actionbar_wrap.getParent()).addView(operateStopMessageView);
+        }
+
+        return operateStopMessageView;
+    }
+	
+	public View getView_operate_msg() {
+
+        if (msgsView == null) {
+            msgsView = new OperateStopMessageView(this);
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(M, M);
+            msgsView.setLayoutParams(params);
+            msgsView.setText("正在提交");
+            ((ViewGroup) actionbar_wrap.getParent()).addView(msgsView);
+        }
+
+        return msgsView;
+    }
+	private OperateStopMessageView msgsView;
+
+4.	id
+	@Override
+    public int getId_ActionbarWrap() {
+        return R.id.actionbar_wrap;
+    }
+	
+	et_house.setErrorResId(R.drawable.indicator_input_error, R.drawable.popup_inline_error_am, R.drawable.popup_inline_error_above_am);
+
+5.	三级联动
+	//省市区 三级联动
+    private List<ThreeLevelModel> citys;
+    private NumberPickerThree picker_three;
+	picker_three = (NumberPickerThree) findViewById(R.id.picker_three);
+
+    /**
+     * 读取文件数据<br/>
+     * 设置三级联动数据
+     */
+    private void initThreeArea() throws IOException {
+        String areas = null;
+
+        try {
+            InputStream is = getAssets().open("citys.txt");
+            int length = is.available();
+            byte[] buffer = new byte[length];
+            is.read(buffer);
+            areas = new String(buffer, "UTF-8");
+            is.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (!isEmpty(areas)) {
+            List<ThreeLevelModel> list = JSON.parseArray(areas, ThreeLevelModel.class);
+            NumberPickerThree.checkThreeLevel(list);
+            if (!isEmpty(list)) {
+                this.citys.clear();
+                this.citys.addAll(list);
+            }
+        }
+
+        if (!citys.isEmpty()){
+            picker_three.setDatas(citys);
+        }
+
+    }
+
+    /**
+     * 显示三级联动区域
+     */
+    private void showThreeAreaView() {
+
+        setViewVisible(rl_area, V);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(rl_area_content, "translationY", translate(getDensity(context), 410), 0);
+        animator.setDuration(500).start();
+
+        picker_three.refreshData();
+
+    }
+    /**
+     * 获取当前三级联动的值
+     */
+    private void getThreeArea() {
+        setViewVisible(rl_area, G);
+
+
+        int i1 = picker_three.getOnePickerValue();
+        int i2 = picker_three.getTwoPickerValue();
+        int i3 = picker_three.getThreePickerValue();
+
+        ThreeLevelModel cityinfo_one = citys.get(i1);
+        ThreeLevelModel cityinfo_two = null;
+        ThreeLevelModel cityinfo_three = null;
+
+        List<ThreeLevelModel> twoLevel = null;
+        List<ThreeLevelModel> threeLevel = null;
+
+        String province = "";
+        String city = "";
+        String area_name = "";
+
+        if (cityinfo_one != null) {
+            twoLevel = cityinfo_one.getChildren();
+            province += cityinfo_one.getArea_name();
+        }
+
+        if (twoLevel != null) {
+            cityinfo_two = twoLevel.get(i2);
+            if (cityinfo_two != null) {
+                threeLevel = cityinfo_two.getChildren();
+            }
+        }
+
+        if (threeLevel != null) {
+            cityinfo_three = threeLevel.get(i3);
+        }
+
+        if (cityinfo_three != null) {
+            area_name += cityinfo_three.getArea_name();
+        }
+
+        if (cityinfo_two != null) {
+            city += cityinfo_two.getArea_name();
+        }
+
+
+        String text = province + " " + city + " " + area_name;
+        setText(tv_address, text);
+        tv_address.setTextColor(0xff222222);
+
+        selectArea = true;
+
+    }
+	
+	

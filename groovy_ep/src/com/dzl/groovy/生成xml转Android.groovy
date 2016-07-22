@@ -9,6 +9,7 @@ xmlFilePath = 'D:\\baiduYun\\dzl_github\\app1\\yiqiaoquancheng\\res\\layout\\lay
 xmlFilePath = 'D:\\work\\workspace_eclipse\\auto\\res\\layout\\dialog_progress_msg.xml'
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\layout_actionbar.xml'
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_category.xml'
+xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_address.xml'
 
 
 def parser = new XmlConvertJavaCode()

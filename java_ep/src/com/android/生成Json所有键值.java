@@ -19,11 +19,17 @@ public class 生成Json所有键值 {
 		str = "{\"address_id\":\"27\",\"buyer_id\":\"1250\",\"true_name\":\"\u4eaeandroid\",\"area_id\":\"45074\",\"area_info\":\"\u5357\u5b81\u5e02\u897f\u4e61\u5858\u533a\u5149\u8f89\u5c0f\u533a\",\"address\":\"\u5149\u8f89\u5927\u697c668\",\"tel_phone\":null,\"mob_phone\":\"15994348631\",\"is_default\":\"0\"}";
 		str = "{\"itemId\":\"1447123962141444163\",\"itemName\":\"\uff08\u7279\u4ef7\uff09\u9648\u514b\u660e\u835e\u9ea6\u98ce\u5473\u6302\u97621kg\",\"itemPrice\":\"8.60\",\"itemCostPrice\":\"10.20\",\"itemSellCount\":\"1\",\"itemImage\":\"http://image.tenongwang.com/commodity/1458804470161670249.jpg\",\"itemImageList\":[{\"imageUrl\":\"http://image.tenongwang.com/commodity/1458804470161670249.jpg\"}],\"itemIsCollect\":\"0\",\"itemIsSource\":\"0\",\"itemSourceUrl\":\"\",\"itemShop\":{\"itemId\":\"1432258957735499242\",\"itemName\":\"\u7279\u519c\u7f51\",\"itemAddress\":\"\u6d77\u76d0\u53bf\u6b66\u539f\u9547\u767e\u5c3a\u5357\u8def28\u53f7\u4e0d\u591c\u57ce\u9152\u5e97\",\"itemTelephone\":\"057386286789\"},\"itemAttribute\":[],\"itemFirstId\":\"1404882229706984033\"}";
 		str = "{\"itemImage\":\"http://image.tenongwang.com/commodity/1458804487407544736.jpg\",\"itemWidth\":\"750\",\"itemHeight\":\"4689\"}";
+		str = "{\"shopId\":\"1432258957735499242\",\"shopName\":\"\u7279\u519c\u7f51\",\"itemList\":[{\"shopId\":\"1432258957735499242\",\"itemId\":\"1468909956451464197\",\"itemCommodityId\":\"1447123962141444163\",\"itemCommodityName\":\"\uff08\u7279\u4ef7\uff09\u9648\u514b\u660e\u835e\u9ea6\u98ce\u5473\u6302\u97621kg\",\"itemCommodityExtensionId\":\"1447123962141444164\",\"itemFirstId\":\"1404882229706984033\",\"itemFirstName\":\"\u7b52\",\"itemSecondId\":\"0\",\"itemSecondName\":\"\",\"itemPrice\":\"8.60\",\"itemStock\":\"1\",\"itemStockAmount\":\"11\",\"itemImage\":\"http://image.tenongwang.com/commodity/1458804470161670249.jpg\"}]}";
+		str = "{\"id\":\"395\",\"type\":\"2\",\"typeName\":\"\u7b7e\u5230\u5956\u52b1\",\"score\":\"5\",\"content\":\"\",\"createTime\":\"2016-07-20 10:38:28\"}";
+		str = "{\"userId\":\"1467767039888736489\",\"username\":\"15994348631\",\"score\":\"2020\",\"inviteCode\":\"J2O334\"}";
+		str = "{\"itemId\":\"1467767181847809829\",\"itemName\":\"\u8c01\u8bf4\u7684\",\"itemPhone\":\"15994348631\",\"itemProvince\":\"\u6d59\u6c5f\u7701\",\"itemCity\":\"\u6d77\u76d0\u53bf\",\"itemArea\":\"\u6b66\u539f\u8857\u9053\",\"itemAddress\":\"\u591a\u5927\u7684\",\"itemZipcode\":\"315000\",\"itemIsDefault\":\"1\"}";
+		str = "{\"orderId\":\"1469176018839688934\",\"orderSellerId\":\"1432258957735499242\",\"orderShopName\":\"\u7279\u519c\u7f51\",\"orderPrice\":\"59.40\",\"payType\":\"alipay\",\"waybillMoney\":\"0.00\",\"orderStatus\":\"0\",\"orderCreateTime\":\"1469176018\",\"isComment\":\"0\",\"itemList\":[{\"itemId\":\"1447123962141444163\",\"itemName\":\"\uff08\u7279\u4ef7\uff09\u9648\u514b\u660e\u835e\u9ea6\u98ce\u5473\u6302\u97621kg\",\"itemStandardFirst\":\"\u89c4\u683c\",\"itemFirstName\":\"\u7b52\",\"itemStandardSecond\":\"\",\"itemSecondName\":\"\",\"itemPrice\":\"8.60\",\"itemStock\":\"3\",\"itemImage\":\"\",\"isComment\":\"0\"},{\"itemId\":\"1466901670702137998\",\"itemName\":\"\u7279\u8272\u51c9\u9762\",\"itemStandardFirst\":\"\u89c4\u683c\",\"itemFirstName\":\"\u4efd\",\"itemStandardSecond\":\"\",\"itemSecondName\":\"\",\"itemPrice\":\"16.80\",\"itemStock\":\"2\",\"itemImage\":\"\",\"isComment\":\"0\"}]}";
+		
 		int level = sysoKeys(str, false);
 		
-		System.out.println("resp1onse : level = " + level);
+		System.out.println();
 		if (level > 0) {
-			System.out.println();
+			System.out.println("resp1onse : level = " + level);
 			sysoKeys(str, true);
 		}
 

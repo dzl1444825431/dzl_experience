@@ -16,14 +16,15 @@ def packagePath = "D:\\baiduYun\\dzl_github\\yizego\\yizego\\app\\src\\main\\jav
 packagePath = "D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\java\\com\\dzl1\\nongye"
 
 def src = "ProductDetailImage"
-def target = "ProductDetail"
+def target = "OrderPay"
 def relpaceFile = true
 def array = []
 
 def i = 0
 //array[i++] = "${packagePath}\\activity\\${src}Activity.java"
+array[i++] = "${packagePath}\\fragment\\${src}Fragment.java"
 array[i++] = "${packagePath}\\adapter\\${src}Adapter.java"
-//array[i++] = "${packagePath}\\model\\${src}.java"
+array[i++] = "${packagePath}\\model\\${src}.java"
 array[i++] = "${packagePath}\\presenter\\${src}Presenter.java"
 array[i++] = "${packagePath}\\presenter\\view\\I${src}View.java"
 
