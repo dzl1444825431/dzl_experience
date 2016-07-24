@@ -127,12 +127,12 @@ android:layout_marginRight 　 右偏移的值;
 
 
 3. 不打断用户操作view 
-	private OperateMessageView operateMessageView;
+	private OperateStopMessageView operateStopMessageView;
 	
 	@Override
     public void showUI(int url_type, int load_type) {
         super.showUI(url_type, load_type);
-        if (url_type == URL_TYPE_DELETE) {
+        if (url_type == URL_TYPE_LIST) {
             setViewVisible(getView_operate_msg(), V);
         }
 
@@ -141,37 +141,25 @@ android:layout_marginRight 　 右偏移的值;
     @Override
     public void hideUI(int url_type, int load_type) {
         super.hideUI(url_type, load_type);
-        if (url_type == URL_TYPE_DELETE) {
+        if (url_type == URL_TYPE_LIST) {
             setViewVisible(getView_operate_msg(), G);
         }
+
     }
-	
-	public View getView_operate_msg() {
+
+    public View getView_operate_msg() {
 
         if (operateStopMessageView == null) {
             operateStopMessageView = new OperateStopMessageView(this);
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(M, M);
             operateStopMessageView.setLayoutParams(params);
-            operateStopMessageView.setText("正在提交");
-            ((ViewGroup) actionbar_wrap.getParent()).addView(operateStopMessageView);
+            operateStopMessageView.setText("正在登录");
+            addViewBrother(actionbar_wrap, operateStopMessageView);
         }
 
         return operateStopMessageView;
     }
-	
-	public View getView_operate_msg() {
-
-        if (msgsView == null) {
-            msgsView = new OperateStopMessageView(this);
-            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(M, M);
-            msgsView.setLayoutParams(params);
-            msgsView.setText("正在提交");
-            ((ViewGroup) actionbar_wrap.getParent()).addView(msgsView);
-        }
-
-        return msgsView;
-    }
-	private OperateStopMessageView msgsView;
+    
 
 4.	id
 	@Override

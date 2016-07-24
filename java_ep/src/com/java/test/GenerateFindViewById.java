@@ -117,44 +117,55 @@ public class GenerateFindViewById {
 	 * @param map
 	 */
 	private static void sysoAdapter(Map<String, String> map) {
-		System.out.println("\n\n\n" );
+		System.out.println();
 		
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
-			System.out.println("holder." + entry.getKey() + " = (" + entry.getValue() + ") convertView.findViewById(R.id." + entry.getKey() + ");");
+			System.out.println(entry.getValue() + " " + entry.getKey() + ";");
 		}
 		
-		System.out.println("");
+//		System.out.println();
+//		
+//		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
+//			Entry<String, String> entry = it.next();
+//			System.out.println("holder." + entry.getKey() + " = (" + entry.getValue() + ") convertView.findViewById(R.id." + entry.getKey() + ");");
+//		}
+		
+		System.out.println();
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println("" + entry.getKey() + " = (" + entry.getValue() + ") itemView.findViewById(R.id." + entry.getKey() + ");");
+			if ("ImageView".equals(entry.getValue())) {
+				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+			}
 		}
+		
 		System.out.println("");
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			if ("TextView".equals(entry.getValue())) {
 				System.out.println("setText(" + entry.getKey() + ", \"\");");
+				
+			} else if ("ImageView".equals(entry.getValue())) {
+				System.out.println("loadImageViewGlide(" + entry.getKey() + ", product.getItemImage());");
 			}
 		}
 		
-		System.out.println("");
-		System.out.println("convertView.setTag(holder);");
-		System.out.println("} else {");
-		System.out.println("");
-		System.out.println("holder = (Holder) convertView.getTag();");
-		System.out.println("}");
-		System.out.println("");
-		System.out.println("return convertView;");
-		System.out.println("}");
-		System.out.println("");
-		System.out.println("class Holder {");
-		System.out.println("");
-		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
-			Entry<String, String> entry = it.next();
-			System.out.println(entry.getValue() + " " + entry.getKey() + ";");
-		}
-		System.out.println("");
-		System.out.println("}");
+		System.out.println();
+//		System.out.println("convertView.setTag(holder);");
+//		System.out.println("} else {");
+//		System.out.println("");
+//		System.out.println("holder = (Holder) convertView.getTag();");
+//		System.out.println("}");
+//		System.out.println("");
+//		System.out.println("return convertView;");
+//		System.out.println("}");
+//		System.out.println("");
+//		System.out.println("class Holder {");
+//		System.out.println("");
+		
+//		System.out.println("");
+//		System.out.println("}");
 	}
 
 
@@ -190,16 +201,19 @@ public class GenerateFindViewById {
 	 * @param map
 	 */
 	private static void sysoActivity(Map<String, String> map) {
-		System.out.println("\n\n\n" );
+		System.out.println("\n\n" );
 		
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println("private " + entry.getValue() + " " + entry.getKey() + ";");
 		}
-		System.out.println("\n\n\n" );
+		System.out.println("\n\n" );
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println(entry.getKey() + " = (" + entry.getValue() + ") findViewById(R.id." + entry.getKey() + ");");
+			if ("ImageView".equals(entry.getValue())) {
+				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+			}
 		}
 	}
 
@@ -229,6 +243,9 @@ public class GenerateFindViewById {
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println(entry.getKey() + " = (" + entry.getValue() + ") main_layout.findViewById(R.id." + entry.getKey() + ");");
+			if ("ImageView".equals(entry.getValue())) {
+				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+			}
 		}
 		
 		System.out.println("		");
