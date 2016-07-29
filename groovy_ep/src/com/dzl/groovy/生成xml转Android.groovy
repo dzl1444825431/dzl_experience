@@ -10,7 +10,7 @@ xmlFilePath = 'D:\\work\\workspace_eclipse\\auto\\res\\layout\\dialog_progress_m
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\layout_actionbar.xml'
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_category.xml'
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_address.xml'
-xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_register.xml'
+xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_main.xml'
 
 
 def parser = new XmlConvertJavaCode2()

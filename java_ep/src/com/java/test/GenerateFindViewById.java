@@ -94,8 +94,24 @@ public class GenerateFindViewById {
 			
 			
 		}
+		if (a[0] != 3) {
+			sysoOnClickListener(map);
+		}
 		
-		sysoOnClickListener(map);
+		sysoOnImageView(map);
+	}
+
+
+	private static void sysoOnImageView(Map<String, String> map) {
+		System.out.println();
+		System.out.println();
+		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
+			Entry<String, String> entry = it.next();
+			if ("ImageView".equals(entry.getValue())) {
+				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+			}
+		}
+		
 	}
 
 
@@ -135,9 +151,9 @@ public class GenerateFindViewById {
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println("" + entry.getKey() + " = (" + entry.getValue() + ") itemView.findViewById(R.id." + entry.getKey() + ");");
-			if ("ImageView".equals(entry.getValue())) {
-				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
-			}
+//			if ("ImageView".equals(entry.getValue())) {
+//				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+//			}
 		}
 		
 		System.out.println("");
@@ -211,9 +227,9 @@ public class GenerateFindViewById {
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println(entry.getKey() + " = (" + entry.getValue() + ") findViewById(R.id." + entry.getKey() + ");");
-			if ("ImageView".equals(entry.getValue())) {
-				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
-			}
+//			if ("ImageView".equals(entry.getValue())) {
+//				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+//			}
 		}
 	}
 
@@ -243,9 +259,9 @@ public class GenerateFindViewById {
 		for (Iterator<Map.Entry<String, String>> it = map.entrySet().iterator(); it.hasNext();) {
 			Entry<String, String> entry = it.next();
 			System.out.println(entry.getKey() + " = (" + entry.getValue() + ") main_layout.findViewById(R.id." + entry.getKey() + ");");
-			if ("ImageView".equals(entry.getValue())) {
-				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
-			}
+//			if ("ImageView".equals(entry.getValue())) {
+//				System.out.println("setImageViewIconDrawableSelect(context, " + entry.getKey() + ", IconSnakeFlow.ed7b, 0xff888888, COLOR_SELECT);");
+//			}
 		}
 		
 		System.out.println("		");

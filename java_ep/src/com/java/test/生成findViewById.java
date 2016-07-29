@@ -20,6 +20,8 @@ public class 生成findViewById {
 		
 		filePath = "D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\"
 				+ "activity_userinfo.xml";
+		filePath = "D:\\baiduYun\\dzl_github\\yizego\\print\\app\\src\\main\\res\\layout\\"
+				+ "item_product_home.xml";
 		
 		int[] a = new int[1];
 		String fileName = filePath.substring(filePath.lastIndexOf("\\") + 1, filePath.length());

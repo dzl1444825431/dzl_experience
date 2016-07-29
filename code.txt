@@ -275,4 +275,42 @@ android:layout_marginRight 　 右偏移的值;
 
     }
 	
-	
+
+
+6.	07-26
+	滑动	Scroller							
+			scroller = new Scroller(this);
+			public void onClick(View v) {
+				scroller.startScroll(0, 0, -1000, -1540, 2000);
+				//需重绘
+				v.invalidate();
+			}
+			父视图重写
+			@Override
+			public void computeScroll() {
+				if (scroller.computeScrollOffset()) {
+					//真正操作的是scrollTo | scrollBy 方法   然后此view中viewTree列重绘
+					//scrollTo(scroller.getCurrX(), scroller.getCurrY());
+					scrollBy(dx, dy)
+				}
+				
+			}
+			
+			
+7.	07-29
+	代码生成字体颜色状态
+	/**
+     * 对TextView设置不同状态时其文字颜色。
+     */
+    protected ColorStateList createColorStateList(int normal, int pressed, int focused, int unable) {
+        int[] colors = new int[]{pressed, focused, normal, focused, unable, normal};
+        int[][] states = new int[6][];
+        states[0] = new int[]{android.R.attr.state_pressed, android.R.attr.state_enabled};
+        states[1] = new int[]{android.R.attr.state_enabled, android.R.attr.state_focused};
+        states[2] = new int[]{android.R.attr.state_enabled};
+        states[3] = new int[]{android.R.attr.state_focused};
+        states[4] = new int[]{android.R.attr.state_window_focused};
+        states[5] = new int[]{};
+        ColorStateList colorList = new ColorStateList(states, colors);
+        return colorList;
+    }
