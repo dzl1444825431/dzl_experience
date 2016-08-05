@@ -11,6 +11,9 @@
 背景235 0xebebeb
 红色255 62 62 0xff3e3e
 
+常用 icon 
+	ea90 向上 v
+
 
 // 相对于给定ID控件  
 android:layout_above 将该控件的底部置于给定ID的控件之上;  

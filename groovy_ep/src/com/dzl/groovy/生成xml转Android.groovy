@@ -11,6 +11,7 @@ xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\la
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_category.xml'
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_address.xml'
 xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\res\\layout\\activity_main.xml'
+xmlFilePath = 'D:\\baiduYun\\dzl_github\\yizego\\print\\app\\src\\main\\res\\layout\\item_product_home.xml'
 
 
 def parser = new XmlConvertJavaCode2()

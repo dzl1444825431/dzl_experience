@@ -20,15 +20,15 @@ def targetPath = "D:\\baiduYun\\dzl_github\\yizego\\print\\app\\src\\main\\java\
 srcPath = "D:\\baiduYun\\dzl_github\\yizego\\nongye\\app\\src\\main\\java\\com\\dzl1\\nongye"
 srcPath = "D:\\baiduYun\\dzl_github\\yizego\\print\\app\\src\\main\\java\\com\\dzl\\print"
 
-def src = "AdBanner"
-def target = "AdBanner"
+def src = "FavoriteProduct"
+def target = "FavoriteShop"
 
 def array = []
 targetPath = null
 
 def i = 0
 //array[i++] = "${srcPath}\\fragment\\${src}Fragment.java"
-//array[i++] = "${srcPath}\\activity\\${src}Activity.java"
+array[i++] = "${srcPath}\\activity\\${src}Activity.java"
 array[i++] = "${srcPath}\\adapter\\${src}Adapter.java"
 //array[i++] = "${srcPath}\\model\\${src}.java"
 array[i++] = "${srcPath}\\presenter\\${src}Presenter.java"

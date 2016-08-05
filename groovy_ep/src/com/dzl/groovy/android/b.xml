@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<hierarchy rotation="0" >
+
+    <node
+        bounds="[0,0][1080,1776]"
+        checkable="false"
+        checked="false"
+        class="android.widget.FrameLayout"
+        clickable="false"
+        content-desc=""
+        enabled="true"
+        focusable="false"
+        focused="false"
+        index="0"
+        long-clickable="false"
+        package="com.dzl1.nongye"
+        password="false"
+        resource-id=""
+        scrollable="false"
+        selected="false"
+        text="" >
+
+        <node
+            bounds="[0,0][1080,1776]"
+            checkable="false"
+            checked="false"
+            class="android.widget.LinearLayout"
+            clickable="false"
+            content-desc=""
+            enabled="true"
+            focusable="false"
+            focused="false"
+            index="0"
+            long-clickable="false"
+            package="com.dzl1.nongye"
+            password="false"
+            resource-id=""
+            scrollable="false"
+            selected="false"
+            text="" >
+
+            <node
+                bounds="[0,75][1080,1776]"
+                checkable="false"
+                checked="false"
+                class="android.widget.FrameLayout"
+                clickable="false"
+                content-desc=""
+                enabled="true"
+                focusable="false"
+                focused="false"
+                index="0"
+                long-clickable="false"
+                package="com.dzl1.nongye"
+                password="false"
+                resource-id="android:id/content"
+                scrollable="false"
+                selected="false"
+                text="" >
+
+                <node
+                    bounds="[0,75][1080,1776]"
+                    checkable="false"
+                    checked="false"
+                    class="android.widget.RelativeLayout"
+                    clickable="false"
+                    content-desc=""
+                    enabled="true"
+                    focusable="false"
+                    focused="false"
+                    index="0"
+                    long-clickable="false"
+                    package="com.dzl1.nongye"
+                    password="false"
+                    resource-id=""
+                    scrollable="false"
+                    selected="false"
+                    text="" >
+
+                    <node
+                        bounds="[0,75][1080,219]"
+                        checkable="false"
+                        checked="false"
+                        class="android.widget.RelativeLayout"
+                        clickable="false"
+                        content-desc=""
+                        enabled="true"
+                        focusable="false"
+                        focused="false"
+                        index="0"
+                        long-clickable="false"
+                        package="com.dzl1.nongye"
+                        password="false"
+                        resource-id=""
+                        scrollable="false"
+                        selected="false"
+                        text="" >
+
+                        <node
+                            bounds="[0,75][1080,219]"
+                            checkable="false"
+                            checked="false"
+                            class="android.widget.RelativeLayout"
+                            clickable="false"
+                            content-desc=""
+                            enabled="true"
+                            focusable="false"
+                            focused="false"
+                            index="0"
+                            long-clickable="false"
+                            package="com.dzl1.nongye"
+                            password="false"
+                            resource-id=""
+                            scrollable="false"
+                            selected="false"
+                            text="" >
+
+                            <node
+                                NAF="true"
+                                bounds="[0,75][144,219]"
+                                checkable="false"
+                                checked="false"
+                                class="android.widget.RelativeLayout"
+                                clickable="true"
+                                content-desc=""
+                                enabled="true"
+                                focusable="false"
+                                focused="false"
+                                index="0"
+                                long-clickable="false"
+                                package="com.dzl1.nongye"
+                                password="false"
+                                resource-id=""
+                                scrollable="false"
+                                selected="false"
+                                text="" >
+
+                                <node
+                                    bounds="[36,111][108,183]"
+                                    checkable="false"
+                                    checked="false"
+                                    class="android.widget.ImageView"
+                                    clickable="false"
+                                    content-desc=""
+                                    enabled="true"
+                                    focusable="false"
+                                    focused="false"
+                                    index="0"
+                                    long-clickable="false"
+                                    package="com.dzl1.nongye"
+                                    password="false"
+                                    resource-id=""
+                                    scrollable="false"
+                                    selected="false"
+                                    text="" />
+                            </node>
+
+                            <node
+                                bounds="[144,75][384,219]"
+                                checkable="false"
+                                checked="false"
+                                class="android.widget.TextView"
+                                clickable="false"
+                                content-desc=""
+                                enabled="true"
+                                focusable="false"
+                                focused="false"
+                                index="1"
+                                long-clickable="false"
+                                package="com.dzl1.nongye"
+                                password="false"
+                                resource-id=""
+                                scrollable="false"
+                                selected="false"
+                                text="服务协议" />
+                        </node>
+                    </node>
+
+                    <node
+                        bounds="[0,219][1080,1776]"
+                        checkable="false"
+                        checked="false"
+                        class="android.webkit.WebView"
+                        clickable="true"
+                        content-desc="网页视图"
+                        enabled="true"
+                        focusable="true"
+                        focused="true"
+                        index="1"
+                        long-clickable="true"
+                        package="com.dzl1.nongye"
+                        password="false"
+                        resource-id=""
+                        scrollable="false"
+                        selected="false"
+                        text="" />
+                </node>
+            </node>
+        </node>
+    </node>
+
+</hierarchy>

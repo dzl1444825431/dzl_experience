@@ -1,0 +1,32 @@
+android 学习新目标
+
+activity生命周期	ok
+启动模式			ok
+
+07-26
+	滑动	Scroller							ok
+			scroller = new Scroller(this);
+			public void onClick(View v) {
+				scroller.startScroll(0, 0, -1000, -1540, 2000);
+				//需重绘
+				v.invalidate();
+			}
+			父视图重写
+			@Override
+			public void computeScroll() {
+				if (scroller.computeScrollOffset()) {
+					//真正操作的是scrollTo | scrollBy 方法   然后此view中viewTree列重绘
+					//scrollTo(scroller.getCurrX(), scroller.getCurrY());
+					scrollBy(dx, dy)
+				}
+				
+			}
+	监听
+	viewTree的绘制过程 view viewGroup的事件调度
+	${enclosing_type}
+	System.out.println("resp1onse : ${v} = " + ${v});
+	
+	
+08-01	
+	路径动画path 阻尼器
+	uix xml 解析
